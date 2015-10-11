@@ -13,7 +13,6 @@
 		680D40FC1B9079E700CFF29E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D40FB1B9079E700CFF29E /* RootViewController.m */; };
 		680D40FF1B9079E700CFF29E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680D40FD1B9079E700CFF29E /* Main.storyboard */; };
 		680D41011B9079E700CFF29E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680D41001B9079E700CFF29E /* Images.xcassets */; };
-		680D41041B9079E700CFF29E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680D41021B9079E700CFF29E /* LaunchScreen.xib */; };
 		680D41101B9079E700CFF29E /* NetSchoolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D410F1B9079E700CFF29E /* NetSchoolTests.m */; };
 		680D41D91B907AB000CFF29E /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 680D41281B907AB000CFF29E /* Config.plist */; };
 		680D41DA1B907AB000CFF29E /* DataConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D412A1B907AB000CFF29E /* DataConfigManager.m */; };
@@ -136,7 +135,6 @@
 		680D40FB1B9079E700CFF29E /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		680D40FE1B9079E700CFF29E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		680D41001B9079E700CFF29E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		680D41031B9079E700CFF29E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		680D41091B9079E700CFF29E /* NetSchoolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetSchoolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		680D410E1B9079E700CFF29E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		680D410F1B9079E700CFF29E /* NetSchoolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetSchoolTests.m; sourceTree = "<group>"; };
@@ -372,7 +370,6 @@
 				680D40FB1B9079E700CFF29E /* RootViewController.m */,
 				680D40FD1B9079E700CFF29E /* Main.storyboard */,
 				680D41001B9079E700CFF29E /* Images.xcassets */,
-				680D41021B9079E700CFF29E /* LaunchScreen.xib */,
 				680D40F71B9079E700CFF29E /* NetSchool.xcdatamodeld */,
 				689F55B11BC3B09500D50305 /* PlayRecord.h */,
 				689F55B21BC3B09500D50305 /* PlayRecord.m */,
@@ -875,7 +872,6 @@
 				6850ABB51BA747C000F625ED /* downloadButtonNomal@2x.png in Resources */,
 				68D5DD231BA06F80007CC877 /* backward@2x.png in Resources */,
 				68E488AE1B969D950082D53A /* palyico2@2x.png in Resources */,
-				680D41041B9079E700CFF29E /* LaunchScreen.xib in Resources */,
 				680D41011B9079E700CFF29E /* Images.xcassets in Resources */,
 				68E487861B94279D0082D53A /* bottom_line2@2x.png in Resources */,
 				680D41DF1B907AB000CFF29E /* mycourse1@2x.png in Resources */,
@@ -1044,14 +1040,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		680D41021B9079E700CFF29E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				680D41031B9079E700CFF29E /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1141,6 +1129,7 @@
 			baseConfigurationReference = DDA149949139022F8C7F54EF /* Pods-NetSchool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "NetSchool/NetSchool-Prefix.pch";
@@ -1186,6 +1175,7 @@
 			baseConfigurationReference = 26F72A7A6FA81FEA41C2168F /* Pods-NetSchool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "NetSchool/NetSchool-Prefix.pch";
