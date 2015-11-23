@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A5F7F4E5BEFD585ED184614 /* libPods-NetSchool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D918F1FD5CCF95033481C55 /* libPods-NetSchool.a */; };
 		680D40F31B9079E700CFF29E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D40F21B9079E700CFF29E /* main.m */; };
 		680D40F61B9079E700CFF29E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D40F51B9079E700CFF29E /* AppDelegate.m */; };
 		680D40F91B9079E700CFF29E /* NetSchool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 680D40F71B9079E700CFF29E /* NetSchool.xcdatamodeld */; };
@@ -41,6 +42,8 @@
 		6850ABB51BA747C000F625ED /* downloadButtonNomal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6850ABB21BA747C000F625ED /* downloadButtonNomal@2x.png */; };
 		6850ABB61BA747C000F625ED /* pauseButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6850ABB31BA747C000F625ED /* pauseButton@2x.png */; };
 		6850ABB71BA747C000F625ED /* waitButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6850ABB41BA747C000F625ED /* waitButton@2x.png */; };
+		6869C0001BFDA38A0060F740 /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6869BFFD1BFDA38A0060F740 /* Account+CoreDataProperties.m */; };
+		6869C0011BFDA38A0060F740 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 6869BFFF1BFDA38A0060F740 /* Account.m */; };
 		689F55B31BC3B09500D50305 /* PlayRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 689F55B21BC3B09500D50305 /* PlayRecord.m */; };
 		68D5902E1B9E7E1000099CDD /* progressButtonNomal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D5902C1B9E7E1000099CDD /* progressButtonNomal@2x.png */; };
 		68D5902F1B9E7E1000099CDD /* progressButtonPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D5902D1B9E7E1000099CDD /* progressButtonPress@2x.png */; };
@@ -67,7 +70,6 @@
 		68D94A591BB236AE0031013A /* ZwsUserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D94A551BB236AE0031013A /* ZwsUserDataManager.m */; };
 		68DF34391BABBC3200203272 /* MyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF34381BABBC3200203272 /* MyClass.m */; };
 		68DF343C1BABBC3300203272 /* MyVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF343B1BABBC3300203272 /* MyVideo.m */; };
-		68DF34421BABBC3300203272 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF34411BABBC3300203272 /* Account.m */; };
 		68DF34451BABBC3300203272 /* FreeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF34441BABBC3300203272 /* FreeList.m */; };
 		68DF34481BABBC3300203272 /* FreeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF34471BABBC3300203272 /* FreeVideo.m */; };
 		68E25BA71BA1DF92002BC253 /* DownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E25BA61BA1DF92002BC253 /* DownViewController.m */; };
@@ -100,15 +102,16 @@
 		68E488A61B96931D0082D53A /* filetype_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E488A51B96931D0082D53A /* filetype_1@2x.png */; };
 		68E488AC1B969B090082D53A /* FreeList3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E488AB1B969B090082D53A /* FreeList3ViewController.m */; };
 		68E488AE1B969D950082D53A /* palyico2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E488AD1B969D950082D53A /* palyico2@2x.png */; };
+		68E6DCA41BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6DCA31BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.m */; };
 		68EC37771BA31F51008DD568 /* DownloadSinglecase.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EC37761BA31F51008DD568 /* DownloadSinglecase.m */; };
 		68ED01521B9D6FDF0018FF6D /* PlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ED01511B9D6FDF0018FF6D /* PlayerTool.m */; };
 		68ED015A1B9D74C90018FF6D /* progress_big_read@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68ED01581B9D74C90018FF6D /* progress_big_read@2x.png */; };
 		68ED015B1B9D74C90018FF6D /* progress_big_unread@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68ED01591B9D74C90018FF6D /* progress_big_unread@2x.png */; };
 		68F0A8C31BC11272007B3DB0 /* QADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0A8C21BC11272007B3DB0 /* QADetailViewController.m */; };
 		68F907EF1BC44E6300547224 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F907EE1BC44E6300547224 /* FeedbackViewController.m */; };
-		A1CBFB0C1BC8EF0600E0F668 /* libBaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CBFB0B1BC8EF0600E0F668 /* libBaseObject.a */; };
-		A1CBFB0D1BC8EF1000E0F668 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
-		A1CBFB0F1BC8EF2300E0F668 /* libPods-NetSchool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CBFB0E1BC8EF2300E0F668 /* libPods-NetSchool.a */; };
+		A1F1236D1C02DCCA0011B30C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E6DCA51BF8D60B00D2794F /* GLKit.framework */; };
+		A1F1236F1C02DCDC0011B30C /* libBaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1236E1C02DCDC0011B30C /* libBaseObject.a */; };
+		A1F123701C02DD590011B30C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +185,11 @@
 		6850ABB21BA747C000F625ED /* downloadButtonNomal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downloadButtonNomal@2x.png"; sourceTree = "<group>"; };
 		6850ABB31BA747C000F625ED /* pauseButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pauseButton@2x.png"; sourceTree = "<group>"; };
 		6850ABB41BA747C000F625ED /* waitButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waitButton@2x.png"; sourceTree = "<group>"; };
+		686586EA1BD80FEB008E96FE /* libBaseObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaseObject.a; path = "../../Library/Developer/Xcode/DerivedData/NetSchool-ecixndpfcgthofdxcfupyzictuct/Build/Products/Debug-iphoneos/libBaseObject.a"; sourceTree = "<group>"; };
+		6869BFFC1BFDA38A0060F740 /* Account+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6869BFFD1BFDA38A0060F740 /* Account+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Account+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6869BFFE1BFDA38A0060F740 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		6869BFFF1BFDA38A0060F740 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		689F55B11BC3B09500D50305 /* PlayRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayRecord.h; sourceTree = "<group>"; };
 		689F55B21BC3B09500D50305 /* PlayRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayRecord.m; sourceTree = "<group>"; };
 		68B5CDCA1B9808C500B5A69B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -216,7 +224,6 @@
 		68D948211BB1B7D20031013A /* MJDIYBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYBackFooter.m; sourceTree = "<group>"; };
 		68D948221BB1B7D20031013A /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
 		68D948231BB1B7D20031013A /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYHeader.m; sourceTree = "<group>"; };
-		68D9494E1BB1CD2B0031013A /* libBaseObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaseObject.a; path = "../../Library/Developer/Xcode/DerivedData/NetSchool-ecixndpfcgthofdxcfupyzictuct/Build/Products/Debug-iphoneos/libBaseObject.a"; sourceTree = "<group>"; };
 		68D94A4D1BB236AE0031013A /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
 		68D94A4E1BB236AE0031013A /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
 		68D94A4F1BB236AE0031013A /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
@@ -229,8 +236,6 @@
 		68DF34381BABBC3200203272 /* MyClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClass.m; sourceTree = "<group>"; };
 		68DF343A1BABBC3300203272 /* MyVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVideo.h; sourceTree = "<group>"; };
 		68DF343B1BABBC3300203272 /* MyVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyVideo.m; sourceTree = "<group>"; };
-		68DF34401BABBC3300203272 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
-		68DF34411BABBC3300203272 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		68DF34431BABBC3300203272 /* FreeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeList.h; sourceTree = "<group>"; };
 		68DF34441BABBC3300203272 /* FreeList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeList.m; sourceTree = "<group>"; };
 		68DF34461BABBC3300203272 /* FreeVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeVideo.h; sourceTree = "<group>"; };
@@ -280,6 +285,9 @@
 		68E488AA1B969B080082D53A /* FreeList3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeList3ViewController.h; sourceTree = "<group>"; };
 		68E488AB1B969B090082D53A /* FreeList3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeList3ViewController.m; sourceTree = "<group>"; };
 		68E488AD1B969D950082D53A /* palyico2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "palyico2@2x.png"; sourceTree = "<group>"; };
+		68E6DCA21BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PublicDomain.h"; sourceTree = "<group>"; };
+		68E6DCA31BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PublicDomain.m"; sourceTree = "<group>"; };
+		68E6DCA51BF8D60B00D2794F /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		68EC37751BA31F51008DD568 /* DownloadSinglecase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadSinglecase.h; sourceTree = "<group>"; };
 		68EC37761BA31F51008DD568 /* DownloadSinglecase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadSinglecase.m; sourceTree = "<group>"; };
 		68EC380B1BA3211D008DD568 /* DownloadDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
@@ -291,10 +299,15 @@
 		68F0A8C21BC11272007B3DB0 /* QADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QADetailViewController.m; sourceTree = "<group>"; };
 		68F907ED1BC44E6300547224 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		68F907EE1BC44E6300547224 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
-		A1CBFB071BC8EE7000E0F668 /* libBaseObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaseObject.a; path = "BaseObject/build/Debug-iphoneos/libBaseObject.a"; sourceTree = "<group>"; };
-		A1CBFB091BC8EEF700E0F668 /* libPods-NetSchool.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-NetSchool.a"; path = "Pods/../build/Debug-iphoneos/libPods-NetSchool.a"; sourceTree = "<group>"; };
-		A1CBFB0B1BC8EF0600E0F668 /* libBaseObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaseObject.a; path = "BaseObject/build/Debug-iphoneos/libBaseObject.a"; sourceTree = "<group>"; };
-		A1CBFB0E1BC8EF2300E0F668 /* libPods-NetSchool.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-NetSchool.a"; path = "Pods/../build/Debug-iphoneos/libPods-NetSchool.a"; sourceTree = "<group>"; };
+		A1F1235D1C02D81A0011B30C /* libASIHTTPRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libASIHTTPRequest.a; path = "Pods/../build/Debug-iphoneos/libASIHTTPRequest.a"; sourceTree = "<group>"; };
+		A1F1235E1C02D81A0011B30C /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "Pods/../build/Debug-iphoneos/libMBProgressHUD.a"; sourceTree = "<group>"; };
+		A1F1235F1C02D81A0011B30C /* libMJRefresh.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJRefresh.a; path = "Pods/../build/Debug-iphoneos/libMJRefresh.a"; sourceTree = "<group>"; };
+		A1F123601C02D81A0011B30C /* libPods-BaseObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-BaseObject.a"; path = "Pods/../build/Debug-iphoneos/libPods-BaseObject.a"; sourceTree = "<group>"; };
+		A1F123611C02D81A0011B30C /* libPods-NetSchool.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-NetSchool.a"; path = "Pods/../build/Debug-iphoneos/libPods-NetSchool.a"; sourceTree = "<group>"; };
+		A1F123621C02D81A0011B30C /* libReachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReachability.a; path = "Pods/../build/Debug-iphoneos/libReachability.a"; sourceTree = "<group>"; };
+		A1F123631C02D81A0011B30C /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "Pods/../build/Debug-iphoneos/libSDWebImage.a"; sourceTree = "<group>"; };
+		A1F123641C02D81A0011B30C /* libToast.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libToast.a; path = "Pods/../build/Debug-iphoneos/libToast.a"; sourceTree = "<group>"; };
+		A1F1236E1C02DCDC0011B30C /* libBaseObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaseObject.a; path = "../../jeasonyoung/Library/Developer/Xcode/DerivedData/NetSchool-fdiotqxbhyozazfzqmerqhhwoqzj/Build/Products/Debug-iphoneos/libBaseObject.a"; sourceTree = "<group>"; };
 		DDA149949139022F8C7F54EF /* Pods-NetSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetSchool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetSchool/Pods-NetSchool.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -303,9 +316,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1CBFB0C1BC8EF0600E0F668 /* libBaseObject.a in Frameworks */,
-				A1CBFB0D1BC8EF1000E0F668 /* libz.dylib in Frameworks */,
-				A1CBFB0F1BC8EF2300E0F668 /* libPods-NetSchool.a in Frameworks */,
+				A1F123701C02DD590011B30C /* libz.dylib in Frameworks */,
+				A1F1236F1C02DCDC0011B30C /* libBaseObject.a in Frameworks */,
+				A1F1236D1C02DCCA0011B30C /* GLKit.framework in Frameworks */,
+				2A5F7F4E5BEFD585ED184614 /* libPods-NetSchool.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,11 +336,17 @@
 		14977648C953FC697C45CC56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A1CBFB0E1BC8EF2300E0F668 /* libPods-NetSchool.a */,
-				A1CBFB0B1BC8EF0600E0F668 /* libBaseObject.a */,
-				A1CBFB091BC8EEF700E0F668 /* libPods-NetSchool.a */,
-				A1CBFB071BC8EE7000E0F668 /* libBaseObject.a */,
-				68D9494E1BB1CD2B0031013A /* libBaseObject.a */,
+				A1F1236E1C02DCDC0011B30C /* libBaseObject.a */,
+				A1F1235D1C02D81A0011B30C /* libASIHTTPRequest.a */,
+				A1F1235E1C02D81A0011B30C /* libMBProgressHUD.a */,
+				A1F1235F1C02D81A0011B30C /* libMJRefresh.a */,
+				A1F123601C02D81A0011B30C /* libPods-BaseObject.a */,
+				A1F123611C02D81A0011B30C /* libPods-NetSchool.a */,
+				A1F123621C02D81A0011B30C /* libReachability.a */,
+				A1F123631C02D81A0011B30C /* libSDWebImage.a */,
+				A1F123641C02D81A0011B30C /* libToast.a */,
+				68E6DCA51BF8D60B00D2794F /* GLKit.framework */,
+				686586EA1BD80FEB008E96FE /* libBaseObject.a */,
 				3CDDCF25EC5532F74887BF5F /* libPods.a */,
 				3D918F1FD5CCF95033481C55 /* libPods-NetSchool.a */,
 			);
@@ -377,8 +397,10 @@
 				68DF34471BABBC3300203272 /* FreeVideo.m */,
 				68DF34431BABBC3300203272 /* FreeList.h */,
 				68DF34441BABBC3300203272 /* FreeList.m */,
-				68DF34401BABBC3300203272 /* Account.h */,
-				68DF34411BABBC3300203272 /* Account.m */,
+				6869BFFC1BFDA38A0060F740 /* Account+CoreDataProperties.h */,
+				6869BFFD1BFDA38A0060F740 /* Account+CoreDataProperties.m */,
+				6869BFFE1BFDA38A0060F740 /* Account.h */,
+				6869BFFF1BFDA38A0060F740 /* Account.m */,
 				68DF343A1BABBC3300203272 /* MyVideo.h */,
 				68DF343B1BABBC3300203272 /* MyVideo.m */,
 				68DF34371BABBC3200203272 /* MyClass.h */,
@@ -391,6 +413,8 @@
 		680D40F01B9079E700CFF29E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				68E6DCA21BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.h */,
+				68E6DCA31BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.m */,
 				680D422B1B907AD100CFF29E /* NetSchool-Prefix.pch */,
 				680D422C1B907AD100CFF29E /* String.h */,
 				680D422D1B907AD100CFF29E /* String.m */,
@@ -775,7 +799,7 @@
 				680D40EA1B9079E700CFF29E /* Frameworks */,
 				680D40EB1B9079E700CFF29E /* Resources */,
 				C48BE41DCB33D9F69EA94105 /* Copy Pods Resources */,
-				6065793C291C48185C575CF9 /* Embed Pods Frameworks */,
+				20065E41AEECB297EA2E2A0A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -810,7 +834,7 @@
 		680D40E51B9079E700CFF29E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = TalkWeb;
 				TargetAttributes = {
 					680D40EC1B9079E700CFF29E = {
@@ -824,7 +848,7 @@
 				};
 			};
 			buildConfigurationList = 680D40E81B9079E700CFF29E /* Build configuration list for PBXProject "NetSchool" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -897,6 +921,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		20065E41AEECB297EA2E2A0A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetSchool/Pods-NetSchool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		268002EC8972CBBC3926F409 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -910,21 +949,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6065793C291C48185C575CF9 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetSchool/Pods-NetSchool-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C48BE41DCB33D9F69EA94105 /* Copy Pods Resources */ = {
@@ -950,6 +974,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68D948281BB1B7D20031013A /* MJDIYBackFooter.m in Sources */,
+				6869C0001BFDA38A0060F740 /* Account+CoreDataProperties.m in Sources */,
 				680D42391B907B5300CFF29E /* LoginViewController.m in Sources */,
 				68E488AC1B969B090082D53A /* FreeList3ViewController.m in Sources */,
 				68ED01521B9D6FDF0018FF6D /* PlayerTool.m in Sources */,
@@ -966,6 +991,7 @@
 				68D948271BB1B7D20031013A /* MJDIYAutoFooter.m in Sources */,
 				680D40F61B9079E700CFF29E /* AppDelegate.m in Sources */,
 				68E488851B95A3710082D53A /* FreeList1ViewController.m in Sources */,
+				6869C0011BFDA38A0060F740 /* Account.m in Sources */,
 				68DF34391BABBC3200203272 /* MyClass.m in Sources */,
 				680D423D1B90885900CFF29E /* PJTextField.m in Sources */,
 				680D422E1B907AD100CFF29E /* String.m in Sources */,
@@ -998,7 +1024,6 @@
 				68DF34451BABBC3300203272 /* FreeList.m in Sources */,
 				68E4889D1B95E4E20082D53A /* PublicCell.m in Sources */,
 				68E4879C1B943F380082D53A /* FreeList0ViewController.m in Sources */,
-				68DF34421BABBC3300203272 /* Account.m in Sources */,
 				68E488A21B95F34F0082D53A /* OnLineList1ViewController.m in Sources */,
 				68E487A51B9453E10082D53A /* QAViewController.m in Sources */,
 				68E4888F1B95DED60082D53A /* PJTableViewCell.m in Sources */,
@@ -1007,6 +1032,7 @@
 				68DF343C1BABBC3300203272 /* MyVideo.m in Sources */,
 				680D423A1B907B5300CFF29E /* LoginInputView.m in Sources */,
 				68E488881B95A62B0082D53A /* FreeList2ViewController.m in Sources */,
+				68E6DCA41BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.m in Sources */,
 				680D42021B907AB000CFF29E /* PJNavigationBar.m in Sources */,
 				68F0A8C31BC11272007B3DB0 /* QADetailViewController.m in Sources */,
 				681640BC1B9B48DF00D754D4 /* PlayNavigationController.m in Sources */,
@@ -1064,7 +1090,6 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1129,9 +1154,9 @@
 			baseConfigurationReference = DDA149949139022F8C7F54EF /* Pods-NetSchool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "NetSchool/NetSchool-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SDKROOT)/usr/include/libxml2\"",
@@ -1148,7 +1173,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NetSchool-ecixndpfcgthofdxcfupyzictuct/Build/Products/Debug-iphoneos",
-					"$(PROJECT_DIR)/BaseObject/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_CFLAGS = (
@@ -1175,9 +1199,9 @@
 			baseConfigurationReference = 26F72A7A6FA81FEA41C2168F /* Pods-NetSchool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "NetSchool/NetSchool-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SDKROOT)/usr/include/libxml2\"",
@@ -1194,7 +1218,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NetSchool-ecixndpfcgthofdxcfupyzictuct/Build/Products/Debug-iphoneos",
-					"$(PROJECT_DIR)/BaseObject/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_CFLAGS = (
@@ -1230,7 +1253,6 @@
 				);
 				INFOPLIST_FILE = NetSchoolTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.talkweb.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetSchool.app/NetSchool";
 			};
@@ -1246,7 +1268,6 @@
 				);
 				INFOPLIST_FILE = NetSchoolTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.talkweb.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetSchool.app/NetSchool";
 			};

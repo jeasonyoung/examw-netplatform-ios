@@ -170,7 +170,7 @@
     static NSString *cellIdentifier = @"cellIdentifier";
     PlayRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[PlayRecordCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        cell = [[PlayRecordCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     cell.datas = _datas[indexPath.row];
     

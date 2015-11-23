@@ -78,6 +78,7 @@
 		68E221131BBA95D5008E4054 /* BaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E2210F1BBA95D5008E4054 /* BaseTextField.m */; };
 		68E6B8741BB927ED0070B46D /* BasePopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6B8731BB927ED0070B46D /* BasePopAnimation.m */; };
 		68E6B8771BB9285A0070B46D /* BaseNavigationInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6B8761BB9285A0070B46D /* BaseNavigationInteractiveTransition.m */; };
+		A1F1235C1C02C8FE0011B30C /* jianpan_action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F1235B1C02C8FE0011B30C /* jianpan_action@2x.png */; };
 		E2487BCD7205FDF0564A3220 /* libPods-BaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F3E9E349056BD22DEB9AA6 /* libPods-BaseObject.a */; };
 /* End PBXBuildFile section */
 
@@ -197,6 +198,7 @@
 		68E6B8761BB9285A0070B46D /* BaseNavigationInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationInteractiveTransition.m; sourceTree = "<group>"; };
 		6BF041B649246B65A8AC8AE8 /* Pods-BaseObject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseObject.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaseObject/Pods-BaseObject.debug.xcconfig"; sourceTree = "<group>"; };
 		94E018B8DE383C0DB3E0E778 /* Pods-BaseObject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseObject.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaseObject/Pods-BaseObject.release.xcconfig"; sourceTree = "<group>"; };
+		A1F1235B1C02C8FE0011B30C /* jianpan_action@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jianpan_action@2x.png"; sourceTree = "<group>"; };
 		D6F3E9E349056BD22DEB9AA6 /* libPods-BaseObject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseObject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -437,23 +439,16 @@
 			children = (
 				68D94DBA1BB28DE80031013A /* GPS_Location.h */,
 				68D94DBB1BB28DE80031013A /* GPS_Location.m */,
-				68D94DBC1BB28DE80031013A /* Reachability */,
 				68D94DBD1BB28DE80031013A /* ToolSingleton.h */,
 				68D94DBE1BB28DE80031013A /* ToolSingleton.m */,
 			);
 			path = ToolSingleton;
 			sourceTree = "<group>";
 		};
-		68D94DBC1BB28DE80031013A /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Reachability;
-			sourceTree = "<group>";
-		};
 		68E2210D1BBA95D5008E4054 /* BaseTextField */ = {
 			isa = PBXGroup;
 			children = (
+				A1F1235B1C02C8FE0011B30C /* jianpan_action@2x.png */,
 				68E2210E1BBA95D5008E4054 /* BaseTextField.h */,
 				68E2210F1BBA95D5008E4054 /* BaseTextField.m */,
 				68D98BCA1BBAF25500BCB427 /* jianpan@2x.png */,
@@ -559,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F1235C1C02C8FE0011B30C /* jianpan_action@2x.png in Resources */,
 				68D98C001BBAFDE300BCB427 /* jianpan@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

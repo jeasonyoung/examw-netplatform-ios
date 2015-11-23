@@ -154,7 +154,7 @@
     static NSString *cellIdentifier = @"cellIdentifier";
     DownloadingCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[DownloadingCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        cell = [[DownloadingCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         [cell.status addTarget:self action:@selector(eventWithDownload:) forControlEvents:UIControlEventTouchUpInside];
     }
     ASIHTTPRequest *request = [DownloadSinglecase sharedDownloadSinglecase].downingList[indexPath.row];

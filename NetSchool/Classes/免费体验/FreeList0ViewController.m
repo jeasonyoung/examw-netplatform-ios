@@ -47,8 +47,9 @@
 
 - (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter
 {
-    NSString *paramsString = @"api/m/categories.do";
-    [super requestWithServlet:paramsString parameter:@{}];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setPublicDomain];
+    [super requestWithServlet:@"/api/m/exams" parameter:params];
     
 }
 

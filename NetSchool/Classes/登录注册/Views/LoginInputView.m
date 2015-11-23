@@ -45,7 +45,7 @@
         _accountField.leftView = [self setLeftTitle:@"账号:"];
         _accountField.delegate = self;
         _accountField.font = Font(17);
-        _accountField.text = @"demo";
+        //_accountField.text = @"newone";
     }
     return _accountField;
 
@@ -61,7 +61,7 @@
         _pwdField.placeholder = @"输入密码";
         _pwdField.returnKeyType = UIReturnKeyDone;
         [_pwdField setKeyboardType:UIKeyboardTypeNamePhonePad];
-        _pwdField.text = @"demo";
+        //_pwdField.text = @"123456";
         _pwdField.font = Font(17);
     }
     return _pwdField;

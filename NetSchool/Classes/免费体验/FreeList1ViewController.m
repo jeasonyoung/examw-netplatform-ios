@@ -7,7 +7,7 @@
 //
 
 #import "FreeList1ViewController.h"
-#import "FreeList2ViewController.h"
+#import "FreeList3ViewController.h"
 #import "PublicCell.h"
 
 @interface FreeList1ViewController ()
@@ -39,14 +39,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self pushViewController:[[FreeList2ViewController alloc] initWithParameters:_datas[indexPath.row]]];
+    [self pushViewController:[[FreeList3ViewController alloc] initWithParameters:_datas[indexPath.row]]];
 }
 
 - (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter
 {
-    NSString *paramsString = [NSString stringWithFormat:@"api/m/exams/%@.do",_parameters[@"id"]];
-    [super requestWithServlet:paramsString parameter:@{}];
-    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"examId"] = _parameters[@"id"];
+    [params setPublicDomain];
+    [super requestWithServlet:@"/api/m/packages" parameter:params];
 }
 
 - (NSArray *)coreDataQuery

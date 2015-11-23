@@ -142,7 +142,7 @@
     static NSString *cellIdentifier = @"cellIdentifier";
     QACell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[QACell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        cell = [[QACell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
     cell.datas = _datas[indexPath.row];
@@ -156,9 +156,11 @@
 
 - (void)loadNewData;
 {
-    NSString *servlet = [NSString stringWithFormat:@"api/m/aq/topic/%@/%@.do",agencyId,[Infomation readInfo][@"userId"]];
-    
-    _connection = [BaseModel POST:URL(servlet) parameter:@{}   class:[BaseModel class]
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
+    [params setPublicDomain];
+
+    _connection = [BaseModel POST:URL(@"api/m/aq/topics") parameter:params   class:[BaseModel class]
                           success:^(id data)
                    {
                        _datas = [self sortedArray:data[@"data"]] ;

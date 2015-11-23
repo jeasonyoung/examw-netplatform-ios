@@ -64,9 +64,11 @@
 
 - (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter
 {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
+    [params setPublicDomain];
     
-    NSString *paramsString = [NSString stringWithFormat:@"api/m/courses/%@.do",[Infomation readInfo][@"userId"]];
-    [super requestWithServlet:paramsString parameter:@{}];
+    [super requestWithServlet:@"api/m/courses" parameter:params];
 }
 
 

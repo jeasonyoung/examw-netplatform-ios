@@ -146,8 +146,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     MainCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.datas = _datas[indexPath.row];
     return cell;
@@ -165,7 +163,6 @@
     else
     {
         [self pushViewController:viewController];
-
     }
     
 }

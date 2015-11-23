@@ -89,7 +89,7 @@
     static NSString *cellIdentifier = @"cellIdentifier";
     DownloadedCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[DownloadedCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        cell = [[DownloadedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
     cell.datas = [DownloadSinglecase sharedDownloadSinglecase].finishedList[indexPath.row];

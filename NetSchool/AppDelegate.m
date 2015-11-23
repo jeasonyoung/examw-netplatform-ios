@@ -35,15 +35,16 @@
     }
 }
 
-- (void)updateLearingRecord:(NSString *)lessonId status:(NSInteger)status
+- (void)updateLearingRecord:(NSString *)lessonId status:(BOOL)status
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"agencyId"] = agencyId;
-    params[@"studentId"] = [Infomation readInfo][@"userId"];
+    params[@"pos"] = [NSNumber numberWithInt:0];
+    params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
     params[@"lessonId"] = lessonId;
-    params[@"status"] = [NSNumber numberWithInteger:status];
- 
-    [BaseModel POST:URL(@"api/m/learning.do?") parameter:params   class:[BaseModel class]
+    params[@"status"] = [NSNumber numberWithBool:status];
+    [params setPublicDomain];
+
+    [BaseModel POST:URL(@"api/m/learning/add") parameter:params   class:[BaseModel class]
                           success:^(id data)
                    {
                        

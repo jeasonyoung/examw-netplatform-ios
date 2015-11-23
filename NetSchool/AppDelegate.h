@@ -32,7 +32,7 @@
  *  @param lessonId 资源ID
  *  @param status   学习进度
  */
-- (void)updateLearingRecord:(NSString *)lessonId status:(NSInteger)status;
+- (void)updateLearingRecord:(NSString *)lessonId status:(BOOL)status;
 
 @end
 

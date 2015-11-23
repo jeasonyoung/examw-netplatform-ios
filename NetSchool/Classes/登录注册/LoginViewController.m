@@ -99,10 +99,12 @@
 - (void)eventWithOnline
 {
     [MBProgressHUD showMessag:Loding_text1 toView:self.view];
-    
-    NSString *paramsString = [NSString stringWithFormat:@"agencyId=9bc380e2-4fc7-11e5-bfe6-000d609a8169&username=%@&pwd=%@",_inputView.accountField.text,[[[[NSString stringWithFormat:@"9bc380e2-4fc7-11e5-bfe6-000d609a8169%@",_inputView.accountField.text] stringFromMD5] stringByAppendingFormat:@"%@",_inputView.pwdField.text] stringFromMD5]];
-    
-    _connection = [BaseModel POST:URL([@"api/m/login.do?" stringByAppendingString:paramsString]) parameter:@{}   class:[BaseModel class]
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"username"] = _inputView.accountField.text;
+    params[@"pwd"] = md5([_inputView.accountField.text stringByAppendingFormat:@"%@",md5(_inputView.pwdField.text)]);
+    params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no] ;
+    [params setPublicDomain];
+    _connection = [BaseModel POST:URL(@"api/m/login") parameter:params  class:[BaseModel class]
                           success:^(id data)
                    {
                        [self coreDataSave:data[@"data"]];
@@ -128,8 +130,9 @@
         return;
     }
     Account *model = (Account *)acc[0];
-   
-    [Infomation writeInfo:@{@"userId":model.cid,@"userName":_inputView.accountField.text}];
+    
+    
+    [Infomation writeInfo:@{@"data":[NSKeyedUnarchiver unarchiveObjectWithData:model.datas],@"userName":_inputView.accountField.text}];
     [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
     [kUserDefaults synchronize];
     [[DownloadSinglecase sharedDownloadSinglecase] creatPath];
@@ -143,7 +146,7 @@
     
     if ([self coreDataUpdate:datas])
     {
-        [Infomation writeInfo:@{@"userId":datas,@"userName":_inputView.accountField.text}];
+        [Infomation writeInfo:@{@"data":datas,@"userName":_inputView.accountField.text}];
         [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
         [kUserDefaults synchronize];
         _successLogin(self,YES);
@@ -155,7 +158,7 @@
     Account *acc = (Account *)[NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:app.managedObjectContext];
     acc.acc = _inputView.accountField.text;
     acc.pwd = _inputView.pwdField.text;
-    acc.cid = datas;
+    acc.datas = [NSKeyedArchiver archivedDataWithRootObject:datas];
     
     BOOL isSaveSuccess=[app.managedObjectContext save:&error];
     if (!isSaveSuccess) {
@@ -164,7 +167,7 @@
         NSLog(@"Save successful!");
     }
     
-    [Infomation writeInfo:@{@"userId":datas,@"userName":_inputView.accountField.text}];
+    [Infomation writeInfo:@{@"data":datas,@"userName":_inputView.accountField.text}];
     [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
     [kUserDefaults synchronize];
     _successLogin(self,YES);
@@ -204,12 +207,13 @@
     NSEntityDescription* user=[NSEntityDescription entityForName:@"Account" inManagedObjectContext:app.managedObjectContext];
     [request setEntity:user];
     //查询条件
-    NSPredicate* predicate=[NSPredicate predicateWithFormat:@"cid == %@",datas];
+    NSPredicate* predicate=[NSPredicate predicateWithFormat:@"acc == %@", _inputView.accountField.text];
     [request setPredicate:predicate];
     
     
     NSError* error=nil;
     NSArray* mutableFetchResult=[app.managedObjectContext executeFetchRequest:request error:&error];
+   
     if (mutableFetchResult==nil)
     {
         NSLog(@"Error:%@",error);
@@ -221,7 +225,7 @@
     {
         acc.acc = _inputView.accountField.text;
         acc.pwd = _inputView.pwdField.text;
-        acc.cid = datas;
+        acc.datas = [NSKeyedArchiver archivedDataWithRootObject:datas];
         [app.managedObjectContext save:&error];
         return YES;
     }

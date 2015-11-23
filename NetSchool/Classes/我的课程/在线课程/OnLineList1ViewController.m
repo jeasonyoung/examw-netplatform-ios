@@ -156,12 +156,14 @@
         return;
     }
 
-    NSString *servlet = [NSString stringWithFormat:@"api/m/lessons/%@.do",_parameters[@"id"]];
-    
-    _connection = [BaseModel POST:URL(servlet) parameter:@{}   class:[BaseModel class]
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
+    params[@"classId"] = _parameters[@"id"];
+    [params setPublicDomain];
+
+    _connection = [BaseModel POST:URL(@"api/m/lessons") parameter:params   class:[BaseModel class]
                           success:^(id data)
                    {
-                
                        [self loadDatas:data[@"data"]];
                        if (![self coreDataUpdate:data[@"data"]])
                            [self coreDataSave:data[@"data"]];

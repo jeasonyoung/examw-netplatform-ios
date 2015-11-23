@@ -42,11 +42,11 @@
     [self pushViewController:[[FreeList3ViewController alloc] initWithParameters:_datas[indexPath.section][@"children"][indexPath.row]]];
 }
 
-- (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter
-{
-    NSString *paramsString = [NSString stringWithFormat:@"api/m/packages/%@/%@.do",agencyId,_parameters[@"id"]];
-    [super requestWithServlet:paramsString parameter:@{}];
-}
+//- (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter
+//{
+//    NSString *paramsString = [NSString stringWithFormat:@"api/m/packages/%@/%@.do",agencyId,_parameters[@"id"]];
+//    [super requestWithServlet:paramsString parameter:@{}];
+//}
 
 
 

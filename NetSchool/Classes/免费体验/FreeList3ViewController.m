@@ -82,16 +82,7 @@
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     self.table.header = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     [self.table.header beginRefreshing];
-    // 马上进入刷新状态
-//    [self.tableView.header beginRefreshing];
-//    _header = [MJRefreshHeaderView header];
-//    _header.scrollView = _table;
-//    _header.delegate = self;
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [_header beginRefreshing];
-//    });
 }
-
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -141,12 +132,16 @@
         return;
     }
 
-    NSString *servlet = [NSString stringWithFormat:@"api/m/lessons/%@/free.do",_parameters[@"id"]];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
+    params[@"classId"] = _parameters[@"id"];
+    params[@"free"] = [NSNumber numberWithBool:1];
+    [params setPublicDomain];
   
-    _connection = [BaseModel POST:URL(servlet) parameter:@{}   class:[BaseModel class]
+    _connection = [BaseModel POST:URL(@"api/m/lessons") parameter:params class:[BaseModel class]
                           success:^(id data)
                    {
-                       NSLog(@"%@",servlet);
                        
                        [self loadDatas:data[@"data"]];
                        if (![self coreDataUpdate:data[@"data"]])

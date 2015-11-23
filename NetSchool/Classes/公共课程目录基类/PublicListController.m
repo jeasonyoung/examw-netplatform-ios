@@ -155,7 +155,7 @@
         return;
     }
 
-    _connection = [BaseModel POST:URL(servlet) parameter:@{}   class:[BaseModel class]
+    _connection = [BaseModel POST:URL(servlet) parameter:parameter   class:[BaseModel class]
                           success:^(id data)
                    {
                        [self loadDatas:data[@"data"]];
@@ -311,7 +311,7 @@
         return;
     }
 
-    _connection = [BaseModel POST:URL(servlet) parameter:@{}   class:[BaseModel class]
+    _connection = [BaseModel POST:URL(servlet) parameter:parameter   class:[BaseModel class]
                           success:^(id data)
                    {
                        

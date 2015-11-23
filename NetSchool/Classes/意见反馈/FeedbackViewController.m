@@ -52,10 +52,11 @@
     }
     [MBProgressHUD showMessag:@"提交中..." toView:self.view];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"agencyId"] = agencyId;
-    params[@"content"] = _textView.text;
-    params[@"studentId"] = [Infomation readInfo][@"userId"];
-    _connection = [BaseModel POST:URL(@"api/m/aq/suggest.do") parameter:params   class:[BaseModel class]
+    params[@"content"] = _textView.text ;
+    params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
+    [params setPublicDomain];
+
+    _connection = [BaseModel POST:URL(@"api/m/aq/suggest/add") parameter:params   class:[BaseModel class]
                           success:^(id data)
                    {
                        [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -69,6 +70,7 @@
                    }];
 
 }
+
 
 - (UIToolbar *)header
 {

@@ -75,13 +75,13 @@ CGFloat const gestureMinimumTranslation = 1.0 ;
         [invocation invoke];
     }
     [PlayRecord saveRecod:_parameters seekToTime:_time];
-    NSInteger status = 0;
+    BOOL status = NO;
     if (fabs(_time - CMTimeGetSeconds([self playerItemDuration])) <.1) {
-        status = 1;
+        status = YES;
     }
     else
     {
-        status = 0;
+        status = NO;
     }
     [app updateLearingRecord:_parameters[@"id"] status:status];
     [self dismissViewController];
@@ -118,6 +118,7 @@ CGFloat const gestureMinimumTranslation = 1.0 ;
 //    }
     NSString *localVideoUrl = [[DownloadSinglecase sharedDownloadSinglecase].videoFiles stringByAppendingPathComponent:_parameters[@"videoUrl"]];
     NSFileManager *fileManager=[NSFileManager defaultManager];
+   
     if ([fileManager fileExistsAtPath:localVideoUrl])
     {
         

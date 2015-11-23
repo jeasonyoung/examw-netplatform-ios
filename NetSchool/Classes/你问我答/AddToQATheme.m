@@ -238,12 +238,12 @@
     [MBProgressHUD showMessag:@"提交中..." toView:self.view];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"agencyId"] = agencyId;
     params[@"title"] = _inputView.textField.text;
     params[@"content"] = _inputView.textView.text;
     params[@"lessonId"] = _inputView.lessonId;
-    params[@"studentId"] = [Infomation readInfo][@"userId"];
-    _connection = [BaseModel POST:URL(@"api/m/aq/topic.do") parameter:params   class:[BaseModel class]
+    params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
+    [params setPublicDomain];
+    _connection = [BaseModel POST:URL(@"api/m/aq/topic/add") parameter:params   class:[BaseModel class]
                           success:^(id data)
                    {
                        [self back];

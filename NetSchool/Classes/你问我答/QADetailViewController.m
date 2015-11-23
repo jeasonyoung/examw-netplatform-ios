@@ -213,7 +213,7 @@
     static NSString *cellIdentifier = @"cellIdentifier";
     QADetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[QADetailCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        cell = [[QADetailCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     cell.datas = _datas[indexPath.row];
     return cell;
@@ -221,9 +221,11 @@
 
 - (void)loadNewData;
 {
-    NSString *servlet = [NSString stringWithFormat:@"api/m/aq/details/%@.do",_parameters[@"id"]];
-    
-    _connection = [BaseModel POST:URL(servlet) parameter:@{}   class:[BaseModel class]
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"topicId"] = _parameters[@"id"];
+    [params setPublicDomain];
+
+    _connection = [BaseModel POST:URL(@"api/m/aq/details") parameter:params   class:[BaseModel class]
                           success:^(id data)
                    {
                        _datas = [self sortedArray:data[@"data"]];
@@ -261,14 +263,13 @@
 {
 
     [BaseReplyBox showToSuccess:^(NSString *string){
-        
         [MBProgressHUD showMessag:@"提交中..." toView:self.view];
-
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         params[@"topicId"] = _parameters[@"id"];
         params[@"content"] = string;
-        params[@"userId"] = [Infomation readInfo][@"userId"];
-        _connection = [BaseModel POST:URL(@"api/m/aq/details.do") parameter:params   class:[BaseModel class]
+        params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
+        [params setPublicDomain];
+        _connection = [BaseModel POST:URL(@"api/m/aq/detail/add") parameter:params   class:[BaseModel class]
                               success:^(id data)
                        {
                            [_table.header beginRefreshing];
@@ -279,10 +280,7 @@
                            [self.view makeToast:msg duration:.5 position:@"center"];
                            [MBProgressHUD hideHUDForView:self.view animated:YES];
                        }];
-
-        
     }];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

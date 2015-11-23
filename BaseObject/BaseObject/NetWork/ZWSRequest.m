@@ -62,31 +62,59 @@ static NSString * const FORM_FLE_INPUT = @"file";
     
 }
 
+//+ (NSMutableURLRequest *)requestWithMethod:(NSString *)method parameter:(id)parameter URLString:(NSString *)URLString;
+//{
+//    NSURL *url = [NSURL URLWithString:[URLString URLEncodedString]];
+//    
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url       cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
+//    
+//    
+//    //计算POST提交数据的长度
+//    
+//    
+//    NSData *postData = [NSJSONSerialization dataWithJSONObject:parameter  options:NSJSONWritingPrettyPrinted error:nil];
+////    NSData *postData = [jsonString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+//    
+//    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+//    //这里设置为 application/x-www-form-urlencoded ，如果设置为其它的，比如text/html;charset=utf-8，或者 text/html 等，都会出错。不知道什么原因。
+////    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//    //设置http-header:Content-Length
+//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+//
+////    if ([parameter count]) {
+////        [request addValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+////    }
+//
+////    [request addValue:@"text/JSON" forHTTPHeaderField:@"Content-type"];
+////    [request addValue:[NSString stringWithFormat:@"JSESSIONID=%@",[keychainItemManager readSessionId]] forHTTPHeaderField:@"Cookie"];
+//    [request setHTTPBody:postData];
+//    [request setHTTPMethod:@"POST"];
+//    
+//    
+//    
+//    return request;
+//}
 + (NSMutableURLRequest *)requestWithMethod:(NSString *)method parameter:(id)parameter URLString:(NSString *)URLString;
 {
     NSURL *url = [NSURL URLWithString:[URLString URLEncodedString]];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url       cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url       cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20*10];
     
     
     //计算POST提交数据的长度
+    NSMutableString *myRequestString = [NSMutableString string];
     
-    
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:parameter  options:NSJSONWritingPrettyPrinted error:nil];
-//    NSData *postData = [jsonString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    
-    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
-    //这里设置为 application/x-www-form-urlencoded ，如果设置为其它的，比如text/html;charset=utf-8，或者 text/html 等，都会出错。不知道什么原因。
-//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    //设置http-header:Content-Length
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-
-    if ([parameter count]) {
-        [request addValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    int index = 0;
+    for (NSString *key in [parameter allKeys]) {
+        // 在接收者末尾添加字符串（appendString方法）
+        [myRequestString appendString:(index!=0)?@"&":@""];
+        [myRequestString appendString:[NSString stringWithFormat:@"%@=%@",key,[parameter valueForKey:key]]];
+        index++;
     }
+    
+    NSData *postData =[myRequestString dataUsingEncoding:NSUTF8StringEncoding];
+    
 
-//    [request addValue:@"text/JSON" forHTTPHeaderField:@"Content-type"];
-//    [request addValue:[NSString stringWithFormat:@"JSESSIONID=%@",[keychainItemManager readSessionId]] forHTTPHeaderField:@"Cookie"];
     [request setHTTPBody:postData];
     [request setHTTPMethod:@"POST"];
     
@@ -110,28 +138,28 @@ static NSString * const FORM_FLE_INPUT = @"file";
     return request;
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-{
-    // 之前已经失败过
-    if ([challenge previousFailureCount] > 0) {
-        
-        // 为什么失败
-        NSError *failure = [challenge error];
-        NSLog(@"Can't authenticate:%@", [failure localizedDescription]);
-        // 放弃
-        [[challenge sender] cancelAuthenticationChallenge:challenge];
-        return;
-    }
-    
-    // 创建 NSURLCredential 对象
-    NSURLCredential *newCred = [NSURLCredential credentialWithUser:@"hk@test"
-                                                         password:@"test"
-                                                      persistence:NSURLCredentialPersistenceNone];
-    
-    // 为 challenge 的发送方提供 credential
-    [[challenge sender] useCredential:newCred
-           forAuthenticationChallenge:challenge];
-}
+//- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+//{
+//    // 之前已经失败过
+//    if ([challenge previousFailureCount] > 0) {
+//        
+//        // 为什么失败
+//        NSError *failure = [challenge error];
+//        NSLog(@"Can't authenticate:%@", [failure localizedDescription]);
+//        // 放弃
+//        [[challenge sender] cancelAuthenticationChallenge:challenge];
+//        return;
+//    }
+//    
+//    // 创建 NSURLCredential 对象
+//    NSURLCredential *newCred = [NSURLCredential credentialWithUser:@"examw"
+//                                                         password:@"12345"
+//                                                      persistence:NSURLCredentialPersistenceNone];
+//    
+//    // 为 challenge 的发送方提供 credential
+//    [[challenge sender] useCredential:newCred
+//           forAuthenticationChallenge:challenge];
+//}
 
 
 - (NSURLConnection *)dataWithRequest:(NSURLRequest *)request completionHandler:(void (^)( NSError * error, NSString *responseString))completionHandler;

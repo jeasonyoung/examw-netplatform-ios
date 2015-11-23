@@ -50,18 +50,15 @@
 {
     
     
-    
       return  [ZWSRequest  POST:string parameter:parameter success:^(NSString *responseString)
      {
          
          [class createData:responseString success:^(id data)
           {
                 success(data);
-              
           }
                    failure:^(NSString *msg, NSString *status)
           {
-              
                 failure(msg,status);
           }];
      }
