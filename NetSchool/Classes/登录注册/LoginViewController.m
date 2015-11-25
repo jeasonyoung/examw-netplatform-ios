@@ -53,7 +53,7 @@
 {
     [super viewDidLoad];
   
-    NSString *text = @"2006-2015 长沙畅亨信息技术有限公司";
+    NSString *text = @" © 2015 长沙品学网络科技有限公司 ";
     CGSize size = [NSObject getSizeWithText:text font:FontBold(17) maxSize:CGSizeMake(DeviceW, FontBold(15).lineHeight)];
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake((DeviceW - size.width) / 2, DeviceH - kDefaultInset.bottom * 2 - FontBold(17).lineHeight , size.width, size.height)];
     title.font = FontBold(17);
