@@ -36,7 +36,7 @@
             [sign appendFormat:@"&%@",[NSString stringWithFormat:@"%@=%@",key,self[key]]];
         }
     }
-    [sign appendFormat:@"examwSD"];
+    [sign appendFormat:@"uR2bN5z0mX8mhf9JO"];
     
     self[@"sign"] = md5(sign);
 }
