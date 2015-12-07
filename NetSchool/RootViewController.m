@@ -114,7 +114,7 @@
 {
     [super viewDidLoad];
     
-    
+    [NSThread sleepForTimeInterval:2.0f];
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:[self segmentBarLayout]];
     collectionView.userInteractionEnabled = YES;

@@ -17,7 +17,7 @@
 #pragma mark - 公共域
 - (void)setPublicDomain;
 {
-    self[@"token"] = @"huike";
+    self[@"token"] = @"test";
     NSArray* arr = self.allKeys;
     arr = [arr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
         NSComparisonResult result = [obj1 compare:obj2];
@@ -36,7 +36,7 @@
             [sign appendFormat:@"&%@",[NSString stringWithFormat:@"%@=%@",key,self[key]]];
         }
     }
-    [sign appendFormat:@"uR2bN5z0mX8mhf9JO"];
+    [sign appendFormat:@"0123456"];
     
     self[@"sign"] = md5(sign);
 }
