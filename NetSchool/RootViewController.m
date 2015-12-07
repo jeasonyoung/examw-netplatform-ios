@@ -114,6 +114,7 @@
 {
     [super viewDidLoad];
     
+    [NSThread sleepForTimeInterval:2.0];
     
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:[self segmentBarLayout]];
