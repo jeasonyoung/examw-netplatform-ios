@@ -21,7 +21,7 @@
 @dynamic videoUrl;
 @dynamic myClass;
 
-+ (void)coreDataSave:(id)datas predicateDatas:(id)predicateDatas;
++ (void)coreDataSave:(id)datas predicateDatas:(id)predicateDatas
 {
     
     if (![datas isKindOfClass:[NSArray class]] || ![datas count]) return; //非数组
