@@ -109,6 +109,24 @@
 		68ED015B1B9D74C90018FF6D /* progress_big_unread@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68ED01591B9D74C90018FF6D /* progress_big_unread@2x.png */; };
 		68F0A8C31BC11272007B3DB0 /* QADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0A8C21BC11272007B3DB0 /* QADetailViewController.m */; };
 		68F907EF1BC44E6300547224 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F907EE1BC44E6300547224 /* FeedbackViewController.m */; };
+		A1CD5C8B1C1A5CC200B44425 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5C881C1A5CC200B44425 /* libffmpeg.a */; };
+		A1CD5C8C1C1A5CC200B44425 /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5C891C1A5CC200B44425 /* libopenssl.a */; };
+		A1CD5C8D1C1A5CC200B44425 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5C8A1C1A5CC200B44425 /* libVitamio.a */; };
+		A1CD5C981C1A5DFF00B44425 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5C971C1A5DFF00B44425 /* AVFoundation.framework */; };
+		A1CD5C9A1C1A5E0F00B44425 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5C991C1A5E0F00B44425 /* AudioToolbox.framework */; };
+		A1CD5C9C1C1A5E2200B44425 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5C9B1C1A5E2200B44425 /* CoreGraphics.framework */; };
+		A1CD5C9E1C1A5E5700B44425 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5C9D1C1A5E5700B44425 /* CoreMedia.framework */; };
+		A1CD5CA01C1A5E6100B44425 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5C9F1C1A5E6100B44425 /* CoreVideo.framework */; };
+		A1CD5CA21C1A5E8700B44425 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5CA11C1A5E8700B44425 /* Foundation.framework */; };
+		A1CD5CA41C1A5EA600B44425 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5CA31C1A5EA600B44425 /* MediaPlayer.framework */; };
+		A1CD5CA61C1A5EB300B44425 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5CA51C1A5EB300B44425 /* OpenGLES.framework */; };
+		A1CD5CA81C1A5EC000B44425 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5CA71C1A5EC000B44425 /* QuartzCore.framework */; };
+		A1CD5CAA1C1A5EC900B44425 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5CA91C1A5EC900B44425 /* UIKit.framework */; };
+		A1CD5CAC1C1A607100B44425 /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5CAB1C1A607100B44425 /* libbz2.1.0.dylib */; };
+		A1CD5CAE1C1A60D900B44425 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5CAD1C1A60D900B44425 /* libstdc++.6.0.9.dylib */; };
+		A1CD5CB01C1A60FE00B44425 /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CD5CAF1C1A60FE00B44425 /* libiconv.2.dylib */; };
+		A1CD5CB51C1A63C500B44425 /* VitamioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CD5CB41C1A63C500B44425 /* VitamioPlayerView.m */; };
+		A1CD5CB81C1A663C00B44425 /* VitamioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CD5CB71C1A663C00B44425 /* VitamioPlayerViewController.m */; };
 		A1F1236D1C02DCCA0011B30C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E6DCA51BF8D60B00D2794F /* GLKit.framework */; };
 		A1F1236F1C02DCDC0011B30C /* libBaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1236E1C02DCDC0011B30C /* libBaseObject.a */; };
 		A1F123701C02DD590011B30C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
@@ -299,6 +317,35 @@
 		68F0A8C21BC11272007B3DB0 /* QADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QADetailViewController.m; sourceTree = "<group>"; };
 		68F907ED1BC44E6300547224 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		68F907EE1BC44E6300547224 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		A1CD5C881C1A5CC200B44425 /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffmpeg.a; path = Vitamio/libffmpeg.a; sourceTree = "<group>"; };
+		A1CD5C891C1A5CC200B44425 /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenssl.a; path = Vitamio/libopenssl.a; sourceTree = "<group>"; };
+		A1CD5C8A1C1A5CC200B44425 /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVitamio.a; path = Vitamio/libVitamio.a; sourceTree = "<group>"; };
+		A1CD5C8F1C1A5D0500B44425 /* VDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDefines.h; path = Vitamio/include/VDefines.h; sourceTree = "<group>"; };
+		A1CD5C901C1A5D0500B44425 /* Vitamio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vitamio.h; path = Vitamio/include/Vitamio.h; sourceTree = "<group>"; };
+		A1CD5C911C1A5D0500B44425 /* VMediaExtracter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VMediaExtracter.h; path = Vitamio/include/VMediaExtracter.h; sourceTree = "<group>"; };
+		A1CD5C921C1A5D0500B44425 /* VMediaExtracterDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VMediaExtracterDef.h; path = Vitamio/include/VMediaExtracterDef.h; sourceTree = "<group>"; };
+		A1CD5C931C1A5D0500B44425 /* VMediaPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VMediaPlayer.h; path = Vitamio/include/VMediaPlayer.h; sourceTree = "<group>"; };
+		A1CD5C941C1A5D0500B44425 /* VMediaPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VMediaPlayerDelegate.h; path = Vitamio/include/VMediaPlayerDelegate.h; sourceTree = "<group>"; };
+		A1CD5C951C1A5D0500B44425 /* VPlayerManageDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VPlayerManageDef.h; path = Vitamio/include/VPlayerManageDef.h; sourceTree = "<group>"; };
+		A1CD5C961C1A5D0500B44425 /* VSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSingleton.h; path = Vitamio/include/VSingleton.h; sourceTree = "<group>"; };
+		A1CD5C971C1A5DFF00B44425 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A1CD5C991C1A5E0F00B44425 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A1CD5C9B1C1A5E2200B44425 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A1CD5C9D1C1A5E5700B44425 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A1CD5C9F1C1A5E6100B44425 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A1CD5CA11C1A5E8700B44425 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A1CD5CA31C1A5EA600B44425 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A1CD5CA51C1A5EB300B44425 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A1CD5CA71C1A5EC000B44425 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A1CD5CA91C1A5EC900B44425 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A1CD5CAB1C1A607100B44425 /* libbz2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.1.0.dylib; path = ../../../usr/lib/libbz2.1.0.dylib; sourceTree = "<group>"; };
+		A1CD5CAD1C1A60D900B44425 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "../../../usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<group>"; };
+		A1CD5CAF1C1A60FE00B44425 /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = ../../../usr/lib/libiconv.2.dylib; sourceTree = "<group>"; };
+		A1CD5CB11C1A610F00B44425 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		A1CD5CB31C1A63C500B44425 /* VitamioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitamioPlayerView.h; sourceTree = "<group>"; };
+		A1CD5CB41C1A63C500B44425 /* VitamioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VitamioPlayerView.m; sourceTree = "<group>"; };
+		A1CD5CB61C1A663C00B44425 /* VitamioPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitamioPlayerViewController.h; sourceTree = "<group>"; };
+		A1CD5CB71C1A663C00B44425 /* VitamioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VitamioPlayerViewController.m; sourceTree = "<group>"; };
 		A1F1235D1C02D81A0011B30C /* libASIHTTPRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libASIHTTPRequest.a; path = "Pods/../build/Debug-iphoneos/libASIHTTPRequest.a"; sourceTree = "<group>"; };
 		A1F1235E1C02D81A0011B30C /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "Pods/../build/Debug-iphoneos/libMBProgressHUD.a"; sourceTree = "<group>"; };
 		A1F1235F1C02D81A0011B30C /* libMJRefresh.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJRefresh.a; path = "Pods/../build/Debug-iphoneos/libMJRefresh.a"; sourceTree = "<group>"; };
@@ -316,7 +363,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CD5C981C1A5DFF00B44425 /* AVFoundation.framework in Frameworks */,
+				A1CD5C9A1C1A5E0F00B44425 /* AudioToolbox.framework in Frameworks */,
+				A1CD5C9C1C1A5E2200B44425 /* CoreGraphics.framework in Frameworks */,
+				A1CD5C9E1C1A5E5700B44425 /* CoreMedia.framework in Frameworks */,
+				A1CD5CA01C1A5E6100B44425 /* CoreVideo.framework in Frameworks */,
+				A1CD5CA21C1A5E8700B44425 /* Foundation.framework in Frameworks */,
+				A1CD5CA41C1A5EA600B44425 /* MediaPlayer.framework in Frameworks */,
+				A1CD5CA61C1A5EB300B44425 /* OpenGLES.framework in Frameworks */,
+				A1CD5CA81C1A5EC000B44425 /* QuartzCore.framework in Frameworks */,
+				A1CD5CAA1C1A5EC900B44425 /* UIKit.framework in Frameworks */,
+				A1CD5CAC1C1A607100B44425 /* libbz2.1.0.dylib in Frameworks */,
 				A1F123701C02DD590011B30C /* libz.dylib in Frameworks */,
+				A1CD5CAE1C1A60D900B44425 /* libstdc++.6.0.9.dylib in Frameworks */,
+				A1CD5CB01C1A60FE00B44425 /* libiconv.2.dylib in Frameworks */,
+				A1CD5C8C1C1A5CC200B44425 /* libopenssl.a in Frameworks */,
+				A1CD5C8B1C1A5CC200B44425 /* libffmpeg.a in Frameworks */,
+				A1CD5C8D1C1A5CC200B44425 /* libVitamio.a in Frameworks */,
 				A1F1236F1C02DCDC0011B30C /* libBaseObject.a in Frameworks */,
 				A1F1236D1C02DCCA0011B30C /* GLKit.framework in Frameworks */,
 				2A5F7F4E5BEFD585ED184614 /* libPods-NetSchool.a in Frameworks */,
@@ -336,6 +399,20 @@
 		14977648C953FC697C45CC56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1CD5CB11C1A610F00B44425 /* libbz2.tbd */,
+				A1CD5CAF1C1A60FE00B44425 /* libiconv.2.dylib */,
+				A1CD5CAD1C1A60D900B44425 /* libstdc++.6.0.9.dylib */,
+				A1CD5CAB1C1A607100B44425 /* libbz2.1.0.dylib */,
+				A1CD5CA91C1A5EC900B44425 /* UIKit.framework */,
+				A1CD5CA71C1A5EC000B44425 /* QuartzCore.framework */,
+				A1CD5CA51C1A5EB300B44425 /* OpenGLES.framework */,
+				A1CD5CA31C1A5EA600B44425 /* MediaPlayer.framework */,
+				A1CD5CA11C1A5E8700B44425 /* Foundation.framework */,
+				A1CD5C9F1C1A5E6100B44425 /* CoreVideo.framework */,
+				A1CD5C9D1C1A5E5700B44425 /* CoreMedia.framework */,
+				A1CD5C9B1C1A5E2200B44425 /* CoreGraphics.framework */,
+				A1CD5C991C1A5E0F00B44425 /* AudioToolbox.framework */,
+				A1CD5C971C1A5DFF00B44425 /* AVFoundation.framework */,
 				A1F1236E1C02DCDC0011B30C /* libBaseObject.a */,
 				A1F1235D1C02D81A0011B30C /* libASIHTTPRequest.a */,
 				A1F1235E1C02D81A0011B30C /* libMBProgressHUD.a */,
@@ -478,6 +555,7 @@
 		680D41351B907AB000CFF29E /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				A1CD5C871C1A5C9500B44425 /* Vitamio */,
 				68D948171BB1B7D20031013A /* DIY */,
 				680D41361B907AB000CFF29E /* MBProgressHUD */,
 			);
@@ -565,6 +643,10 @@
 				68D590411B9EECC700099CDD /* PlayerViewController.m */,
 				68D590431B9EED5500099CDD /* PlayerViewController+Player.h */,
 				68D590441B9EED5500099CDD /* PlayerViewController+Player.m */,
+				A1CD5CB31C1A63C500B44425 /* VitamioPlayerView.h */,
+				A1CD5CB41C1A63C500B44425 /* VitamioPlayerView.m */,
+				A1CD5CB61C1A663C00B44425 /* VitamioPlayerViewController.h */,
+				A1CD5CB71C1A663C00B44425 /* VitamioPlayerViewController.m */,
 			);
 			path = "播放界面";
 			sourceTree = "<group>";
@@ -778,6 +860,32 @@
 			path = "播放器";
 			sourceTree = "<group>";
 		};
+		A1CD5C871C1A5C9500B44425 /* Vitamio */ = {
+			isa = PBXGroup;
+			children = (
+				A1CD5C8E1C1A5CD200B44425 /* include */,
+				A1CD5C881C1A5CC200B44425 /* libffmpeg.a */,
+				A1CD5C891C1A5CC200B44425 /* libopenssl.a */,
+				A1CD5C8A1C1A5CC200B44425 /* libVitamio.a */,
+			);
+			name = Vitamio;
+			sourceTree = "<group>";
+		};
+		A1CD5C8E1C1A5CD200B44425 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A1CD5C8F1C1A5D0500B44425 /* VDefines.h */,
+				A1CD5C901C1A5D0500B44425 /* Vitamio.h */,
+				A1CD5C911C1A5D0500B44425 /* VMediaExtracter.h */,
+				A1CD5C921C1A5D0500B44425 /* VMediaExtracterDef.h */,
+				A1CD5C931C1A5D0500B44425 /* VMediaPlayer.h */,
+				A1CD5C941C1A5D0500B44425 /* VMediaPlayerDelegate.h */,
+				A1CD5C951C1A5D0500B44425 /* VPlayerManageDef.h */,
+				A1CD5C961C1A5D0500B44425 /* VSingleton.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
 		AB3005415D39B9B77500877D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -988,6 +1096,7 @@
 				68E487901B94299A0082D53A /* OnLineList0ViewController.m in Sources */,
 				680D42031B907AB000CFF29E /* PJViewController.m in Sources */,
 				68D948291BB1B7D20031013A /* MJDIYHeader.m in Sources */,
+				A1CD5CB51C1A63C500B44425 /* VitamioPlayerView.m in Sources */,
 				68D948271BB1B7D20031013A /* MJDIYAutoFooter.m in Sources */,
 				680D40F61B9079E700CFF29E /* AppDelegate.m in Sources */,
 				68E488851B95A3710082D53A /* FreeList1ViewController.m in Sources */,
@@ -1004,6 +1113,7 @@
 				680D42011B907AB000CFF29E /* PJCollectionViewCell.m in Sources */,
 				680D42381B907B5300CFF29E /* Infomation.m in Sources */,
 				680D40F91B9079E700CFF29E /* NetSchool.xcdatamodeld in Sources */,
+				A1CD5CB81C1A663C00B44425 /* VitamioPlayerViewController.m in Sources */,
 				68D94A591BB236AE0031013A /* ZwsUserDataManager.m in Sources */,
 				681640B91B9B466000D754D4 /* PlayerView.m in Sources */,
 				68D94A571BB236AE0031013A /* UIDevice+IdentifierAddition.m in Sources */,
@@ -1175,6 +1285,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NetSchool-ecixndpfcgthofdxcfupyzictuct/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/NetSchool/Libs/Vitamio",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -1221,6 +1332,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NetSchool-ecixndpfcgthofdxcfupyzictuct/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/NetSchool/Libs/Vitamio",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",

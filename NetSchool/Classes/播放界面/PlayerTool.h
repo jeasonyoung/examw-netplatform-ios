@@ -21,10 +21,10 @@
 
 @protocol PlayerToolDelegate <NSObject>
 
-- (void)play;
-- (void)pause;
-- (void)beginDragging;
-- (void)dragging;
-- (void)endDraging;
--(void)speedVideo:(CGFloat)rate ;
+-(void)play;
+-(void)pause;
+-(void)beginDragging;
+-(void)dragging;
+-(void)endDraging;
+-(void)speedVideo:(CGFloat)rate;
 @end
