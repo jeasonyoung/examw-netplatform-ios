@@ -9,16 +9,14 @@
 #import "PlayerTool.h"
 float rate[4] = {1.0,1.2,1.4,1.6};
 
-@interface PlayerTool ()
-{
+@interface PlayerTool (){
     NSInteger _speedNum;
 }
 @end
 
 @implementation PlayerTool
 
-- (id)init
-{
+- (id)init{
     if ((self = [super initWithFrame:CGRectMake(0, DeviceH - 60, DeviceW, 60)])) {
         self.backgroundColor =  RGBA(50, 50, 50, .6);
     }
@@ -78,8 +76,7 @@ float rate[4] = {1.0,1.2,1.4,1.6};
 
 - (UIButton *)play
 {
-    if (!_play)
-    {
+    if (!_play){
         _play = [UIButton buttonWithType:UIButtonTypeCustom];
         _play.frame = CGRectMake(kDefaultInset.left * 3, (CGRectGetHeight(self.frame) - 30) / 2 + 5, 30, 30);
         UIImage *image = [UIImage imageNamed:@"playerBottomPlayNomal.png"];
@@ -179,9 +176,7 @@ float rate[4] = {1.0,1.2,1.4,1.6};
     }
     
     [_speed setTitle:[NSString stringWithFormat:@"%0.1fX",rate[_speedNum]] forState:UIControlStateNormal];
-    
     [_delegate speedVideo:rate[_speedNum]];
-
 }
 
 
@@ -196,17 +191,5 @@ float rate[4] = {1.0,1.2,1.4,1.6};
     [self addSubview:self.rightDate];
     [self addSubview:self.speed];
 }
-
-
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

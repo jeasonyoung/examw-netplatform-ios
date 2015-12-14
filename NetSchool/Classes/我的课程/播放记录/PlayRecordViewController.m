@@ -7,7 +7,7 @@
 //
 
 #import "PlayRecordViewController.h"
-#import "VitamioPlayerViewController.h"
+//#import "VitamioPlayerViewController.h"
 
 #import "PlayRecord.h"
 #import "PJTableViewCell.h"
@@ -85,7 +85,7 @@
 
 @end
 
-#import "PlayerViewController.h"
+#import "VitamioPlayerViewController.h"
 #import "PlayNavigationController.h"
 
 @interface PlayRecordViewController ()

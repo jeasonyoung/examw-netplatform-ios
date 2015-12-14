@@ -70,7 +70,7 @@
 
 @end
 
-#import "PlayerViewController.h"
+#import "VitamioPlayerViewController.h"
 #import "PJNavigationBar.h"
 #import "PlayNavigationController.h"
 #import "DownViewController.h"
@@ -136,7 +136,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PlayerViewController *play = [[PlayerViewController alloc] initWithParameters:_datas[indexPath.row]];
+    VitamioPlayerViewController *play = [[VitamioPlayerViewController alloc] initWithParameters:_datas[indexPath.row]];
     PlayNavigationController *nav = [[PlayNavigationController alloc] initWithRootViewController:play];;
     
     [self presentViewController:nav];

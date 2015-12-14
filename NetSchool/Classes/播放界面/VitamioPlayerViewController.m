@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "VitamioPlayerViewController.h"
 #import "VitamioPlayerView.h"
@@ -31,21 +32,29 @@ CGFloat const gesture_minimum_translation = 1.0;
 @interface VitamioPlayerViewController ()<PlayerToolDelegate,VMediaPlayerDelegate>{
     //播放器
     VMediaPlayer *_player;
-    
-    //id _mTimeObserver;
+    //播放器View
     VitamioPlayerView *_playerView;
+    //播放控制工具栏
     PlayerTool *_tool;
-    //float _mRestoreAfterScrubbingRate;
-    float _mRestoreAfterPlayRate;
-    //BOOL _isSeeking;
-    //BOOL _seekToZeroBeforePlay;
-    //BOOL _isPlayBack;
-    
+   
+    //总时间/播放时间(毫秒)
+    long _total,_time;
+    //播放进度
     float _progressValue;
-    float _volume;
-    double _time;
+    //同步播放进度定时器
+    NSTimer *_syncSeekTime;
     
+    
+    //是否缓冲视频
+    BOOL _isBufCache;
+    
+    //播放速度
+    float _mRestoreAfterPlayRate;
+    //系统音量
+    float _volume;
+    //音量控制
     UISlider *_volumeViewSlider;
+    //手势方向
     eMoveDirection _direction;
 }
 //是否显示控制工具
@@ -106,6 +115,7 @@ CGFloat const gesture_minimum_translation = 1.0;
     if(!_player){
         _player = [VMediaPlayer sharedInstance];
         [_player setupPlayerWithCarrierView:_playerView withDelegate:self];
+        [self setupObservers];
     }
 //    //本地播放
 //    NSString *localVideoUrl = [[DownloadSinglecase sharedDownloadSinglecase].videoFiles
@@ -125,6 +135,68 @@ CGFloat const gesture_minimum_translation = 1.0;
     [_player prepareAsync];
     //添加手势
     [self addGestureRecognizer];
+}
+
+#pragma mark -安装观察者
+-(void)setupObservers{
+    //通知中心
+    NSNotificationCenter *def = [NSNotificationCenter defaultCenter];
+    //添加进入前台通知
+    [def addObserver:self
+            selector:@selector(applicationDidEnterForeground:)
+                name:UIApplicationDidBecomeActiveNotification
+              object:[UIApplication sharedApplication]];
+    //添加进入后台通知
+    [def addObserver:self
+            selector:@selector(applicationDidEnterBackground:)
+                name:UIApplicationWillResignActiveNotification
+              object:[UIApplication sharedApplication]];
+    //音量控制
+    NSError *error;
+    [[AVAudioSession sharedInstance] setActive:YES error:&error];
+    [def addObserver:self
+            selector:@selector(applicationDidVolumeChanged:)
+                name:@"AVSystemController_SystemVolumeDidChangeNotification"
+              object:nil];
+}
+
+#pragma mark -进入前台
+-(void)applicationDidEnterForeground:(NSNotification *)notification{
+    NSLog(@"进入前台...");
+    if(_player){
+        [_player setVideoShown:YES];
+        if(![_player isPlaying]){
+            //播放
+            [self play];
+        }
+    }
+}
+
+#pragma mark -进入后台
+-(void)applicationDidEnterBackground:(NSNotification *)notification{
+    NSLog(@"进入后台...");
+    if(_player && [_player isPlaying]){
+        //暂停
+        [self pause];
+        //
+        [_player setVideoShown:NO];
+    }
+}
+
+#pragma mark -外部音量控制
+-(void)applicationDidVolumeChanged:(NSNotification *)notification{
+    NSLog(@"外部音量调节...");
+    if(_volumeViewSlider){
+        _volume = _volumeViewSlider.value;
+    }
+}
+
+#pragma mark -卸载观察者
+-(void)dealloc{
+    //卸载播放器
+    [_player unSetupPlayer];
+    //卸载通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark -内存告警
@@ -150,13 +222,19 @@ CGFloat const gesture_minimum_translation = 1.0;
     panGestureRecognizer.maximumNumberOfTouches = 1;
     //注册手势到界面
     [_playerView addGestureRecognizer:panGestureRecognizer];
+    
+    //系统音量控制
     if(!_volumeViewSlider){
-        MPVolumeView *volumeView = [MPVolumeView new];
+        MPVolumeView *volumeView = [[MPVolumeView alloc] init];
         for(UIView *view in [volumeView subviews]){
             if([view.class.description isEqualToString:@"MPVolumeSlider"]){
                 _volumeViewSlider = (UISlider *)view;
                 break;
             }
+        }
+        //获取当前音量
+        if(_volumeViewSlider){
+            _volume = _volumeViewSlider.value;
         }
     }
 }
@@ -173,7 +251,6 @@ CGFloat const gesture_minimum_translation = 1.0;
         case UIGestureRecognizerStateBegan:{
             NSLog(@"start...");
             _direction = kMoveDirectionNone;
-            _volume = [ToolSingleton getInstance].volume;
             break;
         }
         case UIGestureRecognizerStateChanged:{
@@ -183,30 +260,30 @@ CGFloat const gesture_minimum_translation = 1.0;
             switch(_direction){
                 case kMoveDirectionDown:{
                     NSLog(@"start moving down...");
-                    [self stateChangedVoiceDirection:(_volume - translatedPoint.y/DeviceH)];
+                    [self stateChangedVoiceDirection:(translatedPoint.y/DeviceH)];
                     break;
                 }
                 case kMoveDirectionUp:{
                     NSLog(@"start moving up...");
-                    [self stateChangedVoiceDirection:(_volume - translatedPoint.y/DeviceH)];
+                    [self stateChangedVoiceDirection:(translatedPoint.y/DeviceH)];
                     break;
                 }
                 case kMoveDirectionRight:{
-                    NSLog(@"start moving right...");
-//                    if(!_mRestoreAfterScrubbingRate){
-//                        self.isUnShow = NO;
-//                        [self beginDragging];
-//                    }
-                    [self stateChangedProgressDirection:(_progressValue + translatedPoint.x/DeviceW)];
+                    if(!_isBufCache){
+                        NSLog(@"start moving right...");
+                        if(self.isUnShow)self.isUnShow = NO;
+                        [self beginDragging];
+                        [self stateChangedProgressDirection:(translatedPoint.x/DeviceW)];
+                    }
                     break;
                 }
                 case kMoveDirectionLeft:{
-                    NSLog(@"start moving left...");
-//                    if(!_mRestoreAfterScrubbingRate){
-//                        self.isUnShow = NO;
-//                        [self beginDragging];
-//                    }
-                    [self stateChangedProgressDirection:(_progressValue + translatedPoint.x/DeviceW)];
+                    if(!_isBufCache){
+                        NSLog(@"start moving left...");
+                        if(self.isUnShow)self.isUnShow = NO;
+                        [self beginDragging];
+                        [self stateChangedProgressDirection:(translatedPoint.x/DeviceW)];
+                    }
                     break;
                 }
                 default:break;
@@ -228,12 +305,17 @@ CGFloat const gesture_minimum_translation = 1.0;
                     break;
                 }
                 case kMoveDirectionRight:{
-                    NSLog(@"end moving right...");
-                    [self stateEndedProgressDirection];
+                    if(!_isBufCache){
+                        NSLog(@"end moving right...");
+                        [self stateEndedProgressDirection];
+                    }
+                    break;
                 }
                 case kMoveDirectionLeft:{
-                    NSLog(@"end moving left...");
-                    [self stateEndedProgressDirection];
+                    if(!_isBufCache){
+                        NSLog(@"end moving left...");
+                        [self stateEndedProgressDirection];
+                    }
                     break;
                 }
                 default:break;
@@ -277,38 +359,45 @@ CGFloat const gesture_minimum_translation = 1.0;
     return _direction;
 }
 
-//设置音量条
+//调节音量
 -(void)stateChangedVoiceDirection:(CGFloat)value{
-    _volumeViewSlider.value = value;
+    if(_volumeViewSlider){
+        _volume = _volumeViewSlider.value;
+        CGFloat v = fabs(_volume - value);
+        if(v < 0)
+            v = 0.f;
+        else if(v > 1)
+            v = 1.0f;
+        
+        [_volumeViewSlider setValue:v animated:YES];
+    }
 }
 
-//设置实现音量条
+//调节音量完成
 -(void)stateEndedVoiceDirection{
     _volume = _volumeViewSlider.value;
 }
 
 //设置播放进度条
 -(void)stateChangedProgressDirection:(CGFloat)value{
-   _tool.scrubber.value = value;
+    _tool.scrubber.value += value;
+    [self dragging];
 }
 
 //设置实际播放进度
 -(void)stateEndedProgressDirection{
-    _progressValue = _tool.scrubber.value;
     [self endDraging];
 }
 
-
-//-(void)syncScrubber{
-//    
-//}
-//
-//-(void)disableScrubber{
-//    
-//}
-
 #pragma mark -退出播放
 -(void)playBack{
+    //暂停播放
+    [self pause];
+    //停止播放进度刷新
+    [_syncSeekTime invalidate];
+    _syncSeekTime = nil;
+    
+    //横屏播放恢复竖屏
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     app.allowRotation = NO;
     if([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]){
@@ -323,16 +412,13 @@ CGFloat const gesture_minimum_translation = 1.0;
     }
     //播放器资源收回
     if(_player){
-        //视频长度
-        long total = [_player getDuration]/1000;
-        _time = [_player getCurrentPosition]/1000;
         //异步处理上传学习记录
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
             @try {
                 //更新播放进度
-                [PlayRecord saveRecod:_parameters seekToTime:_time];
+                [PlayRecord saveRecod:_parameters seekToTime:(_time/1000)];
                 BOOL status = NO;
-                if(fabs(_time - total) < .1){
+                if(labs(_time - _total) < .1){
                     status = YES;
                 }
                 //主线程更新
@@ -345,9 +431,7 @@ CGFloat const gesture_minimum_translation = 1.0;
                     }
                     @try {
                         //重置播放器
-                        if(_player.isPlaying)[_player reset];
-                        //取消播放器注册
-                        [_player unSetupPlayer];
+                        [_player reset];
                     }
                     @catch (NSException *ex) {
                         NSLog(@"关闭播放器异常:%@", ex.description);
@@ -364,44 +448,29 @@ CGFloat const gesture_minimum_translation = 1.0;
     [self dismissViewController];
 }
 
--(void)syncPlayPauseButtons{
-    
-}
 
--(void)initScrubberTimer{
-    
-}
-
--(void)enableScrubber{
-    
-}
-
--(void)enablePlayerButtons{
-    
-}
-
-#pragma mark -播放位置
--(void)seekToTime:(void(^)())seekToTime{
-    if(_player){
-        CGFloat time = 0;
-        long total = [_player getDuration]/1000;
-        NSArray *records = [PlayRecord readRecod];
-        for(PlayRecord *record in records){
-            if([record.sid isEqualToString:_parameters[@"id"]]){
-                time = [record.seekToTime floatValue];
-                if(fabs(time - total) < .1){
-                    time = 0.f;
-                    [self.view makeToast:@"课程已学习完，已调到开头"];
-                }else{
-                    [self.view makeToast:[NSString stringWithFormat:@"已跳到:%@",[self convertMovieTimeToText:time]]];
-                }
-                break;
-            }
-        }
-        //跳转
-        [_player seekTo:(time * 1000)];
-    }
-}
+//#pragma mark -播放位置
+//-(void)seekToTime:(void(^)())seekToTime{
+//    if(_player){
+//        CGFloat time = 0;
+//        long total = [_player getDuration]/1000;
+//        NSArray *records = [PlayRecord readRecod];
+//        for(PlayRecord *record in records){
+//            if([record.sid isEqualToString:_parameters[@"id"]]){
+//                time = [record.seekToTime floatValue];
+//                if(fabs(time - total) < .1){
+//                    time = 0.f;
+//                    [self.view makeToast:@"课程已学习完，已调到开头"];
+//                }else{
+//                    [self.view makeToast:[NSString stringWithFormat:@"已跳到:%@",[self convertMovieTimeToText:time]]];
+//                }
+//                break;
+//            }
+//        }
+//        //跳转
+//        [_player seekTo:(time * 1000)];
+//    }
+//}
 
 #pragma mark -播放进度/总时长
 -(NSString *)convertMovieTimeToText:(CGFloat)time{
@@ -410,10 +479,20 @@ CGFloat const gesture_minimum_translation = 1.0;
     return [NSString stringWithFormat:@"%02d:%02d",m,s];
 }
 
-#pragma mark -计算缓冲总进度
--(NSTimeInterval)availableDuration{
-    ///TODO:
-    return 0;
+#pragma mark -更新播放进度
+-(void)syncPlayProgress{
+    if(_isBufCache)return;
+    if(_player && (_time < _total) > 0){
+        //当前播放
+        _time = [_player getCurrentPosition];
+        //更新播放时间
+        [_tool.leftDate setText:[self convertMovieTimeToText:(_time/1000.0f)]];
+        //播放进度
+        _progressValue = ((CGFloat)_time / _total);
+        //更新播放进度
+        [_tool.scrubber setValue:_progressValue animated:YES];
+        //NSLog(@"更新播放进度[%ld/%ld]=>%f", _time,_total,_progressValue);
+    }
 }
 
 #pragma mark VMediaPlayerDelegate
@@ -425,8 +504,16 @@ CGFloat const gesture_minimum_translation = 1.0;
  * @param arg Not use.
  */
 -(void)mediaPlayer:(VMediaPlayer *)player didPrepared:(id)arg{
-    //当播放器准备完成,开始播放
-    [player start];
+    //视频长度
+    _total = [player getDuration];
+    //开始播放
+    [self play];
+    //触发更新播放进度
+    _syncSeekTime = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                     target:self
+                                                   selector:@selector(syncPlayProgress)
+                                                   userInfo:nil
+                                                    repeats:YES];
 }
 
 /**
@@ -436,8 +523,9 @@ CGFloat const gesture_minimum_translation = 1.0;
  * @param arg Not use.
  */
 -(void)mediaPlayer:(VMediaPlayer *)player playbackComplete:(id)arg{
-    //播放完毕，重置播放器
-    [player reset];
+    NSLog(@"播放完毕");
+    //播放完毕，暂停放器
+    [self pause];
 }
 
 /**
@@ -449,7 +537,36 @@ CGFloat const gesture_minimum_translation = 1.0;
 -(void)mediaPlayer:(VMediaPlayer *)player error:(id)arg{
     //播放发生错误
     NSLog(@"播放发生错误:%@",arg);
-    
+    [self.view makeToast:arg];
+}
+
+//-缓冲开始
+-(void)mediaPlayer:(VMediaPlayer *)player bufferingStart:(id)arg{
+    NSLog(@"开始缓冲...");
+    _isBufCache = YES;
+    _tool.leftDate.text = @"0";
+    _tool.rightDate.text = @"/100";
+    _tool.progress.progress = 0.f;
+}
+
+//-缓冲过程中
+-(void)mediaPlayer:(VMediaPlayer *)player bufferingUpdate:(id)arg{
+    int value = [((NSNumber *)arg) intValue];
+    NSLog(@"正在缓冲....%d%%", value);
+    [_tool.leftDate setText:[NSString stringWithFormat:@"%d", value]];
+    [_tool.progress setProgress:(CGFloat)(value /100.0) animated:YES];
+}
+
+//-缓冲完成
+-(void)mediaPlayer:(VMediaPlayer *)player bufferingEnd:(id)arg{
+    NSLog(@"缓冲完成...");
+    //设置播放时间
+    _tool.leftDate.text = [self convertMovieTimeToText:(_time/1000.0f)];
+    NSString *totalTimeText = [self convertMovieTimeToText:(CGFloat)(_total/1000.0f)];
+    //设置播放时长
+    [_tool.rightDate setText:[NSString stringWithFormat:@"/%@",totalTimeText]];
+    //缓存完成
+    _isBufCache = NO;
 }
 
 
@@ -457,34 +574,53 @@ CGFloat const gesture_minimum_translation = 1.0;
 
 #pragma mark -播放
 -(void)play{
+    //播放状态
+    _tool.play.selected = YES;
     if(_player && ![_player isPlaying]){
+        //播放位置
+        if(_time > 0){
+            [_player seekTo:_time];
+        }
+        //播放
         [_player start];
     }
 }
 
 #pragma mark -暂停
 -(void)pause{
+    //暂停状态
+    _tool.play.selected = NO;
     if(_player && [_player isPlaying]){
+        //暂停
         [_player pause];
+        //暂停位置
+        _time = [_player getCurrentPosition];
     }
 }
 
 #pragma mark -开始滑动
 -(void)beginDragging{
-    ///TODO:
     NSLog(@"beginDragging...");
+    //暂停播放
+    [self pause];
 }
 
 #pragma mark -滑动中
 -(void)dragging{
-    ///TODO:
     NSLog(@"dragging...");
+    _progressValue = _tool.scrubber.value;
+    if(_total > 0){
+        CGFloat current_time = (_total * _progressValue)/1000.0f;
+        [_tool.leftDate setText:[self convertMovieTimeToText:current_time]];
+    }
 }
 
 #pragma mark -结束滑动
 -(void)endDraging{
-    ///TODO:
     NSLog(@"endDraging...");
+    _time = (long)(_total * _progressValue);
+    //继续播放
+    [self play];
 }
 
 #pragma mark -播放速度

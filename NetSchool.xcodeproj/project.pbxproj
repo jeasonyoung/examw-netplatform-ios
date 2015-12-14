@@ -49,8 +49,6 @@
 		68D5902F1B9E7E1000099CDD /* progressButtonPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D5902D1B9E7E1000099CDD /* progressButtonPress@2x.png */; };
 		68D590321B9E85A700099CDD /* playerBottomPlayNomal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D590301B9E85A700099CDD /* playerBottomPlayNomal@2x.png */; };
 		68D590331B9E85A700099CDD /* playerBottomSuspendNomal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D590311B9E85A700099CDD /* playerBottomSuspendNomal@2x.png */; };
-		68D590421B9EECC700099CDD /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D590411B9EECC700099CDD /* PlayerViewController.m */; };
-		68D590451B9EED5500099CDD /* PlayerViewController+Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D590441B9EED5500099CDD /* PlayerViewController+Player.m */; };
 		68D5DD231BA06F80007CC877 /* backward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D5DD211BA06F80007CC877 /* backward@2x.png */; };
 		68D5DD241BA06F80007CC877 /* forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D5DD221BA06F80007CC877 /* forward@2x.png */; };
 		68D5DD261BA073F8007CC877 /* down_Vedio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68D5DD251BA073F8007CC877 /* down_Vedio@2x.png */; };
@@ -215,10 +213,6 @@
 		68D5902D1B9E7E1000099CDD /* progressButtonPress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progressButtonPress@2x.png"; sourceTree = "<group>"; };
 		68D590301B9E85A700099CDD /* playerBottomPlayNomal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playerBottomPlayNomal@2x.png"; sourceTree = "<group>"; };
 		68D590311B9E85A700099CDD /* playerBottomSuspendNomal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playerBottomSuspendNomal@2x.png"; sourceTree = "<group>"; };
-		68D590401B9EECC700099CDD /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
-		68D590411B9EECC700099CDD /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
-		68D590431B9EED5500099CDD /* PlayerViewController+Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PlayerViewController+Player.h"; sourceTree = "<group>"; };
-		68D590441B9EED5500099CDD /* PlayerViewController+Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PlayerViewController+Player.m"; sourceTree = "<group>"; };
 		68D5DD211BA06F80007CC877 /* backward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backward@2x.png"; sourceTree = "<group>"; };
 		68D5DD221BA06F80007CC877 /* forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward@2x.png"; sourceTree = "<group>"; };
 		68D5DD251BA073F8007CC877 /* down_Vedio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_Vedio@2x.png"; sourceTree = "<group>"; };
@@ -639,10 +633,6 @@
 				68ED01511B9D6FDF0018FF6D /* PlayerTool.m */,
 				681640BA1B9B48DF00D754D4 /* PlayNavigationController.h */,
 				681640BB1B9B48DF00D754D4 /* PlayNavigationController.m */,
-				68D590401B9EECC700099CDD /* PlayerViewController.h */,
-				68D590411B9EECC700099CDD /* PlayerViewController.m */,
-				68D590431B9EED5500099CDD /* PlayerViewController+Player.h */,
-				68D590441B9EED5500099CDD /* PlayerViewController+Player.m */,
 				A1CD5CB31C1A63C500B44425 /* VitamioPlayerView.h */,
 				A1CD5CB41C1A63C500B44425 /* VitamioPlayerView.m */,
 				A1CD5CB61C1A663C00B44425 /* VitamioPlayerViewController.h */,
@@ -942,7 +932,7 @@
 		680D40E51B9079E700CFF29E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = TalkWeb;
 				TargetAttributes = {
 					680D40EC1B9079E700CFF29E = {
@@ -1117,7 +1107,6 @@
 				68D94A591BB236AE0031013A /* ZwsUserDataManager.m in Sources */,
 				681640B91B9B466000D754D4 /* PlayerView.m in Sources */,
 				68D94A571BB236AE0031013A /* UIDevice+IdentifierAddition.m in Sources */,
-				68D590451B9EED5500099CDD /* PlayerViewController+Player.m in Sources */,
 				68E4889E1B95E4E20082D53A /* PublicHeader.m in Sources */,
 				68D6965A1BB9975C00082AC8 /* PJInputView.m in Sources */,
 				68D948251BB1B7D20031013A /* MJChiBaoZiFooter2.m in Sources */,
@@ -1138,7 +1127,6 @@
 				68E487A51B9453E10082D53A /* QAViewController.m in Sources */,
 				68E4888F1B95DED60082D53A /* PJTableViewCell.m in Sources */,
 				6850AB981BA487A100F625ED /* CommonHelper.m in Sources */,
-				68D590421B9EECC700099CDD /* PlayerViewController.m in Sources */,
 				68DF343C1BABBC3300203272 /* MyVideo.m in Sources */,
 				680D423A1B907B5300CFF29E /* LoginInputView.m in Sources */,
 				68E488881B95A62B0082D53A /* FreeList2ViewController.m in Sources */,
@@ -1200,6 +1188,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
