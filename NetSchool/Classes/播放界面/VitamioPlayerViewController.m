@@ -117,20 +117,20 @@ CGFloat const gesture_minimum_translation = 1.0;
         [_player setupPlayerWithCarrierView:_playerView withDelegate:self];
         [self setupObservers];
     }
-//    //本地播放
-//    NSString *localVideoUrl = [[DownloadSinglecase sharedDownloadSinglecase].videoFiles
-//                                stringByAppendingPathComponent:_parameters[@"videoUrl"]];
-//    NSFileManager *fileManager = [NSFileManager defaultManager];
-//    if([fileManager fileExistsAtPath:localVideoUrl]){
-//        NSLog(@"播放地址:%@", localVideoUrl);
-//        //本地播放
-//        [_player setDataSource:[NSURL URLWithString:localVideoUrl]];
-//    }else{
-//        NSLog(@"播放地址:%@", _parameters[@"videoUrl"]);
-//        //网络播放
-//        [_player setDataSource:[NSURL URLWithString:_parameters[@"videoUrl"]]];
-//    }
-    [_player setDataSource:[NSURL URLWithString:@"http://v.dalischool.com:8091/lxzkqjh1.flv"]];
+    //本地播放
+    NSString *localVideoUrl = [[DownloadSinglecase sharedDownloadSinglecase].videoFiles
+                                stringByAppendingPathComponent:_parameters[@"videoUrl"]];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if([fileManager fileExistsAtPath:localVideoUrl]){
+        NSLog(@"播放地址:%@", localVideoUrl);
+        //本地播放
+        [_player setDataSource:[NSURL URLWithString:localVideoUrl]];
+    }else{
+        NSLog(@"播放地址:%@", _parameters[@"videoUrl"]);
+        //网络播放
+        [_player setDataSource:[NSURL URLWithString:_parameters[@"videoUrl"]]];
+    }
+    //[_player setDataSource:[NSURL URLWithString:@"http://v.dalischool.com:8091/lxzkqjh1.flv"]];
     //播放器异步缓冲
     [_player prepareAsync];
     //添加手势
@@ -448,30 +448,6 @@ CGFloat const gesture_minimum_translation = 1.0;
     [self dismissViewController];
 }
 
-
-//#pragma mark -播放位置
-//-(void)seekToTime:(void(^)())seekToTime{
-//    if(_player){
-//        CGFloat time = 0;
-//        long total = [_player getDuration]/1000;
-//        NSArray *records = [PlayRecord readRecod];
-//        for(PlayRecord *record in records){
-//            if([record.sid isEqualToString:_parameters[@"id"]]){
-//                time = [record.seekToTime floatValue];
-//                if(fabs(time - total) < .1){
-//                    time = 0.f;
-//                    [self.view makeToast:@"课程已学习完，已调到开头"];
-//                }else{
-//                    [self.view makeToast:[NSString stringWithFormat:@"已跳到:%@",[self convertMovieTimeToText:time]]];
-//                }
-//                break;
-//            }
-//        }
-//        //跳转
-//        [_player seekTo:(time * 1000)];
-//    }
-//}
-
 #pragma mark -播放进度/总时长
 -(NSString *)convertMovieTimeToText:(CGFloat)time{
     int m = (int)(time/60);
@@ -506,14 +482,38 @@ CGFloat const gesture_minimum_translation = 1.0;
 -(void)mediaPlayer:(VMediaPlayer *)player didPrepared:(id)arg{
     //视频长度
     _total = [player getDuration];
-    //开始播放
-    [self play];
-    //触发更新播放进度
-    _syncSeekTime = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                     target:self
-                                                   selector:@selector(syncPlayProgress)
-                                                   userInfo:nil
-                                                    repeats:YES];
+    //异步加载播放记录数据
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        @try {
+            NSArray *records = [PlayRecord readRecod];
+            for(PlayRecord *record in records){
+                if([record.sid isEqualToString:_parameters[@"id"]]){
+                    _time = [record.seekToTime floatValue] * 1000;
+                    break;
+                }
+            }
+        }
+        @catch (NSException *ex) {
+            NSLog(@"加载播放记录数据异常:%@",ex.description);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(labs(_time - _total) <.1){
+                _time = 0;
+                [self.view makeToast:@"课程已学习完，已调到开头"];
+            }else{
+                [self.view makeToast:[NSString stringWithFormat:@"已跳到:%@",[self convertMovieTimeToText:_time]]];
+            }
+            //开始播放
+            [self play];
+            //触发更新播放进度
+            _syncSeekTime = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                             target:self
+                                                           selector:@selector(syncPlayProgress)
+                                                           userInfo:nil
+                                                            repeats:YES];
+        });
+    });
 }
 
 /**
@@ -536,8 +536,11 @@ CGFloat const gesture_minimum_translation = 1.0;
  */
 -(void)mediaPlayer:(VMediaPlayer *)player error:(id)arg{
     //播放发生错误
-    NSLog(@"播放发生错误:%@",arg);
-    [self.view makeToast:arg];
+    NSLog(@"播放发生错误:%@",[arg class]);
+    [self.view makeToast:@"视频已不存在!"];
+    
+    [NSThread sleepForTimeInterval:2.0f];
+    [self playBack];
 }
 
 //-缓冲开始

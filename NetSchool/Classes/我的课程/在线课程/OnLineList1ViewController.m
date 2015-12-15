@@ -204,6 +204,16 @@
         newDic[@"pid"] = _parameters[@"id"];
         [array addObject:newDic];
     }
+    
+    [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSDictionary *dic1 = (NSDictionary *)obj1;
+        NSDictionary *dic2 = (NSDictionary *)obj2;
+        if(dic1 && dic2){
+            return [dic1[@"orderNo"] intValue] > [dic2[@"orderNo"] intValue];
+        }
+        return 0;
+    }];
+    
     _datas = array;
     [_table.header endRefreshing];
     [self reloadTabData];

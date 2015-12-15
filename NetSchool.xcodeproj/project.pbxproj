@@ -1288,7 +1288,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = examw.netplatform.ios.dali;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.daliedu.wx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
@@ -1335,7 +1335,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = examw.netplatform.ios.dali;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.daliedu.wx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
