@@ -70,7 +70,7 @@
 
 @end
 
-#import "PlayerViewController.h"
+#import "VitamioPlayerViewController.h"
 #import "PJNavigationBar.h"
 #import "PlayNavigationController.h"
 #import "DownViewController.h"
@@ -136,7 +136,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PlayerViewController *play = [[PlayerViewController alloc] initWithParameters:_datas[indexPath.row]];
+    VitamioPlayerViewController *play = [[VitamioPlayerViewController alloc] initWithParameters:_datas[indexPath.row]];
     PlayNavigationController *nav = [[PlayNavigationController alloc] initWithRootViewController:play];;
     
     [self presentViewController:nav];
@@ -204,6 +204,19 @@
         newDic[@"pid"] = _parameters[@"id"];
         [array addObject:newDic];
     }
+    //排序
+    [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSDictionary *dic1 = (NSDictionary *)obj1;
+        NSDictionary *dic2 = (NSDictionary *)obj2;
+        
+        if(dic1 && dic2){
+            return [dic1[@"orderNo"] intValue] > [dic2[@"orderNo"] intValue];
+        }
+        
+        return 0;
+    }];
+    
+    //
     _datas = array;
     [_table.header endRefreshing];
     [self reloadTabData];

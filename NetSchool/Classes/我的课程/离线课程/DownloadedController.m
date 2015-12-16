@@ -9,7 +9,7 @@
 #import "DownloadedController.h"
 #import "PJTableViewCell.h"
 #import "DownloadSinglecase.h"
-#import "PlayerViewController.h"
+#import "VitamioPlayerViewController.h"
 #import "PlayNavigationController.h"
 
 @interface DownloadedCell: PJTableViewCell
@@ -101,7 +101,7 @@
     if (tableView.editing) {
         return;
     }
-    PlayerViewController *play = [[PlayerViewController alloc] initWithParameters:[DownloadSinglecase sharedDownloadSinglecase].finishedList[indexPath.row]];
+    VitamioPlayerViewController *play = [[VitamioPlayerViewController alloc] initWithParameters:[DownloadSinglecase sharedDownloadSinglecase].finishedList[indexPath.row]];
     PlayNavigationController *nav = [[PlayNavigationController alloc] initWithRootViewController:play];;
     [self presentViewController:nav];
 }

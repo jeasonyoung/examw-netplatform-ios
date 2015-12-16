@@ -83,7 +83,7 @@
 
 @end
 
-#import "PlayerViewController.h"
+#import "VitamioPlayerViewController.h"
 #import "PlayNavigationController.h"
 
 @interface PlayRecordViewController ()
@@ -181,7 +181,7 @@
 {
     PlayRecord *record = _datas[indexPath.row];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:record.datas options:kNilOptions error:nil];
-    PlayerViewController *play = [[PlayerViewController alloc] initWithParameters:dic];
+    VitamioPlayerViewController *play = [[VitamioPlayerViewController alloc] initWithParameters:dic];
     PlayNavigationController *nav = [[PlayNavigationController alloc] initWithRootViewController:play];;
     [self presentViewController:nav];
 }
