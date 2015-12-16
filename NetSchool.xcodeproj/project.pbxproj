@@ -937,7 +937,7 @@
 				TargetAttributes = {
 					680D40EC1B9079E700CFF29E = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = V272W7YD5Y;
+						DevelopmentTeam = E6FH34KVG7;
 					};
 					680D41081B9079E700CFF29E = {
 						CreatedOnToolsVersion = 6.4;
@@ -1338,6 +1338,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.daliedu.wx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
