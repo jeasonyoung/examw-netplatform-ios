@@ -93,7 +93,7 @@
     if (isDownloading && !isWaiting)
     {
         [_status setImage:[UIImage imageNamed:@"pauseButton.png"] forState:UIControlStateNormal];
-        [_status setTitle:@"正在下载" forState:UIControlStateNormal];
+        [_status setTitle:@"正在缓存" forState:UIControlStateNormal];
     }
     else if (!isDownloading && isWaiting)
     {
@@ -119,7 +119,7 @@
 - (id)init
 {
     if ((self = [super init])) {
-        self.title = @"下载中";
+        self.title = @"缓存中";
     }
     return self;
 }
@@ -199,7 +199,7 @@
         {
             [cell.status setImage:[UIImage imageNamed:@"pauseButton.png"] forState:UIControlStateNormal];
             
-            [cell.status setTitle:@"正在下载" forState:UIControlStateNormal];
+            [cell.status setTitle:@"正在缓存" forState:UIControlStateNormal];
             NSString *fileCurrentSize = [NSString stringWithFormat:@"%.1f",[CommonHelper getFileSizeNumber:fileInfo[@"fileReceivedSize"]] / [CommonHelper getFileSizeNumber:fileInfo[@"fileSize"]] * 100];
             NSString *abstracts = [NSString stringWithFormat:@"(%@) ----- %@%% ",[NSString stringWithFormat:@"%.1fM/%.1fM",[fileInfo[@"fileReceivedSize"] floatValue] / 1024 / 1024,[fileInfo[@"fileSize"] floatValue] / 1024 / 1024],fileCurrentSize ];
             cell.detailTextLabel.text = abstracts;

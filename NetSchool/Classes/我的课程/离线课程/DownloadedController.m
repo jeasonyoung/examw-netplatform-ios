@@ -64,7 +64,7 @@
 - (id)init
 {
     if ((self = [super init])) {
-        self.title = @"下载完成";
+        self.title = @"缓存完成";
     }
     return self;
 }

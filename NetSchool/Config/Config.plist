@@ -64,7 +64,7 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>离线课程</string>
+			<string>缓存课程</string>
 			<key>image</key>
 			<string>bottom_line1.png</string>
 			<key>highlightedImage</key>

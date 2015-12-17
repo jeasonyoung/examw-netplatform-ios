@@ -90,7 +90,7 @@
     if ((self = [super initWithParameters:parameters])) {
         [self.navigationItem setNewTitle:parameters[@"name"]];
         [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
-       _goDown = [self.navigationItem setRightItemWithTarget:self title:@"下载" action:@selector(download) image:nil];
+       _goDown = [self.navigationItem setRightItemWithTarget:self title:@"离线缓存" action:@selector(download) image:nil];
         _goDown.hidden = YES;
         
     }
@@ -234,18 +234,7 @@
 }
 
 #pragma mark - 去下载
-- (void)download
-{
+- (void)download{
     [self addNavigationWithPresentViewController:[[DownViewController alloc] initWithParameters:_datas]];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

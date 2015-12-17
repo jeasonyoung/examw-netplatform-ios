@@ -10,10 +10,12 @@
 #import "CommonHelper.h"
 
 BOOL _recovery;
-@interface DownloadSinglecase ()
-@property (nonatomic, strong) NSString *userVideoFiles;
-@property (nonatomic, strong) NSString *userVideoTemps;
+@interface DownloadSinglecase()
+
+    @property (nonatomic, strong) NSString *userVideoFiles;
+    @property (nonatomic, strong) NSString *userVideoTemps;
 @end
+
 @implementation DownloadSinglecase
 singleton_implementation(DownloadSinglecase)
 

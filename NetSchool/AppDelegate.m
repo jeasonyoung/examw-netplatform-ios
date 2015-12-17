@@ -16,21 +16,10 @@
 @implementation AppDelegate
 
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{
-//    NSLog(@"%@",NSStringFromClass([[[window subviews]lastObject] class]));
-//
-//    if ([NSStringFromClass([[[window subviews]lastObject] class]) isEqualToString:@"PlayViewController"]) {
-//        return UIInterfaceOrientationMaskAll;
-//        //优酷 土豆  乐视  已经测试可以
-//    }
-//    return UIInterfaceOrientationMaskPortrait;
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     if (self.allowRotation) {
         return UIInterfaceOrientationMaskLandscape;
-        
-    }
-    else
-    {
+    } else {
         return UIInterfaceOrientationMaskPortrait;
     }
 }

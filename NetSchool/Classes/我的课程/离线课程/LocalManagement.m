@@ -25,7 +25,7 @@
 {
     if ((self = [super initWithViewControllers:viewControllers]))
     {
-        [self.navigationItem setNewTitle:@"离线课程"];
+        [self.navigationItem setNewTitle:@"缓存课程"];
         [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
        _rightBtn = [self.navigationItem setRightItemWithTarget:self title:@"编辑" action:@selector(eventWithEdit) image:nil];
         self.delegate = self;

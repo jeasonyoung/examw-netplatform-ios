@@ -55,7 +55,7 @@
     else
     {
         _acc.hidden = YES;
-        self.textLabel.text = @"班级课程正在下载或已全部下载完!";
+        self.textLabel.text = @"班级课程正在缓存或已全部缓存完!";
         self.textLabel.font = NFont(15);
         self.textLabel.textColor = [UIColor blackColor];
 
@@ -74,7 +74,7 @@
     }
     else
     {
-        self.textLabel.text = @"暂时没有下载课程!";
+        self.textLabel.text = @"暂时没有缓存课程!";
         self.textLabel.font = NFont(15);
         self.textLabel.textColor = [UIColor blackColor];
     }
@@ -103,11 +103,10 @@
 {
     if ((self = [super initWithParameters:parameters]))
     {
-        [self.navigationItem setNewTitle:@"下 载"];
+        [self.navigationItem setNewTitle:@"离线缓存"];
         [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
         _downloadDatas = [NSMutableArray array];
         _datas = [[DownloadSinglecase sharedDownloadSinglecase] sortWithDowningDatas:parameters];
-//        _parameters = @[@{@"name":@"1"},@{@"name":@"2"},@{@"name":@"3"},@{@"name":@"4"},@{@"name":@"5"},@{@"name":@"6"},@{@"name":@"7"},@{@"name":@"8"},@{@"name":@"9"},@{@"name":@"10"},@{@"name":@"11"},@{@"name":@"12"},@{@"name":@"13"},@{@"name":@"14"},@{@"name":@"15"},@{@"name":@"16"},@{@"name":@"17"},@{@"name":@"18"},@{@"name":@"19"},@{@"name":@"20"}];
     }
     return self;
 }
@@ -170,7 +169,7 @@
     headerView.backgroundColor = RGBA(110, 110, 110, .5);
     headerView.textColor = [UIColor whiteColor];
     if (section == 0) {
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"可下载"];
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"可缓存"];
         NSMutableParagraphStyle * style = [NSMutableParagraphStyle new];
         style.firstLineHeadIndent = kDefaultInset.left;
         [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, 3)];
@@ -178,7 +177,7 @@
     }
     else
     {
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"已下载或下载中"];
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"已缓存或缓存中"];
         NSMutableParagraphStyle * style = [NSMutableParagraphStyle new];
         style.firstLineHeadIndent = kDefaultInset.left;
         [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, 7)];
@@ -266,7 +265,7 @@
 
 - (void)eventWithDone
 {
-    [self.view makeToast:@"添加下载成功" duration:1.0 position:@"center"];
+    [self.view makeToast:@"添加缓存成功" duration:1.0 position:@"center"];
     [[DownloadSinglecase sharedDownloadSinglecase] beginRequest:_downloadDatas isBeginDown:YES];
     [_downloadDatas removeAllObjects];
     _show.attributedText = [self setToolText];
