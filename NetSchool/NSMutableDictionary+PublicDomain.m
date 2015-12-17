@@ -8,15 +8,17 @@
 
 #import "NSMutableDictionary+PublicDomain.h"
 #import <CommonCrypto/CommonDigest.h>
-
+#import "AccessConfig.h"
 
 
 @implementation NSMutableDictionary (PublicDomain)
 
 
 #pragma mark - 公共域
-- (void)setPublicDomain;
-{
+- (void)setPublicDomain{
+    AccessConfig *cfg = [AccessConfig shared];
+    NSLog(@"AccessConfig=>%@", cfg.url);
+    
     self[@"token"] = @"examw";
     NSArray* arr = self.allKeys;
     arr = [arr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){

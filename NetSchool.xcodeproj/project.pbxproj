@@ -264,6 +264,11 @@
 		A190CB6D1C228B76005926AC /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 680D41281B907AB000CFF29E /* Config.plist */; };
 		A190CB6E1C228B76005926AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680D40FD1B9079E700CFF29E /* Main.storyboard */; };
 		A190CB7A1C228CBF005926AC /* Images-dali.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A190CB791C228CBF005926AC /* Images-dali.xcassets */; };
+		A190CB9A1C22B2EB005926AC /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
+		A190CB9B1C22B2EB005926AC /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
+		A190CB9C1C22B2EB005926AC /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
+		A190CB9D1C22B2EB005926AC /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
+		A190CB9F1C22B373005926AC /* access-ch.plist in Resources */ = {isa = PBXBuildFile; fileRef = A190CB9E1C22B373005926AC /* access-ch.plist */; };
 		A1F1236F1C02DCDC0011B30C /* libBaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1236E1C02DCDC0011B30C /* libBaseObject.a */; };
 		A1F123701C02DD590011B30C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 		A1F8D59C1C2269E8009C1401 /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948211BB1B7D20031013A /* MJDIYBackFooter.m */; };
@@ -536,6 +541,9 @@
 		A190CB751C228B76005926AC /* dali.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dali.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A190CB771C228C21005926AC /* Info-dali.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-dali.plist"; sourceTree = "<group>"; };
 		A190CB791C228CBF005926AC /* Images-dali.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-dali.xcassets"; sourceTree = "<group>"; };
+		A190CB981C22B2EB005926AC /* AccessConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessConfig.h; sourceTree = "<group>"; };
+		A190CB991C22B2EB005926AC /* AccessConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessConfig.m; sourceTree = "<group>"; };
+		A190CB9E1C22B373005926AC /* access-ch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "access-ch.plist"; sourceTree = "<group>"; };
 		A1F1235D1C02D81A0011B30C /* libASIHTTPRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libASIHTTPRequest.a; path = "Pods/../build/Debug-iphoneos/libASIHTTPRequest.a"; sourceTree = "<group>"; };
 		A1F1235E1C02D81A0011B30C /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "Pods/../build/Debug-iphoneos/libMBProgressHUD.a"; sourceTree = "<group>"; };
 		A1F1235F1C02D81A0011B30C /* libMJRefresh.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJRefresh.a; path = "Pods/../build/Debug-iphoneos/libMJRefresh.a"; sourceTree = "<group>"; };
@@ -764,6 +772,8 @@
 		680D40F01B9079E700CFF29E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A190CB981C22B2EB005926AC /* AccessConfig.h */,
+				A190CB991C22B2EB005926AC /* AccessConfig.m */,
 				68E6DCA21BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.h */,
 				68E6DCA31BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.m */,
 				680D422B1B907AD100CFF29E /* NetSchool-Prefix.pch */,
@@ -773,6 +783,7 @@
 				A1F8D61C1C226ABF009C1401 /* Info-ch.plist */,
 				A190CB111C2285A1005926AC /* Info-huike.plist */,
 				A190CB771C228C21005926AC /* Info-dali.plist */,
+				A190CB9E1C22B373005926AC /* access-ch.plist */,
 				680D40F21B9079E700CFF29E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1288,6 +1299,7 @@
 				A1F8D5F81C2269E8009C1401 /* Config.plist in Resources */,
 				A1F8D6031C2269E8009C1401 /* Main.storyboard in Resources */,
 				A1F8D6211C22798F009C1401 /* images-ch.xcassets in Resources */,
+				A190CB9F1C22B373005926AC /* access-ch.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1498,6 +1510,7 @@
 				680D42031B907AB000CFF29E /* PJViewController.m in Sources */,
 				68D948291BB1B7D20031013A /* MJDIYHeader.m in Sources */,
 				68D948271BB1B7D20031013A /* MJDIYAutoFooter.m in Sources */,
+				A190CB9A1C22B2EB005926AC /* AccessConfig.m in Sources */,
 				680D40F61B9079E700CFF29E /* AppDelegate.m in Sources */,
 				68E488851B95A3710082D53A /* FreeList1ViewController.m in Sources */,
 				6869C0011BFDA38A0060F740 /* Account.m in Sources */,
@@ -1576,6 +1589,7 @@
 				A190CAC01C22853D005926AC /* PJViewController.m in Sources */,
 				A190CAC11C22853D005926AC /* MJDIYHeader.m in Sources */,
 				A190CAC21C22853D005926AC /* MJDIYAutoFooter.m in Sources */,
+				A190CB9C1C22B2EB005926AC /* AccessConfig.m in Sources */,
 				A190CAC31C22853D005926AC /* AppDelegate.m in Sources */,
 				A190CAC41C22853D005926AC /* FreeList1ViewController.m in Sources */,
 				A190CAC51C22853D005926AC /* Account.m in Sources */,
@@ -1646,6 +1660,7 @@
 				A190CB261C228B76005926AC /* PJViewController.m in Sources */,
 				A190CB271C228B76005926AC /* MJDIYHeader.m in Sources */,
 				A190CB281C228B76005926AC /* MJDIYAutoFooter.m in Sources */,
+				A190CB9D1C22B2EB005926AC /* AccessConfig.m in Sources */,
 				A190CB291C228B76005926AC /* AppDelegate.m in Sources */,
 				A190CB2A1C228B76005926AC /* FreeList1ViewController.m in Sources */,
 				A190CB2B1C228B76005926AC /* Account.m in Sources */,
@@ -1716,6 +1731,7 @@
 				A1F8D5AA1C2269E8009C1401 /* PJViewController.m in Sources */,
 				A1F8D5AB1C2269E8009C1401 /* MJDIYHeader.m in Sources */,
 				A1F8D5AC1C2269E8009C1401 /* MJDIYAutoFooter.m in Sources */,
+				A190CB9B1C22B2EB005926AC /* AccessConfig.m in Sources */,
 				A1F8D5AD1C2269E8009C1401 /* AppDelegate.m in Sources */,
 				A1F8D5AE1C2269E8009C1401 /* FreeList1ViewController.m in Sources */,
 				A1F8D5AF1C2269E8009C1401 /* Account.m in Sources */,
