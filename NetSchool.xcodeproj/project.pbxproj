@@ -92,6 +92,8 @@
 		A131500C1C216305003E50E1 /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500B1C216305003E50E1 /* libbz2.1.0.dylib */; };
 		A131500E1C216337003E50E1 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500D1C216337003E50E1 /* libstdc++.6.0.9.dylib */; };
 		A13150101C216350003E50E1 /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500F1C216350003E50E1 /* libiconv.2.dylib */; };
+		A16086E41C23998800409C1E /* access-huike.plist in Resources */ = {isa = PBXBuildFile; fileRef = A16086E01C23995700409C1E /* access-huike.plist */; };
+		A16086E51C2399B100409C1E /* access-dali.plist in Resources */ = {isa = PBXBuildFile; fileRef = A16086DF1C23995700409C1E /* access-dali.plist */; };
 		A190CAB21C22853D005926AC /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948211BB1B7D20031013A /* MJDIYBackFooter.m */; };
 		A190CAB31C22853D005926AC /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6869BFFD1BFDA38A0060F740 /* Account+CoreDataProperties.m */; };
 		A190CAB41C22853D005926AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D42341B907B5300CFF29E /* LoginViewController.m */; };
@@ -535,6 +537,8 @@
 		A131500B1C216305003E50E1 /* libbz2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.1.0.dylib; path = ../../../usr/lib/libbz2.1.0.dylib; sourceTree = "<group>"; };
 		A131500D1C216337003E50E1 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "../../../usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<group>"; };
 		A131500F1C216350003E50E1 /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = ../../../usr/lib/libiconv.2.dylib; sourceTree = "<group>"; };
+		A16086DF1C23995700409C1E /* access-dali.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "access-dali.plist"; sourceTree = "<group>"; };
+		A16086E01C23995700409C1E /* access-huike.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "access-huike.plist"; sourceTree = "<group>"; };
 		A190CB0F1C22853D005926AC /* huike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A190CB111C2285A1005926AC /* Info-huike.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-huike.plist"; sourceTree = "<group>"; };
 		A190CB131C228853005926AC /* images-huike.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "images-huike.xcassets"; sourceTree = "<group>"; };
@@ -784,6 +788,8 @@
 				A190CB111C2285A1005926AC /* Info-huike.plist */,
 				A190CB771C228C21005926AC /* Info-dali.plist */,
 				A190CB9E1C22B373005926AC /* access-ch.plist */,
+				A16086E01C23995700409C1E /* access-huike.plist */,
+				A16086DF1C23995700409C1E /* access-dali.plist */,
 				680D40F21B9079E700CFF29E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1277,6 +1283,7 @@
 				A190CB071C22853D005926AC /* Config.plist in Resources */,
 				A190CB081C22853D005926AC /* Main.storyboard in Resources */,
 				A190CB141C228853005926AC /* images-huike.xcassets in Resources */,
+				A16086E41C23998800409C1E /* access-huike.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,6 +1295,7 @@
 				A190CB6D1C228B76005926AC /* Config.plist in Resources */,
 				A190CB6E1C228B76005926AC /* Main.storyboard in Resources */,
 				A190CB7A1C228CBF005926AC /* Images-dali.xcassets in Resources */,
+				A16086E51C2399B100409C1E /* access-dali.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

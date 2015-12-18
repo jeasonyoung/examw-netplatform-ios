@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>url</key>
-	<string>http://wx.examw.cn/api.php/</string>
+	<string>http://wx.daliedu.cn:8000/dali/api.php/</string>
 	<key>token</key>
-	<string>examw</string>
+	<string>test</string>
 	<key>key</key>
-	<string>AQi6TZ4Nh8vy2ByMob</string>
+	<string>0123456</string>
 	<key>copyright</key>
-	<string> © 2006 - 2015 中华考试网</string>
+	<string>© 大立教育</string>
 </dict>
 </plist>

@@ -17,9 +17,8 @@
 #pragma mark - 公共域
 - (void)setPublicDomain{
     AccessConfig *cfg = [AccessConfig shared];
-    NSLog(@"AccessConfig=>%@", cfg.url);
-    
-    self[@"token"] = @"examw";
+ 
+    self[@"token"] = cfg.accessToken;
     NSArray* arr = self.allKeys;
     arr = [arr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
         NSComparisonResult result = [obj1 compare:obj2];
@@ -38,7 +37,7 @@
             [sign appendFormat:@"&%@",[NSString stringWithFormat:@"%@=%@",key,self[key]]];
         }
     }
-    [sign appendFormat:@"AQi6TZ4Nh8vy2ByMob"];
+    [sign appendFormat:@"%@",cfg.accesskey];
     
     self[@"sign"] = md5(sign);
 }

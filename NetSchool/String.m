@@ -7,14 +7,15 @@
 //
 
 #import "String.h"
+#import "AccessConfig.h"
 
-NSString *const serverUrl = @"http://wx.examw.cn/api.php/";
-//NSString *const agencyId = @"9bc380e2-4fc7-11e5-bfe6-000d609a8169";
 
 @implementation String
 
-+ (NSString *)setUrl:(NSString *)url;
-{
++ (NSString *)setUrl:(NSString *)url;{
+    
+    NSString *serverUrl = [AccessConfig shared].url;
+    
     return [serverUrl stringByAppendingString:url];
 }
 
