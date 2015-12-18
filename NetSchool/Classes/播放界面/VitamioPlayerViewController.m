@@ -130,7 +130,6 @@ CGFloat const gesture_minimum_translation = 1.0;
         //网络播放
         [_player setDataSource:[NSURL URLWithString:_parameters[@"videoUrl"]]];
     }
-    //[_player setDataSource:[NSURL URLWithString:@"http://v.dalischool.com:8091/lxzkqjh1.flv"]];
     //播放器异步缓冲
     [_player prepareAsync];
     //添加手势

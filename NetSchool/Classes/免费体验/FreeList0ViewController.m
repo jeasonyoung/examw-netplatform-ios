@@ -21,7 +21,7 @@
 {
     if ((self = [super init]))
     {
-        [self.navigationItem setNewTitle:@"免费体验"];
+        [self.navigationItem setNewTitle:@"课程类目"];
         [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
     }
     return self;

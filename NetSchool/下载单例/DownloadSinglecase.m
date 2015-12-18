@@ -21,10 +21,16 @@ singleton_implementation(DownloadSinglecase)
 
 -(void)creatPath
 {
-    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches"];
-    _videoFiles = [[[filePath stringByAppendingPathComponent:[NSString stringWithFormat:@"User information"]] stringByAppendingPathComponent:[Infomation readInfo][@"userId"]] stringByAppendingPathComponent:@"VideoFiles"];
+    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Caches"];
+    filePath = [filePath stringByAppendingPathComponent:[Infomation readInfo][@"userName"]];
+    //NSLog(@"filePath=>%@",filePath);
     
-    _videoTemps = [[[filePath stringByAppendingPathComponent:[NSString stringWithFormat:@"User information"]] stringByAppendingPathComponent:[Infomation readInfo][@"userId"]] stringByAppendingPathComponent:@"VideoTemps"];
+    _videoFiles = [filePath stringByAppendingPathComponent:@"VideoFiles"];
+    //NSLog(@"_videoFiles=>%@",_videoFiles);
+    
+    _videoTemps = [filePath stringByAppendingPathComponent:@"VideoTemps"];
+    //NSLog(@"_videoTemps=>%@",_videoTemps);
+    
     [self loadTempfiles];
     [self loadFinishedfiles];
 }
@@ -102,6 +108,8 @@ singleton_implementation(DownloadSinglecase)
         ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:mp4Url];
         request.delegate=self;
         request.shouldContinueWhenAppEntersBackground = YES;
+        
+        
         
         [request setDownloadDestinationPath:[_videoFiles stringByAppendingPathComponent:[NSString stringWithFormat:@"%@<->%@.mp4",datas[@"id"],datas[@"name"]]]];//设置文件保存路径
         [request setTemporaryFileDownloadPath:[_videoTemps stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4.temp",datas[@"id"]]]];//设置临时文件保存路径;
@@ -269,10 +277,20 @@ singleton_implementation(DownloadSinglecase)
         {
 //            NSString *path = [_videoFiles stringByAppendingPathComponent:fileName];
             NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-            NSInteger index=[fileName rangeOfString:@"."].location;
+        
+            NSInteger index=[fileName rangeOfString:@"." options:NSBackwardsSearch].location;
             NSString *trueName=[fileName substringToIndex:index];
             NSArray *array = [trueName componentsSeparatedByString:@"<->"];
-            dic[@"videoUrl"] = fileName;
+            
+            //新文件名
+            NSString *newFileName = [CommonHelper md5Hex:fileName];
+            //重命名
+            NSError *err;
+            [fileManager moveItemAtPath:[_videoFiles stringByAppendingPathComponent:fileName]
+                                 toPath:[_videoFiles stringByAppendingPathComponent:newFileName]
+                                  error:&err];
+            
+            dic[@"videoUrl"] = newFileName;
             dic[@"id"] = array[0];
             dic[@"name"] = array[1];
             [_finishedList addObject:dic];

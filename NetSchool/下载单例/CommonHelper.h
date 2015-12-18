@@ -15,4 +15,6 @@
 //经文件大小转化成不带单位ied数字
 +(float)getFileSizeNumber:(NSString *)size;
 
+//md5加密处理
++(NSString *)md5Hex:(NSString *)source;
 @end
