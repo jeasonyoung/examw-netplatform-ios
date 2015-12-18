@@ -59,4 +59,23 @@
     return source;
 }
 
+//base64编码
++(NSString *)encodeBase64:(NSString *)source{
+    if(source && source.length > 0){
+        NSData *data = [source dataUsingEncoding:NSUTF8StringEncoding];
+        return [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
+    }
+    return source;
+}
+
+//base64解码
++(NSString *)decodeBase64:(NSString *)base64{
+    if(base64 && base64.length > 0){
+        NSData *data = [[NSData alloc] initWithBase64EncodedString:base64
+                                                           options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        return [NSString stringWithUTF8String:[data bytes]];
+    }
+    return base64;
+}
+
 @end

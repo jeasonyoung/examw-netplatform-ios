@@ -17,4 +17,10 @@
 
 //md5加密处理
 +(NSString *)md5Hex:(NSString *)source;
+
+//base64编码
++(NSString *)encodeBase64:(NSString *)source;
+
+//base64解码
++(NSString *)decodeBase64:(NSString *)base64;
 @end

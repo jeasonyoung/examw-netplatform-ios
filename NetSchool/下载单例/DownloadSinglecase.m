@@ -56,21 +56,25 @@ singleton_implementation(DownloadSinglecase)
     
     for (NSMutableDictionary *datas in dataArray)
     {
-        NSURL *mp4Url = [NSURL URLWithString:datas[@"videoUrl"]];
-//                NSURL *mp4Url = [NSURL URLWithString:@"http://demo.examw.com:8088/4g.mp4"];
+        NSURL *mUrl = [NSURL URLWithString:datas[@"videoUrl"]];
         //如果不存在则创建临时存储目录
         NSFileManager *fileManager=[NSFileManager defaultManager];
         NSError *error;
         
-        
         if(![fileManager fileExistsAtPath:_videoFiles])
         {
-            [fileManager createDirectoryAtPath:_videoFiles withIntermediateDirectories:YES attributes:nil error:&error];
+            [fileManager createDirectoryAtPath:_videoFiles
+                   withIntermediateDirectories:YES
+                                    attributes:nil
+                                         error:&error];
         }
         
         if(![fileManager fileExistsAtPath:_videoTemps])
         {
-            [fileManager createDirectoryAtPath:_videoTemps withIntermediateDirectories:YES attributes:nil error:&error];
+            [fileManager createDirectoryAtPath:_videoTemps
+                   withIntermediateDirectories:YES
+                                    attributes:nil
+                                         error:&error];
         }
         
         
@@ -80,21 +84,27 @@ singleton_implementation(DownloadSinglecase)
         writeDic[@"fileSize"] = datas[@"fileSize"]?datas[@"fileSize"]:@"";
         writeDic[@"videoUrl"] = datas[@"videoUrl"];
         writeDic[@"id"] = datas[@"id"];
-        NSData *writeData = [NSJSONSerialization dataWithJSONObject:writeDic  options:NSJSONWritingPrettyPrinted error:nil];
-        NSString *writeMsg = [[NSString alloc] initWithData:writeData encoding:NSUTF8StringEncoding];
+        
+        NSData *writeData = [NSJSONSerialization dataWithJSONObject:writeDic
+                                                            options:NSJSONWritingPrettyPrinted
+                                                              error:nil];
+        
+        NSString *writeMsg = [[NSString alloc] initWithData:writeData
+                                                   encoding:NSUTF8StringEncoding];
+        
         [writeMsg writeToFile:[_videoTemps stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.rtf",datas[@"id"]]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
         
         datas[@"isFistReceived"] = [NSNumber numberWithBool:YES];
 
         //获取Temp文件大小
         NSData *fileData=[fileManager contentsAtPath:[_videoTemps stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4.temp",datas[@"id"]]]];
+        
         NSInteger receivedDataLength=[fileData length];
         datas[@"fileReceivedSize"] = [NSString stringWithFormat:@"%d",receivedDataLength];
         
         
         //如果文件重复下载或暂停、继续，则把队列中的请求删除，重新添加
         for(ASIHTTPRequest *tempRequest in self.downingList){
-//            if([tempRequest.url isEqual:mp4Url]){
             NSDictionary *tDic = tempRequest.userInfo[@"File"];
             if ([tDic[@"id"] isEqualToString:datas[@"id"]])
             {
@@ -103,20 +113,17 @@ singleton_implementation(DownloadSinglecase)
                 [self.downingList removeObject:tempRequest];
                 break;
             }
-            //            [tempRequest setUsername:@"sdsda"];
         }
-        ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:mp4Url];
-        request.delegate=self;
+        ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:mUrl];
+        request.delegate = self;
         request.shouldContinueWhenAppEntersBackground = YES;
-        
         
         
         [request setDownloadDestinationPath:[_videoFiles stringByAppendingPathComponent:[NSString stringWithFormat:@"%@<->%@.mp4",datas[@"id"],datas[@"name"]]]];//设置文件保存路径
         [request setTemporaryFileDownloadPath:[_videoTemps stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4.temp",datas[@"id"]]]];//设置临时文件保存路径;
         [request setDownloadProgressDelegate:self];
-        //    [request setDownloadProgressDelegate:downCell.progress];//设置进度条的代理,这里由于下载是在AppDelegate里进行的全局下载，所以没有使用自带的进度条委托，这里自己设置了一个委托，用于更新UI
-        [request setAllowResumeForFileDownloads:YES];//支持断点续传
         
+        [request setAllowResumeForFileDownloads:YES];//支持断点续传
         
         datas[@"request"] = request;
                 
@@ -273,27 +280,31 @@ singleton_implementation(DownloadSinglecase)
         {
        
         }
-        for(NSString *fileName in filelist)
-        {
-//            NSString *path = [_videoFiles stringByAppendingPathComponent:fileName];
-            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        
-            NSInteger index=[fileName rangeOfString:@"." options:NSBackwardsSearch].location;
-            NSString *trueName=[fileName substringToIndex:index];
+        NSRange range;
+        for(NSString *fileName in filelist){
+            
+            range = [fileName rangeOfString:@"." options:NSBackwardsSearch];
+            if(range.location == NSNotFound) continue;
+            
+            NSString *trueName=[fileName substringToIndex:range.location];
             NSArray *array = [trueName componentsSeparatedByString:@"<->"];
             
+            if(array.count <= 1) continue;
+            
             //新文件名
-            NSString *newFileName = [CommonHelper md5Hex:fileName];
+            NSString *newFileName = [CommonHelper encodeBase64:fileName];
             //重命名
             NSError *err;
-            [fileManager moveItemAtPath:[_videoFiles stringByAppendingPathComponent:fileName]
+            if([fileManager moveItemAtPath:[_videoFiles stringByAppendingPathComponent:fileName]
                                  toPath:[_videoFiles stringByAppendingPathComponent:newFileName]
-                                  error:&err];
+                                     error:&err]){
             
-            dic[@"videoUrl"] = newFileName;
-            dic[@"id"] = array[0];
-            dic[@"name"] = array[1];
-            [_finishedList addObject:dic];
+                [_finishedList addObject:@{@"videoUrl":newFileName,
+                                                 @"id":array[0],
+                                               @"name":array[1]}];
+            }else{
+                NSLog(@"重命名文件[%@=>%@]异常:%@", fileName, newFileName, err.description);
+            }
         }
     }
 
@@ -331,40 +342,45 @@ singleton_implementation(DownloadSinglecase)
 }
 
 
--(void)loadFinishedfiles
-{
+-(void)loadFinishedfiles{
     self.finishedList = [NSMutableArray array];
     NSFileManager *fileManager=[NSFileManager defaultManager];
     NSError *error;
     
     
-    if([fileManager fileExistsAtPath:_videoFiles])
-    {
+    if([fileManager fileExistsAtPath:_videoFiles]){
         NSArray *filelist=[fileManager contentsOfDirectoryAtPath:_videoFiles error:&error];
-        if(!error)
-        {
-            
+        if(error){
+            NSLog(@"加载目录[%@]下文件异常:%@", _videoFiles, error.description);
+            return;
         }
-        for(NSString *fileName in filelist)
-        {
-//            NSString *path = [_videoFiles stringByAppendingPathComponent:fileName];
-            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-            NSInteger index=[fileName rangeOfString:@"."].location;
-            NSString *trueName=[fileName substringToIndex:index];
+        NSRange range;
+        NSString *trueName;
+        for(NSString *fileName in filelist){
+            
+            range = [fileName rangeOfString:@"." options:NSBackwardsSearch];
+            if(range.location == NSNotFound){
+                NSString *decodeFileName = [CommonHelper decodeBase64:fileName];
+                range = [decodeFileName rangeOfString:@"." options:NSBackwardsSearch];
+                if(range.location == NSNotFound) continue;
+                trueName = [decodeFileName substringToIndex:range.location];
+            }else{
+                trueName = [fileName substringToIndex:range.location];
+            }
+            
             NSArray *array = [trueName componentsSeparatedByString:@"<->"];
-            dic[@"videoUrl"] = fileName;
-            dic[@"id"] = array[0];
-            dic[@"name"] = array[1];
-            
-            [_finishedList addObject:dic];
-            
+            if(array && array.count > 1){
+                [_finishedList addObject:@{@"videoUrl":fileName,
+                                           @"id":array[0],
+                                           @"name":array[1]}];
+            }
         }
     }
 }
 
 
-- (NSArray *)sortWithDowningDatas:(NSArray *)datas;
-{
+- (NSArray *)sortWithDowningDatas:(NSArray *)datas{
+    
     NSFileManager *fileManager=[NSFileManager defaultManager];
     NSError *error;
     NSArray *videoFiles=[fileManager contentsOfDirectoryAtPath:_videoFiles error:&error];
