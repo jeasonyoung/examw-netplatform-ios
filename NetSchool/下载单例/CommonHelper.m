@@ -41,23 +41,23 @@
 }
 
 //md5加密
-+(NSString *)md5Hex:(NSString *)source{
-    if(source && source.length > 0){
-        const char * original = [source UTF8String];
-        
-        unsigned char digest[CC_MD5_DIGEST_LENGTH];
-        CC_MD5(original, strlen(original), digest);
-        
-        NSMutableString *result = [NSMutableString stringWithCapacity:32];
-        
-        for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++){
-            [result appendFormat:@"%02x", (int)digest[i]];
-        }
-        
-        return [result lowercaseString];
-    }
-    return source;
-}
+//+(NSString *)md5Hex:(NSString *)source{
+//    if(source && source.length > 0){
+//        const char * original = [source UTF8String];
+//        
+//        unsigned char digest[CC_MD5_DIGEST_LENGTH];
+//        CC_MD5(original, strlen(original), digest);
+//        
+//        NSMutableString *result = [NSMutableString stringWithCapacity:32];
+//        
+//        for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++){
+//            [result appendFormat:@"%02x", (int)digest[i]];
+//        }
+//        
+//        return [result lowercaseString];
+//    }
+//    return source;
+//}
 
 //base64编码
 +(NSString *)encodeBase64:(NSString *)source{

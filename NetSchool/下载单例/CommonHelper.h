@@ -16,7 +16,7 @@
 +(float)getFileSizeNumber:(NSString *)size;
 
 //md5加密处理
-+(NSString *)md5Hex:(NSString *)source;
+//+(NSString *)md5Hex:(NSString *)source;
 
 //base64编码
 +(NSString *)encodeBase64:(NSString *)source;
