@@ -552,9 +552,8 @@ static NSString * const FORM_FLE_INPUT = @"file";
 }
 
 #pragma mark - 计算指定过去时间与当前的时间差
-+(NSString *)compareCurrentTimeToPastTime:(NSDate*)compareDate;
-//
-{
++(NSString *)compareCurrentTimeToPastTime:(NSDate*)compareDate{
+    if(!compareDate) return @"";
     
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
     

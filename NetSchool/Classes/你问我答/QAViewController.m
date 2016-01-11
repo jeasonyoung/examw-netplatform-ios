@@ -92,40 +92,42 @@
     if ((self = [super init]))
     {
         [self.navigationItem setNewTitle:@"你问我答"];
-        [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
-        [self.navigationItem setRightItemWithTarget:self title:@"提问" action:@selector(eventWithRight) image:nil];
+        [self.navigationItem setBackItemWithTarget:self
+                                             title:nil
+                                            action:@selector(back)
+                                             image:@"back.png"];
+        [self.navigationItem setRightItemWithTarget:self
+                                              title:@"提问"
+                                             action:@selector(eventWithRight)
+                                              image:nil];
     }
     return self;
 }
 
-- (void)back
-{
+- (void)back{
     [self popViewController];
 }
 
-- (void)eventWithRight
-{
+- (void)eventWithRight{
     [self pushViewController:[[AddToQATheme alloc] initWithSuccess:^{
         [_table.header beginRefreshing];
     }]];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     _table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    _table.header = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    _table.header = [MJChiBaoZiHeader headerWithRefreshingTarget:self
+                                                refreshingAction:@selector(loadNewData)];
     [_table.header beginRefreshing];
 
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _datas.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *datas = _datas[indexPath.row];
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -137,56 +139,62 @@
     
     return kDefaultInset.top * 3 + titleSize.height + NFont(14).lineHeight;}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"cellIdentifier";
     QACell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         cell = [[QACell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    
     cell.datas = _datas[indexPath.row];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self pushViewController:[[QADetailViewController alloc] initWithParameters:_datas[indexPath.row]]];
 }
 
-- (void)loadNewData;
-{
+- (void)loadNewData;{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
     [params setPublicDomain];
 
-    _connection = [BaseModel POST:URL(@"api/m/aq/topics") parameter:params   class:[BaseModel class]
-                          success:^(id data)
-                   {
-                       _datas = [self sortedArray:data[@"data"]] ;
-                       
-                       [self reloadTabData];
-                       [_table.header endRefreshing];
-                   }
-                          failure:^(NSString *msg, NSString *state)
-                   {
-                       [self.view makeToast:msg];
-                       [_table.header endRefreshing];
-                   }];
+    _connection = [BaseModel POST:URL(@"api/m/aq/topics")
+                        parameter:params
+                            class:[BaseModel class]
+                          success:^(id data){
+                              _datas = [self sortedArray:data[@"data"]] ;
+                              [self reloadTabData];
+                              [_table.header endRefreshing];
+                          }
+                          failure:^(NSString *msg, NSString *state){
+                              [self.view makeToast:msg];
+                              [_table.header endRefreshing];
+                          }];
 
 }
 
-- (NSArray *)sortedArray:(NSArray *)datas
-{
-    NSArray *times = [datas sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2)
-                      {
-                          NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
-                          [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                          NSDate *time1 = [dateFormatter dateFromString:obj1[@"lastTime"]];
-                          NSDate *time2 = [dateFormatter dateFromString:obj2[@"lastTime"]];
-                          NSComparisonResult result = [time1 compare:time2];
-                          return result == NSOrderedAscending;
-                      }];
+- (NSArray *)sortedArray:(NSArray *)datas{
+    NSArray *times = [datas sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        NSString *obj1Time = obj1[@"lastTime"];
+        NSString *obj2Time = obj2[@"lastTime"];
+        NSComparisonResult result;
+        @try {
+            if(obj1Time && obj1Time.length > 0 && obj2Time && obj2Time.length > 0){
+                NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
+                [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                NSDate *time1 = [dateFormatter dateFromString:obj1Time];
+                NSDate *time2 = [dateFormatter dateFromString:obj2Time];
+                result = [time1 compare:time2];
+            }else{
+                result = [obj1Time compare:obj2Time];
+            }
+        }
+        @catch (NSException *exception) {
+            DLog(@"%@", [exception description]);
+            result = [obj1Time compare:obj2Time];
+        }
+        return result == NSOrderedAscending;
+    }];
     return times;
 }
 

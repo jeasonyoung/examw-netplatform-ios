@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>url</key>
-	<string>http://192.168.1.112/huike/api.php/</string>
+	<string>http://wx.examw.cn/api.php/</string>
 	<key>token</key>
 	<string>examw</string>
 	<key>key</key>

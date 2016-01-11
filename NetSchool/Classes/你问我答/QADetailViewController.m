@@ -167,89 +167,88 @@
     [super viewDidLoad];
     _table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _table.tableHeaderView = [self header];
-    _table.header = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    _table.header = [MJChiBaoZiHeader headerWithRefreshingTarget:self
+                                                refreshingAction:@selector(loadNewData)];
     [_table.header beginRefreshing];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UILabel *header = [UILabel new];
     header.font = NFont(15);
     header.backgroundColor = RGBA(43, 189, 188, .6);
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"回 复"];
     NSMutableParagraphStyle * style = [NSMutableParagraphStyle new];
     style.firstLineHeadIndent = kDefaultInset.left * 2;
-    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attrString.length)];
+    [attrString addAttribute:NSParagraphStyleAttributeName
+                       value:style
+                       range:NSMakeRange(0, attrString.length)];
     header.attributedText = attrString;
     return header;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 30;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _datas.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *dic = _datas[indexPath.row];
     
-    CGSize contentSize = [NSObject getSizeWithText:dic[@"content"] font:NFont(15) maxSize:CGSizeMake(CGRectGetWidth(tableView.frame) - kDefaultInset.left * 6, MAXFLOAT)];
+    CGSize contentSize = [NSObject getSizeWithText:dic[@"content"]
+                                              font:NFont(15)
+                                           maxSize:CGSizeMake(CGRectGetWidth(tableView.frame) - kDefaultInset.left * 6, MAXFLOAT)];
 
     return kDefaultInset.top + NFont(17).lineHeight + kDefaultInset.top + contentSize.height + kDefaultInset.top + NFont(14).lineHeight + kDefaultInset.top;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"cellIdentifier";
     QADetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[QADetailCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell = [[QADetailCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                   reuseIdentifier:cellIdentifier];
     }
     cell.datas = _datas[indexPath.row];
     return cell;
 }
 
-- (void)loadNewData;
-{
+- (void)loadNewData{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"topicId"] = _parameters[@"id"];
     [params setPublicDomain];
 
-    _connection = [BaseModel POST:URL(@"api/m/aq/details") parameter:params   class:[BaseModel class]
-                          success:^(id data)
-                   {
-                       _datas = [self sortedArray:data[@"data"]];
-                       [self reloadTabData];
-                       [_table.header endRefreshing];
-                   }
-                          failure:^(NSString *msg, NSString *state)
-                   {
-                       [self.view makeToast:msg];
-                       [_table.header endRefreshing];
-                   }];
+    _connection = [BaseModel POST:URL(@"api/m/aq/details")
+                        parameter:params
+                            class:[BaseModel class]
+                          success:^(id data){
+                              _datas = [self sortedArray:data[@"data"]];
+                              [self reloadTabData];
+                              [_table.header endRefreshing];
+                          }
+                          failure:^(NSString *msg, NSString *state){
+                              [self.view makeToast:msg];
+                              [_table.header endRefreshing];
+                          }];
 }
 
-- (NSArray *)sortedArray:(NSArray *)datas
-{
-    NSArray *times = [datas sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2)
-                      {
-                          NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
-                          [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                          NSDate *time1 = [dateFormatter dateFromString:obj1[@"createTime"]];
-                          NSDate *time2 = [dateFormatter dateFromString:obj2[@"createTime"]];
-                          NSComparisonResult result = [time1 compare:time2];
-                          return result == NSOrderedAscending;
-                      }];
+- (NSArray *)sortedArray:(NSArray *)datas{
+    NSArray *times = [datas sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2){
+        
+        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSDate *time1 = [dateFormatter dateFromString:obj1[@"createTime"]];
+        NSDate *time2 = [dateFormatter dateFromString:obj2[@"createTime"]];
+        NSComparisonResult result = [time1 compare:time2];
+        return result == NSOrderedAscending;
+        
+    }];
     return times;
 }
 
@@ -259,9 +258,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)show
-{
-
+- (void)show{
     [BaseReplyBox showToSuccess:^(NSString *string){
         [MBProgressHUD showMessag:@"提交中..." toView:self.view];
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -269,22 +266,21 @@
         params[@"content"] = string;
         params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
         [params setPublicDomain];
-        _connection = [BaseModel POST:URL(@"api/m/aq/detail/add") parameter:params   class:[BaseModel class]
-                              success:^(id data)
-                       {
-                           [_table.header beginRefreshing];
-                           [MBProgressHUD hideHUDForView:self.view animated:YES];
-                       }
-                              failure:^(NSString *msg, NSString *state)
-                       {
-                           [self.view makeToast:msg duration:.5 position:@"center"];
-                           [MBProgressHUD hideHUDForView:self.view animated:YES];
-                       }];
+        _connection = [BaseModel POST:URL(@"api/m/aq/detail/add")
+                            parameter:params
+                                class:[BaseModel class]
+                              success:^(id data){
+                                  [_table.header beginRefreshing];
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              }
+                              failure:^(NSString *msg, NSString *state){
+                                  [self.view makeToast:msg duration:.5 position:@"center"];
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              }];
     }];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (void)viewWillDisappear:(BOOL)animated{
     self.navigationController.toolbarHidden = YES;
     UIView *subviews  = [self.navigationController.toolbar viewWithTag:1000];
     [subviews removeFromSuperview];
