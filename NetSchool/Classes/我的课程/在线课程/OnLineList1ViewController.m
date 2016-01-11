@@ -95,7 +95,6 @@
                                              image:@"back.png"];
         //用户信息
         if([Infomation readAllowDownload]){
-            //DLog(@"info=>%@", [dict description]);
             _goDown = [self.navigationItem setRightItemWithTarget:self
                                                             title:@"缓存"
                                                            action:@selector(download)
