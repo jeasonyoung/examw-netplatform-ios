@@ -7,13 +7,11 @@
 //
 
 
-@interface Infomation : NSObject
-<NSCoding>
+@interface Infomation : NSObject<NSCoding>
 
 singleton_interface(Infomation)
 
 - (void)createPath;
-
 
 /**
  *  @brief  保存用户信息
@@ -27,7 +25,13 @@ singleton_interface(Infomation)
  *
  *  @return 返回以读取的信息
  */
-+ (id)readInfo;
++(id)readInfo;
+
+/**
+ * 读取是否允许离线缓存。
+ *
+ */
++(BOOL)readAllowDownload;
 
 /**
  *  @brief  得到Lutp

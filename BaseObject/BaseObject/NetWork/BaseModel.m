@@ -9,25 +9,22 @@
 #import "BaseModel.h"
 @implementation BaseModel
 
-+ (void )createData:(NSString *)responseString success:(void (^)(id data))success failure:(void (^)(NSString *msg, NSString *state))failure;
-{
+//重载
++(void)createData:(NSString *)responseString
+          success:(void (^)(id data))success
+          failure:(void (^)(NSString *msg, NSString *state))failure{
+    
     NSLog(@"%@",responseString);
     
     NSData *data=[responseString dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     
     BOOL isSuccess = [dict[@"success"] boolValue];
-    
     NSString *msg = dict[@"msg"];
-    
-    if (isSuccess )
-    {
-        success(dict);
-    }
-    else
-    {
+    if(isSuccess){
+        if(success)success(dict);
+    }else{
         failure(msg,@"0");
     }
 }
-
 @end

@@ -10,8 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "ToolSingleton.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-{
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
     @public
     NetworkStatus _networkStatus;
 }
@@ -35,4 +34,3 @@
 - (void)updateLearingRecord:(NSString *)lessonId status:(BOOL)status;
 
 @end
-

@@ -9,14 +9,16 @@
 #import "AppDelegate.h"
 #import "DownloadSinglecase.h"
 
-@interface AppDelegate ()
-<ToolSingletonDelegate>
+@interface AppDelegate()<ToolSingletonDelegate>{
+    
+}
 @end
 
 @implementation AppDelegate
 
-
-- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+- (UIInterfaceOrientationMask)application:(UIApplication *)application
+  supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    
     if (self.allowRotation) {
         return UIInterfaceOrientationMaskLandscape;
     } else {
@@ -24,8 +26,7 @@
     }
 }
 
-- (void)updateLearingRecord:(NSString *)lessonId status:(BOOL)status
-{
+- (void)updateLearingRecord:(NSString *)lessonId status:(BOOL)status{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pos"] = [NSNumber numberWithInt:0];
     params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
@@ -33,43 +34,34 @@
     params[@"status"] = [NSNumber numberWithBool:status];
     [params setPublicDomain];
 
-    [BaseModel POST:URL(@"api/m/learning/add") parameter:params   class:[BaseModel class]
-                          success:^(id data)
-                   {
-                       
-                   }
-                          failure:^(NSString *msg, NSString *state)
-                   {
+    [BaseModel POST:URL(@"api/m/learning/add")
+          parameter:params
+              class:[BaseModel class]
+            success:nil
+            failure:^(NSString *msg, NSString *state){
                        [self.window makeToast:msg];
                    }];
 }
 
-- (void)reloadDatas:(NetworkStatus)status
-{
+- (void)reloadDatas:(NetworkStatus)status{
     _networkStatus = status;
-    
-    switch (status)
-    {
-        case NotReachable:
-        {
-            //            [self.view makeToast:@"没有网络"];
-        }
-            // 没有网络连接
+    switch (status){
+        case NotReachable:{// 没有网络连接
+            [self.window makeToast:@"没有网络"];
             break;
-        case ReachableViaWWAN:
-        {
+        }
+        case ReachableViaWWAN:{// 移动网络
             [self.window makeToast:@"蜂窝网络"];
-        }
             break;
-        case ReachableViaWiFi:
-        {
-            //            [self.view makeToast:@"wifi网络"];
         }
-            // 使用WiFi网络
+        case ReachableViaWiFi:{// 使用WiFi网络
+            [self.window makeToast:@"wifi网络"];
             break;
+        }
     }
 }
 
+//重载
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];

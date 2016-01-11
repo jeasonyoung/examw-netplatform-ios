@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @class BaseTextField;
-@protocol BaseTextFieldDelegate <UITextFieldDelegate>
-@optional
-- (void)textField:(BaseTextField *)textField insetWithHeight:(CGFloat)inset;
 
+@protocol BaseTextFieldDelegate<UITextFieldDelegate>
+@optional
+-(void)textField:(BaseTextField *)textField insetWithHeight:(CGFloat)inset;
 @end
-@interface BaseTextField : UITextField
-{
+
+@interface BaseTextField:UITextField{
     NSTimeInterval _animationDuration;
     UIViewAnimationCurve _animationCurve;
     CGRect _keyboardEndFrame;
 }
-@property (nonatomic, assign) id<BaseTextFieldDelegate>delegate;
+@property(nonatomic,assign) id<BaseTextFieldDelegate> delegate;
 @end

@@ -12,17 +12,14 @@
 @implementation Infomation
 singleton_implementation(Infomation)
 
-- (id)initWithInfo:(NSDictionary *)data
-{
-    if ((self = [super init]))
-    {
+- (id)initWithInfo:(NSDictionary *)data{
+    if ((self = [super init])){
         self.datas = data;
     }
     return self;
 }
 
-- (void)createPath;
-{
+- (void)createPath{
 //    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches"];
 //    
 //    NSFileManager *fileManager=[NSFileManager defaultManager];
@@ -41,15 +38,12 @@ singleton_implementation(Infomation)
 }
 
 //对属性编码，归档的时候会用
--(void)encodeWithCoder:(NSCoder *)encoder
-{
+-(void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:_datas forKey:@"datas"];
 }
 
 #pragma mark - info进行归档
-+ (void)writeInfo:(id)info;
-{
-   
++ (void)writeInfo:(id)info;{
     Infomation *data = [[Infomation alloc] initWithInfo:info];
     if (data)
     {
@@ -59,15 +53,27 @@ singleton_implementation(Infomation)
 }
 
 #pragma  mark - info 解档
-+ (id)readInfo
-{
++ (id)readInfo{
     NSFileManager *fileManager=[NSFileManager defaultManager];
     Infomation *data = nil;
-    if ([fileManager fileExistsAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Infomation"]])
-    {
+    if ([fileManager fileExistsAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Infomation"]]){
         data = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Infomation"]];
     }
     return data.datas;
+}
+
+#pragma mark -是否允许离线缓存
++(BOOL)readAllowDownload{
+    id result = [self readInfo];
+    if(result && [result isKindOfClass:[NSDictionary class]]){
+        DLog(@"readInfo=>%@",[result description]);
+        id data = result[@"data"];
+        if(data && [data isKindOfClass:[NSDictionary class]]){
+            NSNumber *download = data[@"download"];
+            return [download intValue] > 0;
+        }
+    }
+    return NO;
 }
 
 #pragma mark - 获取lutp 字符串
@@ -90,9 +96,7 @@ singleton_implementation(Infomation)
 }
 
 #pragma mark -  删除用户信息
-+ (BOOL)deleteInfo
-{
-
++ (BOOL)deleteInfo{
     NSFileManager *fileManager=[NSFileManager defaultManager];
     NSError *error;
     

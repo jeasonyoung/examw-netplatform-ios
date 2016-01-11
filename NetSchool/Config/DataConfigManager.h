@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DataConfigManager : NSObject
+
 + (NSDictionary *)returnRoot;
 
 + (NSArray *)getMainConfigList;

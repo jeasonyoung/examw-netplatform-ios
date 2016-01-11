@@ -271,6 +271,14 @@
 		A190CB9C1C22B2EB005926AC /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
 		A190CB9D1C22B2EB005926AC /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
 		A190CB9F1C22B373005926AC /* access-ch.plist in Resources */ = {isa = PBXBuildFile; fileRef = A190CB9E1C22B373005926AC /* access-ch.plist */; };
+		A1999B051C3E66B800CE0666 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1999B041C3E66B800CE0666 /* RegisterViewController.m */; };
+		A1999B061C3E66B800CE0666 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1999B041C3E66B800CE0666 /* RegisterViewController.m */; };
+		A1999B071C3E66B800CE0666 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1999B041C3E66B800CE0666 /* RegisterViewController.m */; };
+		A1999B081C3E66B800CE0666 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1999B041C3E66B800CE0666 /* RegisterViewController.m */; };
+		A19CF7D81C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
+		A19CF7D91C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
+		A19CF7DA1C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
+		A19CF7DB1C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
 		A1F1236F1C02DCDC0011B30C /* libBaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1236E1C02DCDC0011B30C /* libBaseObject.a */; };
 		A1F123701C02DD590011B30C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 		A1F8D59C1C2269E8009C1401 /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948211BB1B7D20031013A /* MJDIYBackFooter.m */; };
@@ -548,6 +556,10 @@
 		A190CB981C22B2EB005926AC /* AccessConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessConfig.h; sourceTree = "<group>"; };
 		A190CB991C22B2EB005926AC /* AccessConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessConfig.m; sourceTree = "<group>"; };
 		A190CB9E1C22B373005926AC /* access-ch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "access-ch.plist"; sourceTree = "<group>"; };
+		A1999B031C3E66B800CE0666 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		A1999B041C3E66B800CE0666 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		A19CF7D61C3F6C6600207F68 /* RegisterInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterInputView.h; sourceTree = "<group>"; };
+		A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterInputView.m; sourceTree = "<group>"; };
 		A1F1235D1C02D81A0011B30C /* libASIHTTPRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libASIHTTPRequest.a; path = "Pods/../build/Debug-iphoneos/libASIHTTPRequest.a"; sourceTree = "<group>"; };
 		A1F1235E1C02D81A0011B30C /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "Pods/../build/Debug-iphoneos/libMBProgressHUD.a"; sourceTree = "<group>"; };
 		A1F1235F1C02D81A0011B30C /* libMJRefresh.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJRefresh.a; path = "Pods/../build/Debug-iphoneos/libMJRefresh.a"; sourceTree = "<group>"; };
@@ -886,6 +898,8 @@
 				680D42321B907B5300CFF29E /* Infomation.m */,
 				680D42331B907B5300CFF29E /* LoginViewController.h */,
 				680D42341B907B5300CFF29E /* LoginViewController.m */,
+				A1999B031C3E66B800CE0666 /* RegisterViewController.h */,
+				A1999B041C3E66B800CE0666 /* RegisterViewController.m */,
 				680D42351B907B5300CFF29E /* Views */,
 			);
 			path = "登录注册";
@@ -896,6 +910,8 @@
 			children = (
 				680D42361B907B5300CFF29E /* LoginInputView.h */,
 				680D42371B907B5300CFF29E /* LoginInputView.m */,
+				A19CF7D61C3F6C6600207F68 /* RegisterInputView.h */,
+				A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1521,6 +1537,7 @@
 				A190CB9A1C22B2EB005926AC /* AccessConfig.m in Sources */,
 				680D40F61B9079E700CFF29E /* AppDelegate.m in Sources */,
 				68E488851B95A3710082D53A /* FreeList1ViewController.m in Sources */,
+				A19CF7D81C3F6C6600207F68 /* RegisterInputView.m in Sources */,
 				6869C0011BFDA38A0060F740 /* Account.m in Sources */,
 				A1314FE41C215FA5003E50E1 /* VitamioPlayerViewController.m in Sources */,
 				68DF34391BABBC3200203272 /* MyClass.m in Sources */,
@@ -1536,6 +1553,7 @@
 				680D42381B907B5300CFF29E /* Infomation.m in Sources */,
 				680D40F91B9079E700CFF29E /* NetSchool.xcdatamodeld in Sources */,
 				68D94A591BB236AE0031013A /* ZwsUserDataManager.m in Sources */,
+				A1999B051C3E66B800CE0666 /* RegisterViewController.m in Sources */,
 				681640B91B9B466000D754D4 /* PlayerView.m in Sources */,
 				68D94A571BB236AE0031013A /* UIDevice+IdentifierAddition.m in Sources */,
 				68E4889E1B95E4E20082D53A /* PublicHeader.m in Sources */,
@@ -1600,6 +1618,7 @@
 				A190CB9C1C22B2EB005926AC /* AccessConfig.m in Sources */,
 				A190CAC31C22853D005926AC /* AppDelegate.m in Sources */,
 				A190CAC41C22853D005926AC /* FreeList1ViewController.m in Sources */,
+				A19CF7DA1C3F6C6600207F68 /* RegisterInputView.m in Sources */,
 				A190CAC51C22853D005926AC /* Account.m in Sources */,
 				A190CAC61C22853D005926AC /* VitamioPlayerViewController.m in Sources */,
 				A190CAC71C22853D005926AC /* MyClass.m in Sources */,
@@ -1615,6 +1634,7 @@
 				A190CAD11C22853D005926AC /* Infomation.m in Sources */,
 				A190CAD21C22853D005926AC /* NetSchool.xcdatamodeld in Sources */,
 				A190CAD31C22853D005926AC /* ZwsUserDataManager.m in Sources */,
+				A1999B071C3E66B800CE0666 /* RegisterViewController.m in Sources */,
 				A190CAD41C22853D005926AC /* PlayerView.m in Sources */,
 				A190CAD51C22853D005926AC /* UIDevice+IdentifierAddition.m in Sources */,
 				A190CAD61C22853D005926AC /* PublicHeader.m in Sources */,
@@ -1671,6 +1691,7 @@
 				A190CB9D1C22B2EB005926AC /* AccessConfig.m in Sources */,
 				A190CB291C228B76005926AC /* AppDelegate.m in Sources */,
 				A190CB2A1C228B76005926AC /* FreeList1ViewController.m in Sources */,
+				A19CF7DB1C3F6C6600207F68 /* RegisterInputView.m in Sources */,
 				A190CB2B1C228B76005926AC /* Account.m in Sources */,
 				A190CB2C1C228B76005926AC /* VitamioPlayerViewController.m in Sources */,
 				A190CB2D1C228B76005926AC /* MyClass.m in Sources */,
@@ -1686,6 +1707,7 @@
 				A190CB371C228B76005926AC /* Infomation.m in Sources */,
 				A190CB381C228B76005926AC /* NetSchool.xcdatamodeld in Sources */,
 				A190CB391C228B76005926AC /* ZwsUserDataManager.m in Sources */,
+				A1999B081C3E66B800CE0666 /* RegisterViewController.m in Sources */,
 				A190CB3A1C228B76005926AC /* PlayerView.m in Sources */,
 				A190CB3B1C228B76005926AC /* UIDevice+IdentifierAddition.m in Sources */,
 				A190CB3C1C228B76005926AC /* PublicHeader.m in Sources */,
@@ -1742,6 +1764,7 @@
 				A190CB9B1C22B2EB005926AC /* AccessConfig.m in Sources */,
 				A1F8D5AD1C2269E8009C1401 /* AppDelegate.m in Sources */,
 				A1F8D5AE1C2269E8009C1401 /* FreeList1ViewController.m in Sources */,
+				A19CF7D91C3F6C6600207F68 /* RegisterInputView.m in Sources */,
 				A1F8D5AF1C2269E8009C1401 /* Account.m in Sources */,
 				A1F8D5B01C2269E8009C1401 /* VitamioPlayerViewController.m in Sources */,
 				A1F8D5B11C2269E8009C1401 /* MyClass.m in Sources */,
@@ -1757,6 +1780,7 @@
 				A1F8D5BB1C2269E8009C1401 /* Infomation.m in Sources */,
 				A1F8D5BC1C2269E8009C1401 /* NetSchool.xcdatamodeld in Sources */,
 				A1F8D5BD1C2269E8009C1401 /* ZwsUserDataManager.m in Sources */,
+				A1999B061C3E66B800CE0666 /* RegisterViewController.m in Sources */,
 				A1F8D5BE1C2269E8009C1401 /* PlayerView.m in Sources */,
 				A1F8D5BF1C2269E8009C1401 /* UIDevice+IdentifierAddition.m in Sources */,
 				A1F8D5C01C2269E8009C1401 /* PublicHeader.m in Sources */,

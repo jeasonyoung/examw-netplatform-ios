@@ -243,23 +243,39 @@ static NSString * const FORM_FLE_INPUT = @"file";
     
 }
 
-+ (NSString *) stringFromMD5:(NSString *)path
-{
++ (NSString *) stringFromMD5:(NSString *)text{
+    if(text == nil||[text length] == 0) return nil;
+    NSData *data = [text dataUsingEncoding:NSUTF8StringEncoding];
+    unsigned char *result = malloc(CC_MD5_DIGEST_LENGTH);
     
-    if(self == nil || [path length] == 0)
-        return nil;
+    CC_MD5(data.bytes, (CC_LONG)data.length, result);
     
-    const char *value = [path UTF8String];
+    NSData *md5_data = [NSData dataWithBytes:result length:CC_MD5_DIGEST_LENGTH];
     
-    unsigned char outputBuffer[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(value, strlen(value), outputBuffer);
+    free(result);
     
-    NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-    for(NSInteger count = 0; count < CC_MD5_DIGEST_LENGTH; count++){
-        [outputString appendFormat:@"%02x",outputBuffer[count]];
+    NSMutableString *hex = [NSMutableString string];
+    char *chars = (char *)md5_data.bytes;
+    for(NSUInteger i = 0; i< md5_data.length; i++){
+        [hex appendFormat:@"%0.2hhx", chars[i]];
     }
-    
-    return outputString ;
+    return hex;
+//
+//
+//    
+//    const char *value = [path UTF8String];
+//    
+//    
+//    
+//    unsigned char outputBuffer[CC_MD5_DIGEST_LENGTH];
+//    CC_MD5(value, strlen(value), outputBuffer);
+//    
+//    NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+//    for(NSInteger count = 0; count < CC_MD5_DIGEST_LENGTH; count++){
+//        [outputString appendFormat:@"%02x",outputBuffer[count]];
+//    }
+//    
+//    return outputString ;
 }
 
 + (UIImage *)getImageFromView:(UIView *)theView rangRect:(CGRect)rect;
@@ -634,7 +650,7 @@ static NSString * const FORM_FLE_INPUT = @"file";
     NSDateComponents *compareDateComp = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSWeekdayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate:compareDate];
     //    NSLog(@"%ld === %ld",todayComp.year,compareDateComp.year);
     
-    NSLog(@"%d",[todayComp day]);
+    NSLog(@"%i",(int)[todayComp day]);
     
     
     NSString *result = nil;

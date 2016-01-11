@@ -9,68 +9,73 @@
 #import "ParentModel.h"
 @implementation ParentModel
 
-
 /*GET方法*/
-
-+ (void)GET:(NSString *)string class:( id)class  success:(void (^)(id data))success failure:(void (^)(NSString *msg))failure;
-{
-    [ZWSRequest  GET:string success:^(NSString *responseString)
-     {
-         [class createData:responseString success:^(id data)
-          {
-              dispatch_async(dispatch_get_main_queue(), ^{
-                  success(data);
-            
-            });
-          }
-                   failure:^(NSString *msg, NSString *state)
-          {
-              dispatch_async(dispatch_get_main_queue(), ^{
-
-                  failure(msg);
-              });
-        }];
-     }
-    failure:^( NSString* msg)
-     {
-         dispatch_async(dispatch_get_main_queue(), ^{
-
-             failure(msg);
-         });
-     }];
++(void)GET:(NSString *)string
+     class:(id)clazz
+   success:(void (^)(id data))success
+   failure:(void (^)(NSString *msg))failure{
+    
+    NSLog(@"get-url:%@",string);
+    
+    [ZWSRequest GET:string
+            success:^(NSString *responseString){
+                        [clazz createData:responseString
+                                  success:^(id data){
+                                      if(success){
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                              success(data);
+                                          });
+                                      }
+                                      
+                                  }
+                                  failure:^(NSString *msg, NSString *state){
+                                      if(failure){
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                              failure(msg);
+                                          });
+                                      }
+                                  }];
+            }
+            failure:^(NSString* msg){
+                if(failure){
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        failure(msg);
+                    });
+                }
+            }];
 }
 
-+ (void )createData:(NSString *)responseString  success:(void (^)(id data))success failure:(void (^)( NSString *msg, NSString *state))failure;
-{
-    failure(@"请求失败，请联系客服",nil);
+//
++(void )createData:(NSString *)responseString
+           success:(void (^)(id data))success
+           failure:(void (^)(NSString *msg, NSString *state))failure{
+    
+    if(failure)failure(@"请求失败，请联系客服",nil);
 }
 
 
-+ (NSURLConnection *)POST:(NSString *)string parameter:(id)parameter class:( id)class  success:(void (^)(id data))success failure:(void (^)(NSString *msg, NSString *status ))failure;
-{
+//post
++(NSURLConnection *)POST:(NSString *)string
+               parameter:(id)parameter
+                   class:(id)clazz
+                 success:(void (^)(id data))success
+                 failure:(void (^)(NSString *msg, NSString *status))failure{
+    NSLog(@"post-url:%@",string);
     
-    
-      return  [ZWSRequest  POST:string parameter:parameter success:^(NSString *responseString)
-     {
-         
-         [class createData:responseString success:^(id data)
-          {
-                success(data);
-          }
-                   failure:^(NSString *msg, NSString *status)
-          {
-                failure(msg,status);
-          }];
-     }
-             failure:^( NSString* msg, NSString *status)
-     {
-         
-             failure(msg,status);
-     }
-     
-     ];
-
-    
+    return [ZWSRequest POST:string
+                  parameter:parameter
+                    success:^(NSString *responseString){
+                        [clazz createData:responseString
+                                  success:^(id data){
+                                    if(success)success(data);
+                                  }
+                                  failure:^(NSString *msg, NSString *status){
+                                      if(failure)failure(msg,status);
+                                  }];
+                    }
+                    failure:^( NSString* msg, NSString *status){
+                        if(failure)failure(msg,status);
+                    }
+            ];
 }
-
 @end

@@ -15,20 +15,14 @@
 #import "BaseNavigationController.h"
 #import "FreeList0ViewController.h"
 
-
-
-
-@interface MyClassesTabBarController ()
-<UITabBarControllerDelegate>
-{
+@interface MyClassesTabBarController()<UITabBarControllerDelegate>{
     NSArray *_tabConfigList;
 }
 @end
 
 @implementation MyClassesTabBarController
 
-- (id)init
-{
+- (id)init{
     if ((self = [super init])) {
         self.delegate = self;
     }
@@ -36,8 +30,7 @@
 }
 
 #pragma mark - 设备bar背景颜色
-- (UIImage *)createTabBarBk
-{
+- (UIImage *)createTabBarBk{
     UIImage *image = [UIImage imageNamed:@"tabBar_back"];
     CGFloat top = 3; // 顶端盖高度
     CGFloat bottom = 1 ; // 底端盖高度
@@ -49,28 +42,23 @@
     return image;
 }
 
-- (NSArray *)createTabItemArr
-{
+- (NSArray *)createTabItemArr{
     _tabConfigList = [DataConfigManager getTabList];
     NSMutableArray *item = [NSMutableArray array];
     MyClassesTabBarController __weak*safeSelf = self;
-    for (int i = 0; i < _tabConfigList.count; i ++)
-    {
+    for (NSUInteger i = 0; i < _tabConfigList.count; i++){
         switch (i) {
-            case 0:
-            {
+            case 0:{
                 OnLineList0ViewController *item0 = [[OnLineList0ViewController alloc] initWithBack:^{
                     [safeSelf.navigationController popViewControllerAnimated:YES];
                 }];
-                 BaseNavigationController*nav = [[BaseNavigationController alloc] initWithNavigationBarClass:[PJNavigationBar class] toolbarClass:nil];
+                BaseNavigationController*nav = [[BaseNavigationController alloc] initWithNavigationBarClass:[PJNavigationBar class] toolbarClass:nil];
                 nav.viewControllers = @[item0];
                 
                 [item addObject:nav];
-            }
                 break;
-            case 1:
-            {
-                
+            }
+            case 1:{
                 NSArray *controllers = @[[DownloadingController new],[DownloadedController new]];
                 LocalManagement *item1 = [[LocalManagement alloc] initWithViewControllers:controllers back:^{
                     [safeSelf.navigationController popViewControllerAnimated:YES];
@@ -78,41 +66,55 @@
                 BaseNavigationController *nav = [[BaseNavigationController alloc] initWithNavigationBarClass:[PJNavigationBar class] toolbarClass:nil];
                 nav.viewControllers = @[item1];
                 [item addObject:nav];
-            }
                 break;
-            case 2:
-            {
+            }
+            case 2:{
                 PlayRecordViewController *item2 = [[PlayRecordViewController alloc] initWithBack:^{
                     [safeSelf.navigationController popViewControllerAnimated:YES];
                 }];
                 BaseNavigationController *nav = [[BaseNavigationController alloc] initWithNavigationBarClass:[PJNavigationBar class] toolbarClass:nil];
                 nav.viewControllers = @[item2];
                 [item addObject:nav];
-                
+                break;
             }
-                break;
-             default:
-                break;
+            default:break;
         }
         
     }
     return item;
 }
 
-- (void)createTabItemBk:(NSInteger)items;
-{
+- (void)createTabItemBk:(NSInteger)items{
     
-    for (int i = 0; i < items; i ++)
-    {
+    for (NSUInteger i = 0; i < items; i++){
         NSDictionary *dict = [_tabConfigList objectAtIndex:i];
-        [[self.tabBar.items objectAtIndex:i] setFinishedSelectedImage:[[UIImage imageNamed:[dict objectForKey:@"highlightedImage"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ]  withFinishedUnselectedImage:[[UIImage imageNamed:[dict objectForKey:@"image"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ]];
+        UITabBarItem *tabBarItem = [self.tabBar.items objectAtIndex:i];
+        if(tabBarItem){
+            UIImage *imgSelected = [[UIImage imageNamed:[dict objectForKey:@"highlightedImage"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            
+            UIImage *img = [[UIImage imageNamed:[dict objectForKey:@"image"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            
+            [tabBarItem setImage:img];
+            [tabBarItem setSelectedImage:imgSelected];
+            [tabBarItem setTitle:[dict objectForKey:@"title"]];
+            [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:CustomBlue,
+                                                 NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Bold" size:12]}
+                                      forState:UIControlStateNormal];
+            [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                 NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Bold" size:12]}
+                                      forState:UIControlStateSelected];
+            
+        }
         
         
-        [(UITabBarItem *)[self.tabBar.items objectAtIndex:i] setTitle:[dict objectForKey:@"title"]];
+//        [[self.tabBar.items objectAtIndex:i] setFinishedSelectedImage:[[UIImage imageNamed:[dict objectForKey:@"highlightedImage"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ]  withFinishedUnselectedImage:[[UIImage imageNamed:[dict objectForKey:@"image"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ]];
+        
+        
+       // [(UITabBarItem *)[self.tabBar.items objectAtIndex:i] setTitle:[dict objectForKey:@"title"]];
 //        RGBA(23, 103, 223, 1)
-        [[self.tabBar.items objectAtIndex:i] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:CustomBlue,NSForegroundColorAttributeName,[UIFont fontWithName:@"Helvetica-Bold" size:12],NSFontAttributeName,nil] forState:UIControlStateNormal];
-        
-        [[self.tabBar.items objectAtIndex:i] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,[UIFont fontWithName:@"Helvetica-Bold" size:12],NSFontAttributeName,nil] forState:UIControlStateSelected];
+//        [[self.tabBar.items objectAtIndex:i] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:CustomBlue,NSForegroundColorAttributeName,[UIFont fontWithName:@"Helvetica-Bold" size:12],NSFontAttributeName,nil] forState:UIControlStateNormal];
+//        
+//        [[self.tabBar.items objectAtIndex:i] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,[UIFont fontWithName:@"Helvetica-Bold" size:12],NSFontAttributeName,nil] forState:UIControlStateSelected];
         
         /* You may specify the font, text color, text shadow color, and text shadow offset for the title in the text attributes dictionary, using the keys found in UIStringDrawing.h. */
         //        - (void)setTitleTextAttributes:(NSDictionary *)attributes forState:(UIControlState)state NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;
@@ -128,7 +130,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //用户信息
+    if(![Infomation readAllowDownload]){
+        self.tabBar.hidden = YES;
+    }
+    //
     [self.tabBar setBackgroundImage:[self createTabBarBk] ];    /*设置Bar的背景颜色*/
     self.viewControllers = [self createTabItemArr];     /*设置Bar的items*/
     [self createTabItemBk:self.viewControllers.count];     /*设置Bar的item的背景及Title*/

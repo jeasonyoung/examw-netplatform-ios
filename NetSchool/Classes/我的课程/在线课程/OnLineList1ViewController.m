@@ -89,10 +89,19 @@
 {
     if ((self = [super initWithParameters:parameters])) {
         [self.navigationItem setNewTitle:parameters[@"name"]];
-        [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
-       _goDown = [self.navigationItem setRightItemWithTarget:self title:@"离线缓存" action:@selector(download) image:nil];
-        _goDown.hidden = YES;
-        
+        [self.navigationItem setBackItemWithTarget:self
+                                             title:nil
+                                            action:@selector(back)
+                                             image:@"back.png"];
+        //用户信息
+        if([Infomation readAllowDownload]){
+            //DLog(@"info=>%@", [dict description]);
+            _goDown = [self.navigationItem setRightItemWithTarget:self
+                                                            title:@"缓存"
+                                                           action:@selector(download)
+                                                            image:nil];
+            _goDown.hidden = YES;
+        }
     }
     return self;
 }
@@ -194,7 +203,7 @@
 
 - (void)loadDatas:(id)datas
 {
-    _goDown.hidden = NO;
+    if(_goDown)_goDown.hidden = NO;
 
     NSMutableArray *array = [NSMutableArray array];
 

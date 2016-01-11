@@ -100,7 +100,7 @@ singleton_implementation(DownloadSinglecase)
         NSData *fileData=[fileManager contentsAtPath:[_videoTemps stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4.temp",datas[@"id"]]]];
         
         NSInteger receivedDataLength=[fileData length];
-        datas[@"fileReceivedSize"] = [NSString stringWithFormat:@"%d",receivedDataLength];
+        datas[@"fileReceivedSize"] = [NSString stringWithFormat:@"%i",(int)receivedDataLength];
         
         
         //如果文件重复下载或暂停、继续，则把队列中的请求删除，重新添加

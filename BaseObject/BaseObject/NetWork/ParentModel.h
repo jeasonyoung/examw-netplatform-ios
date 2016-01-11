@@ -13,15 +13,24 @@
 
 @interface ParentModel : NSObject
 
-
-
 @property (nonatomic,strong) NSString *RESULTDESC;
 @property (nonatomic,strong) NSString *RESULTCODE;
 
-+ (void)GET:(NSString *)string class:( id)class  success:(void (^)(id data))success failure:(void (^)(NSString *msg))failure;
-+ (NSURLConnection *)POST:(NSString *)string parameter:(id)parameter class:( id)class  success:(void (^)(id data))success failure:(void (^)(NSString *msg, NSString *status ))failure;
++(void)GET:(NSString *)string
+     class:(id)clazz
+   success:(void (^)(id data))success
+   failure:(void (^)(NSString *msg))failure;
 
 
-+ (void)createData:(NSString *)responseString success:(void (^)(id data))success failure:(void (^)( NSString *msg, NSString *state))failure;
++(NSURLConnection *)POST:(NSString *)string
+               parameter:(id)parameter
+                   class:(id)clazz
+                 success:(void (^)(id data))success
+                 failure:(void (^)(NSString *msg, NSString *status))failure;
+
+
++(void)createData:(NSString *)responseString
+          success:(void (^)(id data))success
+          failure:(void (^)( NSString *msg, NSString *state))failure;
 
 @end

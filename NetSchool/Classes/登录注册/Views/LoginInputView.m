@@ -39,7 +39,7 @@
     if (!_accountField)
     {
         _accountField = [[BaseTextField alloc] initWithFrame:CGRectMake(defaultInset.left, 0, CGRectGetWidth(self.frame) - defaultInset.left * 2, 44)];
-        _accountField.placeholder = @"输入账号";
+        _accountField.placeholder = @"请输入账号";
         _accountField.returnKeyType = UIReturnKeyNext;
         [_accountField setKeyboardType:UIKeyboardTypeNamePhonePad];
         _accountField.leftView = [self setLeftTitle:@"账号:"];
@@ -58,7 +58,7 @@
         _pwdField = [[BaseTextField alloc] initWithFrame:CGRectMake(CGRectGetMinX(_accountField.frame),CGRectGetMaxY(_accountField.frame), CGRectGetWidth(_accountField.frame), 44)];
         _pwdField.delegate = self;
         _pwdField.leftView = [self setLeftTitle:@"密码:"];
-        _pwdField.placeholder = @"输入密码";
+        _pwdField.placeholder = @"请输入密码";
         _pwdField.returnKeyType = UIReturnKeyDone;
         [_pwdField setKeyboardType:UIKeyboardTypeNamePhonePad];
        // _pwdField.text = @"123456";

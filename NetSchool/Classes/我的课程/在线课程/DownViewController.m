@@ -103,7 +103,7 @@
 {
     if ((self = [super initWithParameters:parameters]))
     {
-        [self.navigationItem setNewTitle:@"离线缓存"];
+        [self.navigationItem setNewTitle:@"缓存"];
         [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
         _downloadDatas = [NSMutableArray array];
         _datas = [[DownloadSinglecase sharedDownloadSinglecase] sortWithDowningDatas:parameters];
@@ -275,7 +275,7 @@
 
 - (NSMutableAttributedString *)setToolText
 {
-    NSMutableAttributedString *attTitle =  [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"已选%d节课程，%@",_downloadDatas.count,[NSObject usedSpaceAndfreeSpace]]];
+    NSMutableAttributedString *attTitle =  [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"已选%i节课程，%@",(int)_downloadDatas.count,[NSObject usedSpaceAndfreeSpace]]];
     NSUInteger len = (_downloadDatas.count>9)?2:1;
     [attTitle addAttribute:NSForegroundColorAttributeName value:CustomBlue range:NSMakeRange(2, len)];
     [attTitle addAttribute:NSFontAttributeName value:NFont(15) range:NSMakeRange(2, len)];

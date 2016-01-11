@@ -88,7 +88,7 @@
     {
         NSLog(@"Error:%@",error);
     }
-    NSLog(@"The count of entry: %i",[mutableFetchResult count]);
+    NSLog(@"The count of entry: %i",(int)[mutableFetchResult count]);
     //更新age后要进行保存，否则没更新
     
     for (MyVideo *vedio in mutableFetchResult)

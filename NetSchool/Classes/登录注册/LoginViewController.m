@@ -17,6 +17,8 @@
 
 #import "AccessConfig.h"
 
+#import "RegisterViewController.h"
+
 @interface LoginViewController ()
 {
     LoginInputView *_inputView;
@@ -25,34 +27,26 @@
 
 @implementation LoginViewController
 
-- (id)initWithLoginSuccess:(SuccessLoginBlock)success;
-{
-    if ((self = [super initWithLoginSuccess:success]))
-    {
+- (id)initWithLoginSuccess:(SuccessLoginBlock)success{
+    if((self = [super initWithLoginSuccess:success])){
         [self.navigationItem setNewTitle:@"注 册"];
     }
     return self;
 }
 
 
-- (void)back
-{
-    
+- (void)back{
     [_connection cancel];
     _connection = nil;
     _successLogin(self,NO);
 }
 
-- (void)loadView
-{
+- (void)loadView{
     [super loadView];
     self.view.backgroundColor = RGBA(213, 254, 254, 1);
-    
-    
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
   
     NSString *text = [AccessConfig shared].copyright;//@"2006-2015 长沙畅亨信息技术有限公司";
@@ -79,52 +73,88 @@
     UIButton *online = [UIButton buttonWithType:UIButtonTypeCustom];
     online.frame = CGRectMake(CGRectGetMinX(_inputView.frame) + kDefaultInset.left, CGRectGetMaxY(_inputView.frame) + ScaleH(50), CGRectGetWidth(_inputView.frame) / 2 - ScaleW(30), ScaleH(50));
     online.backgroundColor = CustomBlue;
-    [online setTitle:@"在线登录" forState:UIControlStateNormal];
+    [online setTitle:@"登 录" forState:UIControlStateNormal];
     online.titleLabel.font = Font(17);
     [online addTarget:self action:@selector(eventWithOnline) forControlEvents:UIControlEventTouchUpInside];
     [online getCornerRadius:5 borderColor:CustomBlue borderWidth:.5 masksToBounds:YES];
     [self.view addSubview:online];
     
-    UIButton *local = [UIButton buttonWithType:UIButtonTypeCustom];
-    local.frame = CGRectMake(CGRectGetMaxX(online.frame) + ScaleW(60) - kDefaultInset.left * 2, CGRectGetMinY(online.frame), CGRectGetWidth(online.frame), ScaleH(50));
-    local.backgroundColor = CustomGray;
-    [local setTitle:@"本地登录" forState:UIControlStateNormal];
-    local.titleLabel.font = Font(17);
-    [local addTarget:self action:@selector(eventWithLocal) forControlEvents:UIControlEventTouchUpInside];
-    [local getCornerRadius:5 borderColor:[UIColor  whiteColor] borderWidth:.5 masksToBounds:YES];
-    [self.view addSubview:local];
-
+//    UIButton *local = [UIButton buttonWithType:UIButtonTypeCustom];
+//    local.frame = CGRectMake(CGRectGetMaxX(online.frame) + ScaleW(60) - kDefaultInset.left * 2, CGRectGetMinY(online.frame), CGRectGetWidth(online.frame), ScaleH(50));
+//    local.backgroundColor = CustomGray;
+//    [local setTitle:@"本地登录" forState:UIControlStateNormal];
+//    local.titleLabel.font = Font(17);
+//    [local addTarget:self action:@selector(eventWithLocal) forControlEvents:UIControlEventTouchUpInside];
+//    [local getCornerRadius:5 borderColor:[UIColor  whiteColor] borderWidth:.5 masksToBounds:YES];
+//    [self.view addSubview:local];
+    
+    //注册
+    UIButton *reg = [UIButton buttonWithType:UIButtonTypeCustom];
+    reg.frame = CGRectMake(CGRectGetMaxX(online.frame) + ScaleW(60) - kDefaultInset.left * 2, CGRectGetMinY(online.frame), CGRectGetWidth(online.frame), ScaleH(50));
+    reg.backgroundColor = CustomGray;
+    [reg setTitle:@"注 册" forState:UIControlStateNormal];
+    reg.titleLabel.font = Font(17);
+    [reg addTarget:self action:@selector(eventWithReg) forControlEvents:UIControlEventTouchUpInside];
+    [reg getCornerRadius:5 borderColor:[UIColor  whiteColor] borderWidth:.5 masksToBounds:YES];
+    [self.view addSubview:reg];
 }
 
+//学员注册
+-(void)eventWithReg{
+    RegisterViewController *registerController = [[RegisterViewController alloc] initWithLoginSuccess:^(UIViewController *viewController, BOOL isSuccess) {
+        if(isSuccess) [self.view makeToast:@"注册成功!"];
+        if([viewController isKindOfClass:[RegisterViewController class]]){
+            [(RegisterViewController *)viewController dismissViewController];
+        }
+    }];
+    //[self pushViewController:registerController];
+    [self addNavigationWithPresentViewController:registerController];
+}
 
-
-- (void)eventWithOnline
-{
-    [MBProgressHUD showMessag:Loding_text1 toView:self.view];
+//在线登录
+-(void)eventWithOnline{
+    //检查网络
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(app->_networkStatus == NotReachable){//没有网络
+        //本地登录
+        [self eventWithLocal];
+        return;
+    }
+    //账号
+    NSString *username = [_inputView.accountField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if([username length] == 0){
+        [self.view makeToast:_inputView.accountField.placeholder duration:1 position:@"center"];
+        return;
+    }
+    //密码
+    NSString *password = [_inputView.pwdField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if([password length] == 0){
+        [self.view makeToast:_inputView.pwdField.placeholder duration:1 position:@"center"];
+        return;
+    }
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"username"] = _inputView.accountField.text;
-    params[@"pwd"] = md5([_inputView.accountField.text stringByAppendingFormat:@"%@",md5(_inputView.pwdField.text)]);
-    params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no] ;
+    params[@"username"] = username;
+    params[@"pwd"] = md5([username stringByAppendingFormat:@"%@",md5(password)]);
+    params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no];
     [params setPublicDomain];
-    _connection = [BaseModel POST:URL(@"api/m/login") parameter:params  class:[BaseModel class]
-                          success:^(id data)
-                   {
-                       [self coreDataSave:data[@"data"]];
-                       [[DownloadSinglecase sharedDownloadSinglecase] creatPath];
-                       [MBProgressHUD hideHUDForView:self.view animated:YES];
-                       
-                   }
-                          failure:^(NSString *msg, NSString *state)
-                   {
-                       [self.view makeToast:msg duration:1 position:@"center"];
-                       [MBProgressHUD hideHUDForView:self.view animated:YES];
-                   }];    
+    //发送数据
+    [MBProgressHUD showMessag:Loding_text1 toView:self.view];
+    _connection = [BaseModel POST:URL(@"api/m/login")
+                        parameter:params
+                            class:[BaseModel class]
+                          success:^(id data){
+                              [self coreDataSave:data[@"data"]];
+                              [[DownloadSinglecase sharedDownloadSinglecase] creatPath];
+                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                          }
+                          failure:^(NSString *msg, NSString *state){
+                              [self.view makeToast:msg duration:1 position:@"center"];
+                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                          }];
 }
 
-
-
-- (void)eventWithLocal
-{
+//本地登录
+-(void)eventWithLocal{
     NSArray *acc = [self coreDataQuery];
     
     if (!acc.count) {
@@ -140,14 +170,11 @@
     [[DownloadSinglecase sharedDownloadSinglecase] creatPath];
 
     _successLogin(self,YES);
-
 }
 
-- (void)coreDataSave:(id)datas
-{
+-(void)coreDataSave:(id)datas{
     
-    if ([self coreDataUpdate:datas])
-    {
+    if ([self coreDataUpdate:datas]){
         [Infomation writeInfo:@{@"data":datas,@"userName":_inputView.accountField.text}];
         [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
         [kUserDefaults synchronize];
@@ -173,12 +200,9 @@
     [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
     [kUserDefaults synchronize];
     _successLogin(self,YES);
-
-
 }
 
-- (NSArray *)coreDataQuery
-{
+- (NSArray *)coreDataQuery{
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     
     NSFetchRequest* request=[[NSFetchRequest alloc] init]; // 请求数据用的
@@ -195,15 +219,13 @@
     NSError* error=nil;
     NSArray* mutableFetchResult=[app.managedObjectContext executeFetchRequest:request error:&error];
 
-    if (mutableFetchResult==nil)
-    {
+    if (mutableFetchResult == nil){
         NSLog(@"Error:%@",error);
     }
     return mutableFetchResult;
 }
 
-- (BOOL)coreDataUpdate:(id)datas
-{
+- (BOOL)coreDataUpdate:(id)datas{
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSFetchRequest* request=[[NSFetchRequest alloc] init];
     NSEntityDescription* user=[NSEntityDescription entityForName:@"Account" inManagedObjectContext:app.managedObjectContext];
@@ -216,15 +238,13 @@
     NSError* error=nil;
     NSArray* mutableFetchResult=[app.managedObjectContext executeFetchRequest:request error:&error];
    
-    if (mutableFetchResult==nil)
-    {
+    if (mutableFetchResult==nil){
         NSLog(@"Error:%@",error);
     }
-    NSLog(@"The count of entry: %i",[mutableFetchResult count]);
+    NSLog(@"The count of entry: %i",(int)[mutableFetchResult count]);
     //更新age后要进行保存，否则没更新
 
-    for (Account* acc in mutableFetchResult)
-    {
+    for (Account* acc in mutableFetchResult){
         acc.acc = _inputView.accountField.text;
         acc.pwd = _inputView.pwdField.text;
         acc.datas = [NSKeyedArchiver archivedDataWithRootObject:datas];
@@ -232,7 +252,6 @@
         return YES;
     }
     return NO;
-    
 }
 
 
