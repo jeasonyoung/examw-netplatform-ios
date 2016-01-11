@@ -93,7 +93,7 @@
                                              title:nil
                                             action:@selector(back)
                                              image:@"back.png"];
-        //用户信息
+        //用户信息隐藏离线缓存
         if([Infomation readAllowDownload]){
             _goDown = [self.navigationItem setRightItemWithTarget:self
                                                             title:@"缓存"

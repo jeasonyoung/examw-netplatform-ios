@@ -130,7 +130,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //用户信息
+    //用户信息(隐藏底部菜单)
     if(![Infomation readAllowDownload]){
         self.tabBar.hidden = YES;
     }

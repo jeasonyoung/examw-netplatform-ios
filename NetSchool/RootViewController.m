@@ -86,6 +86,7 @@
             BOOL result = [Infomation readAllowDownload];
             if(!result){
                 NSMutableArray *btns = [NSMutableArray arrayWithArray:_datas];
+                //隐藏类目
                 [btns removeObjectAtIndex:1];
                 _datas = btns;
             }
