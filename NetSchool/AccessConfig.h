@@ -15,15 +15,18 @@
 +(instancetype)shared;
 
 //服务器地址
-@property(nonatomic,retain,readonly)NSString *url;
+@property(nonatomic,copy,readonly)NSString *url;
 
 //访问令牌
-@property(nonatomic,retain,readonly)NSString *accessToken;
+@property(nonatomic,copy,readonly)NSString *accessToken;
 
 //访问密钥
-@property(nonatomic,retain,readonly)NSString *accesskey;
+@property(nonatomic,copy,readonly)NSString *accesskey;
 
 //版权信息
-@property(nonatomic,retain,readonly)NSString *copyright;
+@property(nonatomic,copy,readonly)NSString *copyright;
+
+//充值信息
+@property(nonatomic,copy,readonly)NSDictionary *recharges;
 
 @end

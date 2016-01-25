@@ -136,7 +136,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
     params[@"classId"] = _parameters[@"id"];
-    params[@"free"] = [NSNumber numberWithBool:1];
+    params[@"free"] = @1;
     [params setPublicDomain];
   
     _connection = [BaseModel POST:URL(@"api/m/lessons") parameter:params class:[BaseModel class]

@@ -372,32 +372,8 @@
 				68D94D401BB25B640031013A /* UIView+CGTool.m */,
 				68D94D411BB25B640031013A /* UIView+Toast.h */,
 				68D94D421BB25B640031013A /* UIView+Toast.m */,
-				68D94D431BB25B640031013A /* Vitamio */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		68D94D431BB25B640031013A /* Vitamio */ = {
-			isa = PBXGroup;
-			children = (
-				68D94D441BB25B640031013A /* include */,
-			);
-			path = Vitamio;
-			sourceTree = "<group>";
-		};
-		68D94D441BB25B640031013A /* include */ = {
-			isa = PBXGroup;
-			children = (
-				68D94D451BB25B640031013A /* Vitamio */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		68D94D451BB25B640031013A /* Vitamio */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vitamio;
 			sourceTree = "<group>";
 		};
 		68D94D841BB27FD60031013A /* SegmentView */ = {

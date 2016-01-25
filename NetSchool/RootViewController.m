@@ -75,26 +75,28 @@
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
-    
     if ((self = [super initWithCoder:aDecoder])) {
-        [self.navigationItem setTitleView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"toplogo.png"]]];
-        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:[self exitView]];
-        [self.navigationItem setLeftBarButtonItem:leftButton];
-        _datas = [DataConfigManager getMainConfigList];
-        if(_datas && _datas.count > 0){
-            //用户信息
-            BOOL result = [Infomation readAllowDownload];
-            if(!result){
-                NSMutableArray *btns = [NSMutableArray arrayWithArray:_datas];
-                //隐藏类目
-                [btns removeObjectAtIndex:1];
-                _datas = btns;
-            }
-        }
-        
+        [self initComponent];
     }
     return self;
 }
+
+-(instancetype)init{
+    if(self = [super init]){
+        [self initComponent];
+    }
+    return self;
+}
+
+
+-(void)initComponent {
+    [self.navigationItem setTitleView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"toplogo.png"]]];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:[self exitView]];
+    [self.navigationItem setLeftBarButtonItem:leftButton];
+    _datas = [DataConfigManager getMainConfigList];
+}
+
+
 
 - (void)back{
     [kUserDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"isLogin"];

@@ -59,6 +59,9 @@
                 break;
             }
             case 1:{
+                //用户信息(隐藏底部菜单)
+                if(![Infomation readAllowDownload]) break;
+                //
                 NSArray *controllers = @[[DownloadingController new],[DownloadedController new]];
                 LocalManagement *item1 = [[LocalManagement alloc] initWithViewControllers:controllers back:^{
                     [safeSelf.navigationController popViewControllerAnimated:YES];
@@ -130,10 +133,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //用户信息(隐藏底部菜单)
-    if(![Infomation readAllowDownload]){
-        self.tabBar.hidden = YES;
-    }
     //
     [self.tabBar setBackgroundImage:[self createTabBarBk] ];    /*设置Bar的背景颜色*/
     self.viewControllers = [self createTabItemArr];     /*设置Bar的items*/

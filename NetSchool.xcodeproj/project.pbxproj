@@ -74,6 +74,18 @@
 		68ED01521B9D6FDF0018FF6D /* PlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ED01511B9D6FDF0018FF6D /* PlayerTool.m */; };
 		68F0A8C31BC11272007B3DB0 /* QADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0A8C21BC11272007B3DB0 /* QADetailViewController.m */; };
 		68F907EF1BC44E6300547224 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F907EE1BC44E6300547224 /* FeedbackViewController.m */; };
+		A115E6641C4CAE6C0063C22A /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6631C4CAE6C0063C22A /* ProductListViewController.m */; };
+		A115E6651C4CAE6C0063C22A /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6631C4CAE6C0063C22A /* ProductListViewController.m */; };
+		A115E6661C4CAE6C0063C22A /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6631C4CAE6C0063C22A /* ProductListViewController.m */; };
+		A115E6671C4CAE6C0063C22A /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6631C4CAE6C0063C22A /* ProductListViewController.m */; };
+		A115E6761C4CD9A10063C22A /* ProductListCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6751C4CD9A10063C22A /* ProductListCellFrame.m */; };
+		A115E6771C4CD9A10063C22A /* ProductListCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6751C4CD9A10063C22A /* ProductListCellFrame.m */; };
+		A115E6781C4CD9A10063C22A /* ProductListCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6751C4CD9A10063C22A /* ProductListCellFrame.m */; };
+		A115E6791C4CD9A10063C22A /* ProductListCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6751C4CD9A10063C22A /* ProductListCellFrame.m */; };
+		A115E67C1C4CDCEF0063C22A /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E67B1C4CDCEF0063C22A /* ProductModel.m */; };
+		A115E67D1C4CDCEF0063C22A /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E67B1C4CDCEF0063C22A /* ProductModel.m */; };
+		A115E67E1C4CDCEF0063C22A /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E67B1C4CDCEF0063C22A /* ProductModel.m */; };
+		A115E67F1C4CDCEF0063C22A /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E67B1C4CDCEF0063C22A /* ProductModel.m */; };
 		A1314FE41C215FA5003E50E1 /* VitamioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1314FE31C215FA5003E50E1 /* VitamioPlayerViewController.m */; };
 		A1314FE71C216086003E50E1 /* VitamioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1314FE61C216086003E50E1 /* VitamioPlayerView.m */; };
 		A1314FF41C216176003E50E1 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FE91C216176003E50E1 /* libffmpeg.a */; };
@@ -279,6 +291,18 @@
 		A19CF7D91C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
 		A19CF7DA1C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
 		A19CF7DB1C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
+		A1ED64551C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
+		A1ED64561C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
+		A1ED64571C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
+		A1ED64581C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
+		A1ED645A1C50B9C000FFACCB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ED64591C50B9C000FFACCB /* StoreKit.framework */; };
+		A1ED645B1C50B9D100FFACCB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ED64591C50B9C000FFACCB /* StoreKit.framework */; };
+		A1ED645C1C50B9DB00FFACCB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ED64591C50B9C000FFACCB /* StoreKit.framework */; };
+		A1ED645D1C50B9E500FFACCB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ED64591C50B9C000FFACCB /* StoreKit.framework */; };
+		A1ED9B671C4F671500C7EF10 /* ProductBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */; };
+		A1ED9B681C4F671500C7EF10 /* ProductBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */; };
+		A1ED9B691C4F671500C7EF10 /* ProductBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */; };
+		A1ED9B6A1C4F671500C7EF10 /* ProductBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */; };
 		A1F1236F1C02DCDC0011B30C /* libBaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1236E1C02DCDC0011B30C /* libBaseObject.a */; };
 		A1F123701C02DD590011B30C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 		A1F8D59C1C2269E8009C1401 /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948211BB1B7D20031013A /* MJDIYBackFooter.m */; };
@@ -367,6 +391,22 @@
 		A1F8D5F81C2269E8009C1401 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 680D41281B907AB000CFF29E /* Config.plist */; };
 		A1F8D6031C2269E8009C1401 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680D40FD1B9079E700CFF29E /* Main.storyboard */; };
 		A1F8D6211C22798F009C1401 /* images-ch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F8D6201C22798F009C1401 /* images-ch.xcassets */; };
+		A1FADD751C4DE777007BC81C /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD741C4DE777007BC81C /* ProductListCell.m */; };
+		A1FADD761C4DE777007BC81C /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD741C4DE777007BC81C /* ProductListCell.m */; };
+		A1FADD771C4DE777007BC81C /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD741C4DE777007BC81C /* ProductListCell.m */; };
+		A1FADD781C4DE777007BC81C /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD741C4DE777007BC81C /* ProductListCell.m */; };
+		A1FADD7B1C4E0CE0007BC81C /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD7A1C4E0CE0007BC81C /* ProductDetailViewController.m */; };
+		A1FADD7C1C4E0CE0007BC81C /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD7A1C4E0CE0007BC81C /* ProductDetailViewController.m */; };
+		A1FADD7D1C4E0CE0007BC81C /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD7A1C4E0CE0007BC81C /* ProductDetailViewController.m */; };
+		A1FADD7E1C4E0CE0007BC81C /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD7A1C4E0CE0007BC81C /* ProductDetailViewController.m */; };
+		A1FADD871C4E18E2007BC81C /* ProductBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD861C4E18E2007BC81C /* ProductBuyView.m */; };
+		A1FADD881C4E18E2007BC81C /* ProductBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD861C4E18E2007BC81C /* ProductBuyView.m */; };
+		A1FADD891C4E18E2007BC81C /* ProductBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD861C4E18E2007BC81C /* ProductBuyView.m */; };
+		A1FADD8A1C4E18E2007BC81C /* ProductBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD861C4E18E2007BC81C /* ProductBuyView.m */; };
+		A1FADD991C4E31A4007BC81C /* ProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD981C4E31A4007BC81C /* ProductDetailView.m */; };
+		A1FADD9A1C4E31A4007BC81C /* ProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD981C4E31A4007BC81C /* ProductDetailView.m */; };
+		A1FADD9B1C4E31A4007BC81C /* ProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD981C4E31A4007BC81C /* ProductDetailView.m */; };
+		A1FADD9C1C4E31A4007BC81C /* ProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD981C4E31A4007BC81C /* ProductDetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -517,6 +557,12 @@
 		68F0A8C21BC11272007B3DB0 /* QADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QADetailViewController.m; sourceTree = "<group>"; };
 		68F907ED1BC44E6300547224 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		68F907EE1BC44E6300547224 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		A115E6621C4CAE6C0063C22A /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductListViewController.h; path = "产品列表/ProductListViewController.h"; sourceTree = "<group>"; };
+		A115E6631C4CAE6C0063C22A /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductListViewController.m; path = "产品列表/ProductListViewController.m"; sourceTree = "<group>"; };
+		A115E6741C4CD9A10063C22A /* ProductListCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductListCellFrame.h; path = "产品列表/ProductListCellFrame.h"; sourceTree = "<group>"; };
+		A115E6751C4CD9A10063C22A /* ProductListCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductListCellFrame.m; path = "产品列表/ProductListCellFrame.m"; sourceTree = "<group>"; };
+		A115E67A1C4CDCEF0063C22A /* ProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductModel.h; path = "产品列表/ProductModel.h"; sourceTree = "<group>"; };
+		A115E67B1C4CDCEF0063C22A /* ProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductModel.m; path = "产品列表/ProductModel.m"; sourceTree = "<group>"; };
 		A1314FE21C215FA5003E50E1 /* VitamioPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitamioPlayerViewController.h; sourceTree = "<group>"; };
 		A1314FE31C215FA5003E50E1 /* VitamioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VitamioPlayerViewController.m; sourceTree = "<group>"; };
 		A1314FE51C216086003E50E1 /* VitamioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitamioPlayerView.h; sourceTree = "<group>"; };
@@ -560,6 +606,11 @@
 		A1999B041C3E66B800CE0666 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		A19CF7D61C3F6C6600207F68 /* RegisterInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterInputView.h; sourceTree = "<group>"; };
 		A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterInputView.m; sourceTree = "<group>"; };
+		A1ED64531C50A27D00FFACCB /* RechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeViewController.h; path = "产品列表/RechargeViewController.h"; sourceTree = "<group>"; };
+		A1ED64541C50A27D00FFACCB /* RechargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RechargeViewController.m; path = "产品列表/RechargeViewController.m"; sourceTree = "<group>"; };
+		A1ED64591C50B9C000FFACCB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A1ED9B651C4F671500C7EF10 /* ProductBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductBuyViewController.h; path = "产品列表/ProductBuyViewController.h"; sourceTree = "<group>"; };
+		A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductBuyViewController.m; path = "产品列表/ProductBuyViewController.m"; sourceTree = "<group>"; };
 		A1F1235D1C02D81A0011B30C /* libASIHTTPRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libASIHTTPRequest.a; path = "Pods/../build/Debug-iphoneos/libASIHTTPRequest.a"; sourceTree = "<group>"; };
 		A1F1235E1C02D81A0011B30C /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "Pods/../build/Debug-iphoneos/libMBProgressHUD.a"; sourceTree = "<group>"; };
 		A1F1235F1C02D81A0011B30C /* libMJRefresh.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJRefresh.a; path = "Pods/../build/Debug-iphoneos/libMJRefresh.a"; sourceTree = "<group>"; };
@@ -572,6 +623,14 @@
 		A1F8D61A1C2269E8009C1401 /* ch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F8D61C1C226ABF009C1401 /* Info-ch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-ch.plist"; sourceTree = "<group>"; };
 		A1F8D6201C22798F009C1401 /* images-ch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "images-ch.xcassets"; sourceTree = "<group>"; };
+		A1FADD731C4DE777007BC81C /* ProductListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductListCell.h; path = "产品列表/ProductListCell.h"; sourceTree = "<group>"; };
+		A1FADD741C4DE777007BC81C /* ProductListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductListCell.m; path = "产品列表/ProductListCell.m"; sourceTree = "<group>"; };
+		A1FADD791C4E0CE0007BC81C /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetailViewController.h; path = "产品列表/ProductDetailViewController.h"; sourceTree = "<group>"; };
+		A1FADD7A1C4E0CE0007BC81C /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailViewController.m; path = "产品列表/ProductDetailViewController.m"; sourceTree = "<group>"; };
+		A1FADD851C4E18E2007BC81C /* ProductBuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductBuyView.h; path = "产品列表/ProductBuyView.h"; sourceTree = "<group>"; };
+		A1FADD861C4E18E2007BC81C /* ProductBuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductBuyView.m; path = "产品列表/ProductBuyView.m"; sourceTree = "<group>"; };
+		A1FADD971C4E31A4007BC81C /* ProductDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetailView.h; path = "产品列表/ProductDetailView.h"; sourceTree = "<group>"; };
+		A1FADD981C4E31A4007BC81C /* ProductDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailView.m; path = "产品列表/ProductDetailView.m"; sourceTree = "<group>"; };
 		DDA149949139022F8C7F54EF /* Pods-NetSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetSchool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetSchool/Pods-NetSchool.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -580,6 +639,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1ED645D1C50B9E500FFACCB /* StoreKit.framework in Frameworks */,
 				A1314FF81C21626C003E50E1 /* AVFoundation.framework in Frameworks */,
 				A1314FFA1C216276003E50E1 /* AudioToolbox.framework in Frameworks */,
 				A1314FFC1C216289003E50E1 /* CoreGraphics.framework in Frameworks */,
@@ -613,6 +673,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1ED645B1C50B9D100FFACCB /* StoreKit.framework in Frameworks */,
 				A190CAF21C22853D005926AC /* AVFoundation.framework in Frameworks */,
 				A190CAF31C22853D005926AC /* AudioToolbox.framework in Frameworks */,
 				A190CAF41C22853D005926AC /* CoreGraphics.framework in Frameworks */,
@@ -639,6 +700,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1ED645C1C50B9DB00FFACCB /* StoreKit.framework in Frameworks */,
 				A190CB581C228B76005926AC /* AVFoundation.framework in Frameworks */,
 				A190CB591C228B76005926AC /* AudioToolbox.framework in Frameworks */,
 				A190CB5A1C228B76005926AC /* CoreGraphics.framework in Frameworks */,
@@ -665,6 +727,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1ED645A1C50B9C000FFACCB /* StoreKit.framework in Frameworks */,
 				A1F8D5DC1C2269E8009C1401 /* AVFoundation.framework in Frameworks */,
 				A1F8D5DD1C2269E8009C1401 /* AudioToolbox.framework in Frameworks */,
 				A1F8D5DE1C2269E8009C1401 /* CoreGraphics.framework in Frameworks */,
@@ -693,6 +756,7 @@
 		14977648C953FC697C45CC56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1ED64591C50B9C000FFACCB /* StoreKit.framework */,
 				A131500F1C216350003E50E1 /* libiconv.2.dylib */,
 				A131500D1C216337003E50E1 /* libstdc++.6.0.9.dylib */,
 				A131500B1C216305003E50E1 /* libbz2.1.0.dylib */,
@@ -883,6 +947,7 @@
 				68E488961B95E4E20082D53A /* 公共课程目录基类 */,
 				681640B31B9A0A3900D754D4 /* 播放界面 */,
 				68E487761B9400830082D53A /* 我的课程 */,
+				A115E6611C4CACD30063C22A /* 产品列表 */,
 				68E487971B943B6F0082D53A /* 免费体验 */,
 				68E487981B943B7E0082D53A /* 你问我答 */,
 				68E487991B943B8F0082D53A /* 意见反馈 */,
@@ -1092,6 +1157,31 @@
 				68E4889C1B95E4E20082D53A /* PublicListController.m */,
 			);
 			path = "公共课程目录基类";
+			sourceTree = "<group>";
+		};
+		A115E6611C4CACD30063C22A /* 产品列表 */ = {
+			isa = PBXGroup;
+			children = (
+				A115E67A1C4CDCEF0063C22A /* ProductModel.h */,
+				A115E67B1C4CDCEF0063C22A /* ProductModel.m */,
+				A1FADD851C4E18E2007BC81C /* ProductBuyView.h */,
+				A1FADD861C4E18E2007BC81C /* ProductBuyView.m */,
+				A115E6741C4CD9A10063C22A /* ProductListCellFrame.h */,
+				A115E6751C4CD9A10063C22A /* ProductListCellFrame.m */,
+				A1FADD731C4DE777007BC81C /* ProductListCell.h */,
+				A1FADD741C4DE777007BC81C /* ProductListCell.m */,
+				A1FADD971C4E31A4007BC81C /* ProductDetailView.h */,
+				A1FADD981C4E31A4007BC81C /* ProductDetailView.m */,
+				A115E6621C4CAE6C0063C22A /* ProductListViewController.h */,
+				A115E6631C4CAE6C0063C22A /* ProductListViewController.m */,
+				A1FADD791C4E0CE0007BC81C /* ProductDetailViewController.h */,
+				A1FADD7A1C4E0CE0007BC81C /* ProductDetailViewController.m */,
+				A1ED9B651C4F671500C7EF10 /* ProductBuyViewController.h */,
+				A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */,
+				A1ED64531C50A27D00FFACCB /* RechargeViewController.h */,
+				A1ED64541C50A27D00FFACCB /* RechargeViewController.m */,
+			);
+			name = "产品列表";
 			sourceTree = "<group>";
 		};
 		A1314FE81C216158003E50E1 /* Vitamio */ = {
@@ -1518,20 +1608,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				68D948281BB1B7D20031013A /* MJDIYBackFooter.m in Sources */,
+				A115E6641C4CAE6C0063C22A /* ProductListViewController.m in Sources */,
 				6869C0001BFDA38A0060F740 /* Account+CoreDataProperties.m in Sources */,
 				680D42391B907B5300CFF29E /* LoginViewController.m in Sources */,
 				68E488AC1B969B090082D53A /* FreeList3ViewController.m in Sources */,
 				68ED01521B9D6FDF0018FF6D /* PlayerTool.m in Sources */,
+				A1FADD7B1C4E0CE0007BC81C /* ProductDetailViewController.m in Sources */,
+				A115E6761C4CD9A10063C22A /* ProductListCellFrame.m in Sources */,
 				6850AB891BA346B100F625ED /* LocalManagement.m in Sources */,
 				689F55B31BC3B09500D50305 /* PlayRecord.m in Sources */,
 				68D94A581BB236AE0031013A /* ZwsKeyChain.m in Sources */,
 				68D696541BB98EEF00082AC8 /* AddToQATheme.m in Sources */,
+				A1FADD871C4E18E2007BC81C /* ProductBuyView.m in Sources */,
 				68EC37771BA31F51008DD568 /* DownloadSinglecase.m in Sources */,
 				68E25BA71BA1DF92002BC253 /* DownViewController.m in Sources */,
 				68E487791B9401100082D53A /* MyClassesTabBarController.m in Sources */,
 				68E487901B94299A0082D53A /* OnLineList0ViewController.m in Sources */,
 				A1314FE71C216086003E50E1 /* VitamioPlayerView.m in Sources */,
 				680D42031B907AB000CFF29E /* PJViewController.m in Sources */,
+				A1ED64551C50A27D00FFACCB /* RechargeViewController.m in Sources */,
+				A1ED9B671C4F671500C7EF10 /* ProductBuyViewController.m in Sources */,
 				68D948291BB1B7D20031013A /* MJDIYHeader.m in Sources */,
 				68D948271BB1B7D20031013A /* MJDIYAutoFooter.m in Sources */,
 				A190CB9A1C22B2EB005926AC /* AccessConfig.m in Sources */,
@@ -1552,6 +1648,7 @@
 				680D42011B907AB000CFF29E /* PJCollectionViewCell.m in Sources */,
 				680D42381B907B5300CFF29E /* Infomation.m in Sources */,
 				680D40F91B9079E700CFF29E /* NetSchool.xcdatamodeld in Sources */,
+				A1FADD991C4E31A4007BC81C /* ProductDetailView.m in Sources */,
 				68D94A591BB236AE0031013A /* ZwsUserDataManager.m in Sources */,
 				A1999B051C3E66B800CE0666 /* RegisterViewController.m in Sources */,
 				681640B91B9B466000D754D4 /* PlayerView.m in Sources */,
@@ -1564,6 +1661,7 @@
 				68D948241BB1B7D20031013A /* MJChiBaoZiFooter.m in Sources */,
 				68DF34481BABBC3300203272 /* FreeVideo.m in Sources */,
 				68D6965D1BB99CEE00082AC8 /* ClassPickerView.m in Sources */,
+				A1FADD751C4DE777007BC81C /* ProductListCell.m in Sources */,
 				68E4889F1B95E4E20082D53A /* PublicListController.m in Sources */,
 				680D41DA1B907AB000CFF29E /* DataConfigManager.m in Sources */,
 				68D948261BB1B7D20031013A /* MJChiBaoZiHeader.m in Sources */,
@@ -1582,6 +1680,7 @@
 				68E6DCA41BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.m in Sources */,
 				680D42021B907AB000CFF29E /* PJNavigationBar.m in Sources */,
 				68F0A8C31BC11272007B3DB0 /* QADetailViewController.m in Sources */,
+				A115E67C1C4CDCEF0063C22A /* ProductModel.m in Sources */,
 				681640BC1B9B48DF00D754D4 /* PlayNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1599,20 +1698,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				A190CAB21C22853D005926AC /* MJDIYBackFooter.m in Sources */,
+				A115E6661C4CAE6C0063C22A /* ProductListViewController.m in Sources */,
 				A190CAB31C22853D005926AC /* Account+CoreDataProperties.m in Sources */,
 				A190CAB41C22853D005926AC /* LoginViewController.m in Sources */,
 				A190CAB51C22853D005926AC /* FreeList3ViewController.m in Sources */,
 				A190CAB61C22853D005926AC /* PlayerTool.m in Sources */,
+				A1FADD7D1C4E0CE0007BC81C /* ProductDetailViewController.m in Sources */,
+				A115E6781C4CD9A10063C22A /* ProductListCellFrame.m in Sources */,
 				A190CAB71C22853D005926AC /* LocalManagement.m in Sources */,
 				A190CAB81C22853D005926AC /* PlayRecord.m in Sources */,
 				A190CAB91C22853D005926AC /* ZwsKeyChain.m in Sources */,
 				A190CABA1C22853D005926AC /* AddToQATheme.m in Sources */,
+				A1FADD891C4E18E2007BC81C /* ProductBuyView.m in Sources */,
 				A190CABB1C22853D005926AC /* DownloadSinglecase.m in Sources */,
 				A190CABC1C22853D005926AC /* DownViewController.m in Sources */,
 				A190CABD1C22853D005926AC /* MyClassesTabBarController.m in Sources */,
 				A190CABE1C22853D005926AC /* OnLineList0ViewController.m in Sources */,
 				A190CABF1C22853D005926AC /* VitamioPlayerView.m in Sources */,
 				A190CAC01C22853D005926AC /* PJViewController.m in Sources */,
+				A1ED64571C50A27D00FFACCB /* RechargeViewController.m in Sources */,
+				A1ED9B691C4F671500C7EF10 /* ProductBuyViewController.m in Sources */,
 				A190CAC11C22853D005926AC /* MJDIYHeader.m in Sources */,
 				A190CAC21C22853D005926AC /* MJDIYAutoFooter.m in Sources */,
 				A190CB9C1C22B2EB005926AC /* AccessConfig.m in Sources */,
@@ -1633,6 +1738,7 @@
 				A190CAD01C22853D005926AC /* PJCollectionViewCell.m in Sources */,
 				A190CAD11C22853D005926AC /* Infomation.m in Sources */,
 				A190CAD21C22853D005926AC /* NetSchool.xcdatamodeld in Sources */,
+				A1FADD9B1C4E31A4007BC81C /* ProductDetailView.m in Sources */,
 				A190CAD31C22853D005926AC /* ZwsUserDataManager.m in Sources */,
 				A1999B071C3E66B800CE0666 /* RegisterViewController.m in Sources */,
 				A190CAD41C22853D005926AC /* PlayerView.m in Sources */,
@@ -1645,6 +1751,7 @@
 				A190CADB1C22853D005926AC /* MJChiBaoZiFooter.m in Sources */,
 				A190CADC1C22853D005926AC /* FreeVideo.m in Sources */,
 				A190CADD1C22853D005926AC /* ClassPickerView.m in Sources */,
+				A1FADD771C4DE777007BC81C /* ProductListCell.m in Sources */,
 				A190CADE1C22853D005926AC /* PublicListController.m in Sources */,
 				A190CADF1C22853D005926AC /* DataConfigManager.m in Sources */,
 				A190CAE01C22853D005926AC /* MJChiBaoZiHeader.m in Sources */,
@@ -1663,6 +1770,7 @@
 				A190CAED1C22853D005926AC /* NSMutableDictionary+PublicDomain.m in Sources */,
 				A190CAEE1C22853D005926AC /* PJNavigationBar.m in Sources */,
 				A190CAEF1C22853D005926AC /* QADetailViewController.m in Sources */,
+				A115E67E1C4CDCEF0063C22A /* ProductModel.m in Sources */,
 				A190CAF01C22853D005926AC /* PlayNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1672,20 +1780,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				A190CB181C228B76005926AC /* MJDIYBackFooter.m in Sources */,
+				A115E6671C4CAE6C0063C22A /* ProductListViewController.m in Sources */,
 				A190CB191C228B76005926AC /* Account+CoreDataProperties.m in Sources */,
 				A190CB1A1C228B76005926AC /* LoginViewController.m in Sources */,
 				A190CB1B1C228B76005926AC /* FreeList3ViewController.m in Sources */,
 				A190CB1C1C228B76005926AC /* PlayerTool.m in Sources */,
+				A1FADD7E1C4E0CE0007BC81C /* ProductDetailViewController.m in Sources */,
+				A115E6791C4CD9A10063C22A /* ProductListCellFrame.m in Sources */,
 				A190CB1D1C228B76005926AC /* LocalManagement.m in Sources */,
 				A190CB1E1C228B76005926AC /* PlayRecord.m in Sources */,
 				A190CB1F1C228B76005926AC /* ZwsKeyChain.m in Sources */,
 				A190CB201C228B76005926AC /* AddToQATheme.m in Sources */,
+				A1FADD8A1C4E18E2007BC81C /* ProductBuyView.m in Sources */,
 				A190CB211C228B76005926AC /* DownloadSinglecase.m in Sources */,
 				A190CB221C228B76005926AC /* DownViewController.m in Sources */,
 				A190CB231C228B76005926AC /* MyClassesTabBarController.m in Sources */,
 				A190CB241C228B76005926AC /* OnLineList0ViewController.m in Sources */,
 				A190CB251C228B76005926AC /* VitamioPlayerView.m in Sources */,
 				A190CB261C228B76005926AC /* PJViewController.m in Sources */,
+				A1ED64581C50A27D00FFACCB /* RechargeViewController.m in Sources */,
+				A1ED9B6A1C4F671500C7EF10 /* ProductBuyViewController.m in Sources */,
 				A190CB271C228B76005926AC /* MJDIYHeader.m in Sources */,
 				A190CB281C228B76005926AC /* MJDIYAutoFooter.m in Sources */,
 				A190CB9D1C22B2EB005926AC /* AccessConfig.m in Sources */,
@@ -1706,6 +1820,7 @@
 				A190CB361C228B76005926AC /* PJCollectionViewCell.m in Sources */,
 				A190CB371C228B76005926AC /* Infomation.m in Sources */,
 				A190CB381C228B76005926AC /* NetSchool.xcdatamodeld in Sources */,
+				A1FADD9C1C4E31A4007BC81C /* ProductDetailView.m in Sources */,
 				A190CB391C228B76005926AC /* ZwsUserDataManager.m in Sources */,
 				A1999B081C3E66B800CE0666 /* RegisterViewController.m in Sources */,
 				A190CB3A1C228B76005926AC /* PlayerView.m in Sources */,
@@ -1718,6 +1833,7 @@
 				A190CB411C228B76005926AC /* MJChiBaoZiFooter.m in Sources */,
 				A190CB421C228B76005926AC /* FreeVideo.m in Sources */,
 				A190CB431C228B76005926AC /* ClassPickerView.m in Sources */,
+				A1FADD781C4DE777007BC81C /* ProductListCell.m in Sources */,
 				A190CB441C228B76005926AC /* PublicListController.m in Sources */,
 				A190CB451C228B76005926AC /* DataConfigManager.m in Sources */,
 				A190CB461C228B76005926AC /* MJChiBaoZiHeader.m in Sources */,
@@ -1736,6 +1852,7 @@
 				A190CB531C228B76005926AC /* NSMutableDictionary+PublicDomain.m in Sources */,
 				A190CB541C228B76005926AC /* PJNavigationBar.m in Sources */,
 				A190CB551C228B76005926AC /* QADetailViewController.m in Sources */,
+				A115E67F1C4CDCEF0063C22A /* ProductModel.m in Sources */,
 				A190CB561C228B76005926AC /* PlayNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1745,20 +1862,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F8D59C1C2269E8009C1401 /* MJDIYBackFooter.m in Sources */,
+				A115E6651C4CAE6C0063C22A /* ProductListViewController.m in Sources */,
 				A1F8D59D1C2269E8009C1401 /* Account+CoreDataProperties.m in Sources */,
 				A1F8D59E1C2269E8009C1401 /* LoginViewController.m in Sources */,
 				A1F8D59F1C2269E8009C1401 /* FreeList3ViewController.m in Sources */,
 				A1F8D5A01C2269E8009C1401 /* PlayerTool.m in Sources */,
+				A1FADD7C1C4E0CE0007BC81C /* ProductDetailViewController.m in Sources */,
+				A115E6771C4CD9A10063C22A /* ProductListCellFrame.m in Sources */,
 				A1F8D5A11C2269E8009C1401 /* LocalManagement.m in Sources */,
 				A1F8D5A21C2269E8009C1401 /* PlayRecord.m in Sources */,
 				A1F8D5A31C2269E8009C1401 /* ZwsKeyChain.m in Sources */,
 				A1F8D5A41C2269E8009C1401 /* AddToQATheme.m in Sources */,
+				A1FADD881C4E18E2007BC81C /* ProductBuyView.m in Sources */,
 				A1F8D5A51C2269E8009C1401 /* DownloadSinglecase.m in Sources */,
 				A1F8D5A61C2269E8009C1401 /* DownViewController.m in Sources */,
 				A1F8D5A71C2269E8009C1401 /* MyClassesTabBarController.m in Sources */,
 				A1F8D5A81C2269E8009C1401 /* OnLineList0ViewController.m in Sources */,
 				A1F8D5A91C2269E8009C1401 /* VitamioPlayerView.m in Sources */,
 				A1F8D5AA1C2269E8009C1401 /* PJViewController.m in Sources */,
+				A1ED64561C50A27D00FFACCB /* RechargeViewController.m in Sources */,
+				A1ED9B681C4F671500C7EF10 /* ProductBuyViewController.m in Sources */,
 				A1F8D5AB1C2269E8009C1401 /* MJDIYHeader.m in Sources */,
 				A1F8D5AC1C2269E8009C1401 /* MJDIYAutoFooter.m in Sources */,
 				A190CB9B1C22B2EB005926AC /* AccessConfig.m in Sources */,
@@ -1779,6 +1902,7 @@
 				A1F8D5BA1C2269E8009C1401 /* PJCollectionViewCell.m in Sources */,
 				A1F8D5BB1C2269E8009C1401 /* Infomation.m in Sources */,
 				A1F8D5BC1C2269E8009C1401 /* NetSchool.xcdatamodeld in Sources */,
+				A1FADD9A1C4E31A4007BC81C /* ProductDetailView.m in Sources */,
 				A1F8D5BD1C2269E8009C1401 /* ZwsUserDataManager.m in Sources */,
 				A1999B061C3E66B800CE0666 /* RegisterViewController.m in Sources */,
 				A1F8D5BE1C2269E8009C1401 /* PlayerView.m in Sources */,
@@ -1791,6 +1915,7 @@
 				A1F8D5C51C2269E8009C1401 /* MJChiBaoZiFooter.m in Sources */,
 				A1F8D5C61C2269E8009C1401 /* FreeVideo.m in Sources */,
 				A1F8D5C71C2269E8009C1401 /* ClassPickerView.m in Sources */,
+				A1FADD761C4DE777007BC81C /* ProductListCell.m in Sources */,
 				A1F8D5C81C2269E8009C1401 /* PublicListController.m in Sources */,
 				A1F8D5C91C2269E8009C1401 /* DataConfigManager.m in Sources */,
 				A1F8D5CA1C2269E8009C1401 /* MJChiBaoZiHeader.m in Sources */,
@@ -1809,6 +1934,7 @@
 				A1F8D5D71C2269E8009C1401 /* NSMutableDictionary+PublicDomain.m in Sources */,
 				A1F8D5D81C2269E8009C1401 /* PJNavigationBar.m in Sources */,
 				A1F8D5D91C2269E8009C1401 /* QADetailViewController.m in Sources */,
+				A115E67D1C4CDCEF0063C22A /* ProductModel.m in Sources */,
 				A1F8D5DA1C2269E8009C1401 /* PlayNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,6 +50,8 @@
     DLog(@"签名前字符串:%@",[sign description]);
     
     self[@"sign"] = md5(sign);
+    
+    DLog(@"签名后字符串:%@",[self description]);
 }
 
 

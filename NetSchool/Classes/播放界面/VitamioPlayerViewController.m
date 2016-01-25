@@ -67,6 +67,8 @@ CGFloat const gesture_minimum_translation = 1.0;
 #pragma mark -初始化函数
 -(id)initWithParameters:(id)parameters{
     if(self = [super initWithParameters:parameters]){
+        //默认上传学习记录
+        _isUploadRecord = YES;
         //设置标题
         [self.navigationItem setNewTitle:parameters[@"name"]];
         //设置返回按钮
@@ -415,7 +417,8 @@ CGFloat const gesture_minimum_translation = 1.0;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
             @try {
                 //更新播放进度
-                [PlayRecord saveRecod:_parameters seekToTime:(_time/1000)];
+                if(_isUploadRecord)
+                    [PlayRecord saveRecod:_parameters seekToTime:(_time/1000)];
                 BOOL status = NO;
                 if(labs(_time - _total) < .1){
                     status = YES;
@@ -423,7 +426,8 @@ CGFloat const gesture_minimum_translation = 1.0;
                 //主线程更新
                 dispatch_async(dispatch_get_main_queue(), ^{
                     @try {
-                        [app updateLearingRecord:_parameters[@"id"] status:status];
+                        if(_isUploadRecord)
+                            [app updateLearingRecord:_parameters[@"id"] status:status];
                     }
                     @catch (NSException *ex) {
                         NSLog(@"上传学习进度异常:%@", ex.description);

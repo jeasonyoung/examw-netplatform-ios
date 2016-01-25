@@ -25,7 +25,7 @@
 			<key>image</key>
 			<string>experience_center1.png</string>
 			<key>class</key>
-			<string>FreeList0ViewController</string>
+			<string>ProductListViewController</string>
 		</dict>
 		<dict>
 			<key>title</key>

@@ -12,6 +12,7 @@
 #define ACCESS_TOKEN_NAME @"token"
 #define ACCESS_KEY_NAME @"key"
 #define ACCESS_COPYRIGHT_NAME @"copyright"
+#define ACCESS_RECHARGES_NAME @"recharges"
 
 #define ACCESS_PREFIX @"access-"
 
@@ -62,9 +63,8 @@
             _accessToken = dict[ACCESS_TOKEN_NAME];
             _accesskey = dict[ACCESS_KEY_NAME];
             _copyright = dict[ACCESS_COPYRIGHT_NAME];
+            _recharges = dict[ACCESS_RECHARGES_NAME];
         }
     }
-
 }
-
 @end

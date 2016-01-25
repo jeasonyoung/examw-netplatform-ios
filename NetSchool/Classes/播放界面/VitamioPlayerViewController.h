@@ -10,4 +10,7 @@
 
 @interface VitamioPlayerViewController : PJViewController
 
+//是否上传学习记录
+@property(nonatomic,assign)BOOL isUploadRecord;
+
 @end
