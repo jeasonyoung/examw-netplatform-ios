@@ -24,6 +24,11 @@
 @property(nonatomic,copy,readonly)NSString *productName;
 
 /**
+ * @brief 产品类型。
+ */
+@property(nonatomic,copy,readonly)NSString *type;
+
+/**
  * @brief 是否为套餐。
  */
 @property(nonatomic,assign,readonly)BOOL isTaocan;

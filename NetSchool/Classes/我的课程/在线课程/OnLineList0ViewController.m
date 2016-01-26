@@ -10,8 +10,7 @@
 #import "OnLineList1ViewController.h"
 #import "MyClass.h"
 
-@interface OnLineList0ViewController ()
-{
+@interface OnLineList0ViewController (){
     void (^_back)();
 }
 @end
@@ -19,10 +18,10 @@
 @implementation OnLineList0ViewController
 
 
-- (id)initWithBack:(void (^)())back
-{
+- (id)initWithBack:(void (^)())back{
     if ((self = [super init])) {
         _back = back;
+        
         [self.navigationItem setNewTitle:@"在线课程"];
         [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
     }
@@ -30,8 +29,7 @@
 }
 
 
-- (id)init
-{
+- (id)init{
     if ((self = [super init])) {
         [self.navigationItem setNewTitle:@"在线课程"];
         [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
@@ -39,25 +37,26 @@
     return self;
 }
 
-- (void)back
-{
-    if (_back) {
+- (void)back{
+    if (_back){
         _back();
-    }
-    else
-    {
+    }else{
         [self popViewController];
     }
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self pushViewController:[[OnLineList1ViewController alloc] initWithParameters:_datas[indexPath.section][@"children"][indexPath.row]]];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *data = _datas[indexPath.section];
+    if(data[@"children"] && [data[@"children"] count] > 0 && indexPath.row >= 0){
+        [self pushViewController:[[OnLineList1ViewController alloc] initWithParameters:data[@"children"][indexPath.row]]];
+    }else{
+        [self pushViewController:[[OnLineList1ViewController alloc] initWithParameters:data]];
+    }
+    //[self pushViewController:[[OnLineList1ViewController alloc] initWithParameters:_datas[indexPath.section][@"children"][indexPath.row]]];
 }
 
 
@@ -72,26 +71,22 @@
 }
 
 
-- (NSArray *)coreDataQuery
-{
+- (NSArray *)coreDataQuery{
     return [MyClass coreDataQuery];
 }
 
-- (void)coreDataSave:(id)datas
-{
+- (void)coreDataSave:(id)datas{
     [MyClass coreDataSave:datas];
 }
 
 
-- (BOOL)coreDataUpdate:(id)datas;
-{
+- (BOOL)coreDataUpdate:(id)datas{
    return [MyClass coreDataUpdate:datas predicateDatas:_parameters];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

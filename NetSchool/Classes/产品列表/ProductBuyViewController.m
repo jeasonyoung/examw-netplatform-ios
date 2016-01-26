@@ -301,7 +301,7 @@
                                             action:@selector(back)
                                              image:@"back.png"];
         //
-        _balance = 500.0f;
+        _balance = 0.0f;
     }
     return self;
 }
@@ -349,12 +349,16 @@
     [self changeBtnBuy];
     [_btnBuy getCornerRadius:5 borderColor:self.view.backgroundColor borderWidth:.1 masksToBounds:YES];
     [_btnBuy addTarget:self action:@selector(btnBuyClick) forControlEvents:UIControlEventTouchUpInside];
+    _btnBuy.enabled = YES;
     
     //添加到容器
     [self.view addSubview:infoView];
     [self.view addSubview:_priceView];
     [self.view addSubview:descView];
     [self.view addSubview:_btnBuy];
+    
+    //加载用户余额
+    [self requestBalanceData];
 }
 
 #pragma mark - 更改按钮设置
@@ -372,13 +376,13 @@
     params[@"terminal"] = @kTerminal_no;
     [params setPublicDomain];
     //提交数据
-    [MBProgressHUD showMessag:@"正在获取余额..." toView:self.view];
+    [MBProgressHUD showMessag:@"正在帐户余额..." toView:self.view];
     _connection = [BaseModel POST:URL(@"api/m/balance")
                         parameter:params
                             class:[BaseModel class]
                           success:^(id data) {
                               [MBProgressHUD hideHUDForView:self.view animated:YES];
-                              _balance = [data[@"balance"] floatValue];
+                              _balance = [data[@"data"][@"balance"] floatValue];
                               //重新加载价格View数据
                               [_priceView loadData:_data Balance:_balance];
                               //重新更新购买按钮
@@ -416,9 +420,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
     params[@"productId"] = _data.productId;
-    params[@"price"] = [NSNumber numberWithFloat:_data.price];
+    params[@"type"] = _data.type;
     params[@"terminal"] = @kTerminal_no;
     [params setPublicDomain];
+    _btnBuy.enabled = NO;
     //提交数据
     [MBProgressHUD showMessag:@"联系服务器..." toView:self.view];
     _connection = [BaseModel POST:URL(@"api/m/buy")
@@ -432,6 +437,7 @@
                           failure:^(NSString *msg, NSString *status) {
                               [MBProgressHUD hideHUDForView:self.view animated:YES];
                               [self.view makeToast:msg];
+                              _btnBuy.enabled = YES;
                           }];
 }
 

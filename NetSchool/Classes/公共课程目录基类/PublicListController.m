@@ -22,36 +22,30 @@
     [self.table.header beginRefreshing];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 55;
 }
 
 
-- (void)loadNewData
-{
+- (void)loadNewData{
    
     [self requestWithServlet:@"" parameter:@{}];
 }
 
 
-- (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter;
-{
+- (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter{
     
 }
 
-- (void)coreDataSave:(id)datas;
-{
+- (void)coreDataSave:(id)datas{
     
 }
 
-- (NSArray *)coreDataQuery;
-{
+- (NSArray *)coreDataQuery{
     return nil;
 }
 
-- (BOOL)coreDataUpdate:(id)datas;
-{
+- (BOOL)coreDataUpdate:(id)datas{
     return NO;
 }
 
@@ -59,8 +53,7 @@
 
 
 #pragma mark - 双层
-@interface DoubleListController ()
-{
+@interface DoubleListController(){
     NSMutableArray *_puckerArray;
     NSInteger _currentHeader;
 }
@@ -68,26 +61,19 @@
 
 @implementation DoubleListController
 
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return [_datas count];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 50;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 55;
 }
 
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     PublicHeader *header = [PublicHeader buttonWithType:UIButtonTypeCustom];
     header.backgroundColor = [UIColor whiteColor];
     header.tag = section;
@@ -97,100 +83,106 @@
     [header addSubview:title];
     [header addTarget:self action:@selector(puckerTouches:) forControlEvents:UIControlEventTouchUpInside];
     UIButton *acc = [UIButton buttonWithType:UIButtonTypeCustom];
+    //acc.tag = section;
+    //[acc addTarget:self action:@selector(puckerTouches:) forControlEvents:UIControlEventTouchUpInside];
     acc.frame = CGRectMake(DeviceW - 40, 5, 40, 40);
     [acc setImage:[UIImage imageNamed:@"boss_unipay_ic_arrdown.png"] forState:UIControlStateNormal];
-    NSNumber *number = [_puckerArray objectAtIndex:section];
-    if ([number boolValue])
-    {
+    if(_datas[section][@"children"] && [_datas[section][@"children"] count] > 0){
+        NSNumber *number = [_puckerArray objectAtIndex:section];
+        if ([number boolValue]){
             acc.transform = CGAffineTransformIdentity;
-    }
-    else
-    {
+        }else{
             acc.transform = CGAffineTransformMakeRotation(-M_PI);
+        }
+    }else{
+        acc.transform = CGAffineTransformIdentity;
+        acc.transform = CGAffineTransformMakeRotation(-M_PI_2);
     }
-  
     [header addSubview:acc];
     return header;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSNumber *number = [_puckerArray objectAtIndex:section];
-    if (![number boolValue]) {
+    if (![number boolValue]){
         return 0;
-    }
-    else {
-        
+    }else{
         return [_datas[section][@"children"] count];
     }
-
 }
 
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"cellIdentifier";
     PublicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell)
-    {
+    if (!cell){
         cell = [[PublicCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.textLabel.text = _datas[indexPath.section][@"children"][indexPath.row][@"name"];
     return cell;
 }
 
-
-- (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter
-{
-    
+- (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter{
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    if (app->_networkStatus == NotReachable)
-    {
+    if (app->_networkStatus == NotReachable){
         dispatch_async(dispatch_get_main_queue(), ^{
-           
             [self loadDatas:[self coreDataQuery]];
         });
-
         return;
     }
-
-    _connection = [BaseModel POST:URL(servlet) parameter:parameter   class:[BaseModel class]
-                          success:^(id data)
-                   {
-                       [self loadDatas:data[@"data"]];
-                       if (![self coreDataUpdate:data[@"data"]])
-                           [self coreDataSave:data[@"data"]];
-
-                   }
-                          failure:^(NSString *msg, NSString *state)
-                   {
-                       [self.view makeToast:msg];
-                       [_table.header endRefreshing];
-                   }];
+    _connection = [BaseModel POST:URL(servlet)
+                        parameter:parameter
+                            class:[BaseModel class]
+                          success:^(id data){
+                              [self loadDatas:data[@"data"]];
+                              if (![self coreDataUpdate:data[@"data"]])
+                                  [self coreDataSave:data[@"data"]];
+                          }
+                          failure:^(NSString *msg, NSString *state){
+                              [self.view makeToast:msg];
+                              [_table.header endRefreshing];
+                          }];
 }
 
-- (void)loadDatas:(id)datas
-{
+- (void)loadDatas:(id)datas{
     NSMutableArray *tree = [NSMutableArray array];
-  
-    
-    for (NSDictionary *dic in datas)
-    {
-        NSMutableDictionary *dic0 = [NSMutableDictionary dictionaryWithDictionary:dic];
-        if ([dic0[@"id"] length] && ![dic0[@"pid"] length])
-        {
-            NSArray *children = [datas filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pid == %@",dic0[@"id"]]];
-            if (children.count) {
-                dic0[@"children"] = children;
+    if(datas && [datas count] > 0){
+        NSMutableDictionary *dicts = [NSMutableDictionary dictionary];
+        //
+        for(NSDictionary *dict in datas){
+            if(!dict[@"id"] || [dict[@"id"] length] == 0) continue;
+            [dicts setObject:[NSMutableDictionary dictionaryWithDictionary:dict]
+                      forKey:dict[@"id"]];
+        }
+        //
+        NSArray *keys = dicts.allKeys;
+        if(keys && keys.count > 0){
+            for(NSString *key in keys){
+                NSString *pid = dicts[key][@"pid"];
+                if(pid && pid.length > 0 && key != pid){
+                    if(!dicts[pid])continue;
+                    if(!dicts[pid][@"children"]){
+                        dicts[pid][@"children"] = [NSMutableArray array];
+                    }
+                    [dicts[pid][@"children"] addObject:dicts[key]];
+                }else{
+                    [tree addObject:dicts[key]];
+                }
             }
-            else
-            {
-                dic0[@"children"] = [NSArray arrayWithObject:dic];
-            }
-            [tree addObject:dic0];
         }
     }
+    DLog(@"tree:%@", tree);
+//    for (NSDictionary *dic in datas){
+//        NSMutableDictionary *dic0 = [NSMutableDictionary dictionaryWithDictionary:dic];
+//        if ([dic0[@"id"] length] && ![dic0[@"pid"] length]){
+//            NSArray *children = [datas filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pid == %@",dic0[@"id"]]];
+//            if (children.count) {
+//                dic0[@"children"] = children;
+//            } else {
+//                dic0[@"children"] = [NSArray arrayWithObject:dic];
+//            }
+//            [tree addObject:dic0];
+//        }
+//    }
     _datas = tree;
     [self makePuckerArray];
     [_table.header endRefreshing];
@@ -198,42 +190,32 @@
 
 }
 
-
-- (void)puckerTouches:(PublicHeader *)button
-{
-    if (_currentHeader != button.tag)
-    {
+- (void)puckerTouches:(PublicHeader *)button{
+    if (_currentHeader != button.tag){
         NSNumber *number = [_puckerArray objectAtIndex:_currentHeader];
-        
-        if ([number boolValue])
-        {
+        if ([number boolValue]){
             [_puckerArray replaceObjectAtIndex:_currentHeader withObject:[NSNumber  numberWithBool:![number boolValue]]];
-            
             [_table reloadSections:[NSIndexSet indexSetWithIndex:_currentHeader] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
-
     }
     NSNumber *number = [_puckerArray objectAtIndex:button.tag];
-    
     [_puckerArray replaceObjectAtIndex:button.tag withObject:[NSNumber  numberWithBool:![number boolValue]]];
-    
     [_table reloadSections:[NSIndexSet indexSetWithIndex:button.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
     _currentHeader = button.tag;
-
-    
+    if(!_datas[_currentHeader][@"children"] || [_datas[_currentHeader][@"children"] count] == 0){
+        if([self respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
+            [self tableView:self.table didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:-1
+                                                                           inSection:_currentHeader]];
+        }
+    }
 }
 
 
 #pragma mark - 折点数组初始化
--(void)makePuckerArray
-{
-    if (!_puckerArray)
-    {
+-(void)makePuckerArray{
+    if (!_puckerArray){
         _puckerArray = [NSMutableArray array];
-    }
-    else
-    {
+    }else{
         [_puckerArray removeAllObjects];
     }
     for (int i = 0;i < [_datas count];i++) {
@@ -241,9 +223,7 @@
         [_puckerArray addObject:number];
     }
     _currentHeader = 0;
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -270,73 +250,51 @@
 
 @implementation SingleListController
 
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_datas count];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 55;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"cellIdentifier";
     PublicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell)
-    {
+    if (!cell){
         cell = [[PublicCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.textLabel.text = _datas[indexPath.row][@"name"];
-    
     return cell;
 }
 
-
-
-- (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter
-{
-    
+- (void)requestWithServlet:(NSString *)servlet parameter:(id)parameter{
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    if (app->_networkStatus == NotReachable)
-    {
+    if (app->_networkStatus == NotReachable){
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             [self loadDatas:[self coreDataQuery]];
         });
-        
         return;
     }
-
-    _connection = [BaseModel POST:URL(servlet) parameter:parameter   class:[BaseModel class]
-                          success:^(id data)
-                   {
-                       
-                       [self loadDatas:data[@"data"]];
-                       if (![self coreDataUpdate:data[@"data"]])
-                           [self coreDataSave:data[@"data"]];
-                       
-                       
-                   }
-                          failure:^(NSString *msg, NSString *state)
-                   {
-                       [self.view makeToast:msg];
-                       [_table.header endRefreshing];
-                   }];
-    
+    _connection = [BaseModel POST:URL(servlet)
+                        parameter:parameter
+                            class:[BaseModel class]
+                          success:^(id data){
+                              [self loadDatas:data[@"data"]];
+                              if (![self coreDataUpdate:data[@"data"]])
+                                  [self coreDataSave:data[@"data"]];
+                          }
+                          failure:^(NSString *msg, NSString *state){
+                              [self.view makeToast:msg];
+                              [_table.header endRefreshing];
+                          }];
 }
 
-- (void)loadDatas:(id)datas
-{
+- (void)loadDatas:(id)datas{
     _datas = datas;
     [_table.header endRefreshing];
     [self reloadTabData];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

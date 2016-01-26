@@ -18,10 +18,12 @@
         _productId = dict[@"id"];
         //产品名称
         _productName = dict[@"name"];
+        //产品类型
+        _type = dict[@"type"];
         //是否为套餐
         _isTaocan = NO;
-        if(dict[@"type"]){
-            _isTaocan = [dict[@"type"] isEqualToString:@"package"];
+        if(_type){
+            _isTaocan = [_type isEqualToString:@"package"];
         }
         //使用年份
         if(dict[@"useYear"]){
