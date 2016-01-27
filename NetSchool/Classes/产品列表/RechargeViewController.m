@@ -281,15 +281,15 @@
         [self.view makeToast:@"验证充值失败!(获取充值凭证失败,请联系客服)"];
         return;
     }
-    //凭证转换为base64
-    NSString *receiptBase64 = [receiptData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
-    DLog(@"充值凭证:%@",receiptBase64);
+    //凭证转换为hex
+    NSString *receiptHex = [self hexFromData:receiptData]; 
+    DLog(@"充值凭证:%@",receiptHex);
     //
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"randUserId"] = [Infomation readInfo][@"data"][@"randUserId"];
     params[@"chargeId"] = rechargeId;
     params[@"price"] = price;
-    params[@"receipt"] = receiptBase64;
+    params[@"receipt"] = receiptHex;
     params[@"terminal"] = @kTerminal_no;
     [params setPublicDomain];
     //提交数据
@@ -319,11 +319,26 @@
         DLog(@"用户取消交易[transactionIdentifier = %@]...", transaction.transactionIdentifier);
         [self.view makeToast:@"用户取消充值!"];
     }else{
-        DLog(@"充值失败:%i", (int)transaction.error.code);
-        [self.view makeToast:[NSString stringWithFormat:@"充值失败(代码:%i)，请稍后重新尝试!",(int)transaction.error.code]];
+        NSError *err = transaction.error;
+        NSString *msg = err.localizedDescription;
+        DLog(@"充值失败:%@(%i)", msg, (int)err.code);
+        [self.view makeToast:[NSString stringWithFormat:@"充值失败[%@](%i)，请稍后重新尝试!",
+                              msg,(int)err.code]];
     }
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
+
+#pragma mark - 将byte转换为hex
+-(NSString *)hexFromData:(NSData *)data{
+    if(!data) return nil;
+    NSMutableString *hex = [NSMutableString string];
+    char *chars = (char *)data.bytes;
+    for(NSUInteger i = 0; i < data.length; i++){
+        [hex appendFormat:@"%0.2hhx",chars[i]];
+    }
+    return hex;
+}
+
 
 #pragma mark - 内存告警
 - (void)didReceiveMemoryWarning {
