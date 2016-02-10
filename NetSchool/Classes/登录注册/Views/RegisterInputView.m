@@ -32,12 +32,12 @@
     [self addSubview:self.pwdField];
     //重复密码
     [self addSubview:self.rePwdField];
-    //真实姓名
-    [self addSubview:self.realnameField];
-    //手机号码
-    [self addSubview:self.phoneField];
-    //邮箱地址
-    [self addSubview:self.emailField];
+//    //真实姓名
+//    [self addSubview:self.realnameField];
+//    //手机号码
+//    [self addSubview:self.phoneField];
+//    //邮箱地址
+//    [self addSubview:self.emailField];
 }
 
 //用户名字段
@@ -82,42 +82,42 @@
     return _rePwdField;
 }
 
-//真实姓名
--(BaseTextField *)realnameField{
-    if(!_realnameField){
-        _realnameField = [self createInputFieldWithPrevFrame:self.rePwdField.frame
-                                                       Title:@"真实姓名:"
-                                                 PlaceHolder:@"请输入用户真实姓名"];
-        _realnameField.returnKeyType = UIReturnKeyNext;
-        _realnameField.keyboardType = UIKeyboardTypeNamePhonePad;
-    }
-    return _realnameField;
-}
-
-//手机号码
--(BaseTextField *)phoneField{
-    if(!_phoneField){
-        _phoneField = [self createInputFieldWithPrevFrame:self.realnameField.frame
-                                                    Title:@"手机号码:"
-                                              PlaceHolder:@"请输入手机号码"];
-        _phoneField.returnKeyType = UIReturnKeyNext;
-        _phoneField.keyboardType = UIKeyboardTypeNumberPad;
-    }
-    return _phoneField;
-}
-
-//邮箱地址
--(BaseTextField *)emailField{
-    if(!_emailField){
-        _emailField = [self createInputFieldWithPrevFrame:self.phoneField.frame
-                                                    Title:@"电子邮箱:"
-                                              PlaceHolder:@"请输入电子邮箱地址"];
-        _emailField.returnKeyType = UIReturnKeyDone;
-        _emailField.keyboardType = UIKeyboardTypeEmailAddress;
-    }
-    return _emailField;
-}
-
+////真实姓名
+//-(BaseTextField *)realnameField{
+//    if(!_realnameField){
+//        _realnameField = [self createInputFieldWithPrevFrame:self.rePwdField.frame
+//                                                       Title:@"真实姓名:"
+//                                                 PlaceHolder:@"请输入用户真实姓名"];
+//        _realnameField.returnKeyType = UIReturnKeyNext;
+//        _realnameField.keyboardType = UIKeyboardTypeNamePhonePad;
+//    }
+//    return _realnameField;
+//}
+//
+////手机号码
+//-(BaseTextField *)phoneField{
+//    if(!_phoneField){
+//        _phoneField = [self createInputFieldWithPrevFrame:self.realnameField.frame
+//                                                    Title:@"手机号码:"
+//                                              PlaceHolder:@"请输入手机号码"];
+//        _phoneField.returnKeyType = UIReturnKeyNext;
+//        _phoneField.keyboardType = UIKeyboardTypeNumberPad;
+//    }
+//    return _phoneField;
+//}
+//
+////邮箱地址
+//-(BaseTextField *)emailField{
+//    if(!_emailField){
+//        _emailField = [self createInputFieldWithPrevFrame:self.phoneField.frame
+//                                                    Title:@"电子邮箱:"
+//                                              PlaceHolder:@"请输入电子邮箱地址"];
+//        _emailField.returnKeyType = UIReturnKeyDone;
+//        _emailField.keyboardType = UIKeyboardTypeEmailAddress;
+//    }
+//    return _emailField;
+//}
+//
 //创建input
 -(BaseTextField *)createInputFieldWithPrevFrame:(CGRect)prevFrame
                                           Title:(NSString *)title

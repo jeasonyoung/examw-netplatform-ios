@@ -10,7 +10,7 @@
 
 #import "RegisterInputView.h"
 
-#define kRegInputAllHeight (44 * 6)//注册输入框的整体高度
+#define kRegInputAllHeight (44 * 3)//注册输入框的整体高度
 
 @interface RegisterViewController(){
     RegisterInputView *_inputView;
@@ -114,33 +114,33 @@
         return;
     }
     //真实姓名
-    NSString *realname = [self getInputValue:_inputView.realnameField];
-    if(![self getInputValueValid:_inputView.realnameField
-                           Regex:@"^[\u4e00-\u9fa5]{2,6}$"
-                        ErrorMsg:@"请填写您的真实姓名(中文)"]){
-        return;
-    }
+//    NSString *realname = [self getInputValue:_inputView.realnameField];
+//    if(![self getInputValueValid:_inputView.realnameField
+//                           Regex:@"^[\u4e00-\u9fa5]{2,6}$"
+//                        ErrorMsg:@"请填写您的真实姓名(中文)"]){
+//        return;
+//    }
     //手机号码
-    NSString *phone = [self getInputValue:_inputView.phoneField];
-    if(![self getInputValueValid:_inputView.phoneField
-                           Regex:@"^1[3-8][0-9]\\d{8}$"
-                        ErrorMsg:@"手机号码不正确"]){
-        return;
-    }
+//    NSString *phone = [self getInputValue:_inputView.phoneField];
+//    if(![self getInputValueValid:_inputView.phoneField
+//                           Regex:@"^1[3-8][0-9]\\d{8}$"
+//                        ErrorMsg:@"手机号码不正确"]){
+//        return;
+//    }
     //邮箱地址
-    NSString *email = [self getInputValue:_inputView.emailField];
-    if(![self getInputValueValid:_inputView.emailField
-                           Regex:@"^([a-zA-Z0-9]+[_|\\-|\\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\\-|\\.]?)*[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$"
-                        ErrorMsg:@"邮箱地址格式不正确"]){
-        return;
-    }
+//    NSString *email = [self getInputValue:_inputView.emailField];
+//    if(![self getInputValueValid:_inputView.emailField
+//                           Regex:@"^([a-zA-Z0-9]+[_|\\-|\\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\\-|\\.]?)*[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$"
+//                        ErrorMsg:@"邮箱地址格式不正确"]){
+//        return;
+//    }
     //拼装参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"username"] = username;
     params[@"pwd"] = pwd;
-    params[@"realname"] = realname;
-    params[@"phone"] = phone;
-    params[@"email"] = email;
+    params[@"realname"] = @"ios 组册";
+    params[@"phone"] = @"13800138000";
+    params[@"email"] = @"ios@app.com";
     params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no];
     [params setPublicDomain];
     //

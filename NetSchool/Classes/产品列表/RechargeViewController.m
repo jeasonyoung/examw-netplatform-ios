@@ -76,7 +76,7 @@
 #pragma mark - 加载数据
 -(void)loadDataWithRechargeId:(NSString *)rechargeId Price:(NSString *)price{
     _rechargeId = rechargeId;
-    self.textLabel.text = [NSString stringWithFormat:@"¥ %.2f",[price floatValue]];
+    self.textLabel.text = [NSString stringWithFormat:@"%.0f元充值卡",[price floatValue]];
 }
 @end
 
@@ -215,7 +215,16 @@
     }
     SKProduct *sp = recharges[0];
     _rechargePrice = sp.price;
-    DLog(@"充值信息:%@",@{@"id":sp.productIdentifier,@"title":sp.localizedTitle,@"desc":sp.localizedDescription,@"price":sp.price});
+    DLog(@"充值产品ID:%@",sp.productIdentifier);
+    DLog(@"充值产品Title:%@",sp.localizedTitle);
+    DLog(@"充值产品Desc:%@",sp.localizedDescription);
+    DLog(@"充值产品Price:%.2f",[_rechargePrice floatValue]);
+    
+//    DLog(@"充值信息:%@",@{@"id":sp.productIdentifier,
+//                        @"title":sp.localizedTitle,
+//                        @"desc":sp.localizedDescription,
+//                        @"price":sp.price});
+    
     SKPayment *payment = [SKPayment paymentWithProduct:sp];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
 }

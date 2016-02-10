@@ -17,11 +17,11 @@
 @property(nonatomic,strong)BaseTextField *pwdField;
 //重复密码
 @property(nonatomic,strong)BaseTextField *rePwdField;
-//真实姓名
-@property(nonatomic,strong)BaseTextField *realnameField;
-//手机号码
-@property(nonatomic,strong)BaseTextField *phoneField;
-//邮箱地址
-@property(nonatomic,strong)BaseTextField *emailField;
+////真实姓名
+//@property(nonatomic,strong)BaseTextField *realnameField;
+////手机号码
+//@property(nonatomic,strong)BaseTextField *phoneField;
+////邮箱地址
+//@property(nonatomic,strong)BaseTextField *emailField;
 
 @end
