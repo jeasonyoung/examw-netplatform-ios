@@ -83,7 +83,7 @@
 //成员变量
 @interface RechargeViewController ()<RechargeCellDelegate,SKProductsRequestDelegate,SKPaymentTransactionObserver>{
     BOOL _result;
-    NSDecimalNumber *_rechargePrice;
+   // NSDecimalNumber *_rechargePrice;
 }
 @end
 
@@ -139,17 +139,17 @@
 -(void)loadNewData{
     DLog(@"加载数据...");
     NSDictionary *recharges = [[AccessConfig shared] recharges];
-    NSUInteger count = 0;
-    if(recharges && (count = [recharges count]) > 0){
-        NSMutableArray *arrays = [NSMutableArray arrayWithCapacity:count];
+    if(recharges && recharges.count > 0){
+        NSMutableArray *arrays = [NSMutableArray array];
         NSArray *keys = [recharges allKeys];
         keys = [keys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-            NSInteger o1 = [obj1 integerValue],o2 = [obj2 integerValue];
-            return o1 < o2 ? NSOrderedAscending : NSOrderedDescending;
+            NSStringCompareOptions comparisonOptions = NSCaseInsensitiveSearch|NSNumericSearch|NSWidthInsensitiveSearch|NSForcedOrderingSearch;
+            
+            return [obj1 compare:obj2 options:comparisonOptions];
         }];
+        
         for(NSString *key in keys){
-            if(!key || key.length == 0) continue;
-            [arrays addObject:@{@"price":key,@"chargeId":[recharges objectForKey:key]}];
+            [arrays addObject:@{@"chargeId":key,@"price":recharges[key]}];
         }
         //
         [self loadDatas:arrays];
@@ -209,16 +209,15 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     NSArray * recharges = response.products;
     if(recharges.count == 0){
-        _rechargePrice = nil;
         [self.view makeToast:@"暂时无法充值，请联系客服人员!"];
         return;
     }
     SKProduct *sp = recharges[0];
-    _rechargePrice = sp.price;
+    //_rechargePrice = sp.price;
     DLog(@"充值产品ID:%@",sp.productIdentifier);
     DLog(@"充值产品Title:%@",sp.localizedTitle);
     DLog(@"充值产品Desc:%@",sp.localizedDescription);
-    DLog(@"充值产品Price:%.2f",[_rechargePrice floatValue]);
+    DLog(@"充值产品Price:%.2f",[sp.price floatValue]);
     
 //    DLog(@"充值信息:%@",@{@"id":sp.productIdentifier,
 //                        @"title":sp.localizedTitle,
@@ -268,19 +267,19 @@
 #pragma mark - 完成交易事务
 -(void)completeTransaction:(SKPaymentTransaction *)transaction{
     //验证购买凭证
-    [self verifyPruchaseWithRechargeId:transaction.payment.productIdentifier
-                                Price:_rechargePrice];
+    [self verifyPruchaseWithRechargeId:transaction.payment.productIdentifier];
     //
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 #pragma mark - 验证购买凭据
--(void)verifyPruchaseWithRechargeId:(NSString *)rechargeId Price:(NSDecimalNumber *)price{
+-(void)verifyPruchaseWithRechargeId:(NSString *)rechargeId{
     if(!rechargeId || rechargeId.length == 0){
         [self.view makeToast:@"验证充值失败!(获取充值ID失败,请联系客服)"];
         return;
     }
-    if(!price || price <= 0){
+    NSNumber *price = [[AccessConfig shared] recharges][rechargeId];
+    if(!price || [price intValue] <= 0){
         [self.view makeToast:@"验证充值失败!(获取充值金额失败,请联系客服)"];
         return;
     }
@@ -348,11 +347,8 @@
     return hex;
 }
 
-
 #pragma mark - 内存告警
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-
 @end

@@ -170,13 +170,13 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setNavigationBarHidden:NO];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self gotoLoging];
-    });
+   // dispatch_async(dispatch_get_main_queue(), ^{
+        //[self gotoLoging];
+    //});
 }
 
 
-- (void)gotoLoging{
+-(void)gotoLoging{
     if (![[kUserDefaults objectForKey:@"isLogin"] boolValue]){
         [self gotoLogingWithSuccess:^(BOOL isSuccess){
              if (isSuccess){

@@ -224,28 +224,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)gotoLogingWithSuccess:(void(^)(BOOL isSuccess))success  class:(NSString *)className;
-{
+-(void)gotoLogingWithSuccess:(void(^)(BOOL isSuccess))success  class:(NSString *)className{
     Class class = NSClassFromString(className);
-    
-    if(![self.navigationController.topViewController isKindOfClass:[class class]])
-    {
-        
+    if(![self.navigationController.topViewController isKindOfClass:[class class]]){
         void  (^GotoLogingWithSuccess)(BOOL isSuccess)  = success ;
-        
-        id login = [[class alloc] initWithLoginSuccess:^(UIViewController *controller, BOOL isSuccess)
-                    {
+        id login = [[class alloc] initWithLoginSuccess:^(UIViewController *controller, BOOL isSuccess){
                         [controller dismissViewControllerAnimated:YES completion:^()
                          {
                              GotoLogingWithSuccess(isSuccess);
                          }];
                     }];
-        
       //  [self addNavigationWithPresentViewController:login];
         [self presentViewController:login];
-
     }
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated

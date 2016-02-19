@@ -12,20 +12,20 @@
 	<string> © 2006 - 2016 中华考试网</string>
 	<key>recharges</key>
 	<dict>
-		<key>6</key>
-		<string>ch_recharge_6</string>
-		<key>12</key>
-		<string>ch_recharge_12</string>
-		<key>25</key>
-		<string>ch_recharge_25</string>
-		<key>50</key>
-		<string>ch_recharge_50</string>
-		<key>98</key>
-		<string>ch_recharge_98</string>
-		<key>188</key>
-		<string>ch_recharge_188</string>
-		<key>288</key>
-		<string>ch_recharge_288</string>
+		<key>ch_recharge_6</key>
+		<integer>6</integer>
+		<key>ch_recharge_12</key>
+		<integer>12</integer>
+		<key>ch_recharge_25</key>
+		<integer>25</integer>
+		<key>ch_recharge_50</key>
+		<integer>50</integer>
+		<key>ch_recharge_98</key>
+		<integer>98</integer>
+		<key>ch_recharge_188</key>
+		<integer>188</integer>
+		<key>ch_recharge_288</key>
+		<integer>288</integer>
 	</dict>
 </dict>
 </plist>

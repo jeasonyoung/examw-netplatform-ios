@@ -446,5 +446,23 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self gotoLoging];
+    });
+}
 
+-(void)gotoLoging{
+    if (![[kUserDefaults objectForKey:@"isLogin"] boolValue]){
+        [self gotoLogingWithSuccess:^(BOOL isSuccess){
+            if (isSuccess){
+                [self.view makeToast:@"登录成功"];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self back];
+                });
+            }
+        }class:@"LoginViewController"];
+    }
+}
 @end

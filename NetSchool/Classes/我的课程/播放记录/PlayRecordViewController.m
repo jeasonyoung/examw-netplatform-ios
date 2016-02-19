@@ -144,6 +144,7 @@
     [super viewDidLoad];
     _table.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.table.header = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    [self.table.header beginRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -189,8 +190,7 @@
 
 #pragma mark ---deit delete---
 //  指定哪一行可以编辑 哪行不能编辑
-- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     return YES;
 }
 
@@ -235,11 +235,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self.table.header beginRefreshing];
-}
-
 - (void)eventWithEdit:(UIButton *)button
 {
     if (!_datas.count)
@@ -257,6 +252,26 @@
         {
             cell.title.hidden = cell.abstracts.hidden = NO;
         }
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    dispatch_async(dispatch_get_main_queue(), ^{
+         [self gotoLoging];
+    });
+}
+
+-(void)gotoLoging{
+    if (![[kUserDefaults objectForKey:@"isLogin"] boolValue]){
+        [self gotoLogingWithSuccess:^(BOOL isSuccess){
+            if (isSuccess){
+                [self.view makeToast:@"登录成功"];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.table.header beginRefreshing];
+                });
+            }
+        }class:@"LoginViewController"];
     }
 }
 
