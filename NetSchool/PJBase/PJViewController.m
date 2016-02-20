@@ -20,8 +20,7 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)addNavigationWithPresentViewController:(UIViewController *)viewcontroller;
-{
+- (void)addNavigationWithPresentViewController:(UIViewController *)viewcontroller{
     UINavigationController *nav = [[UINavigationController alloc] initWithNavigationBarClass:[PJNavigationBar class] toolbarClass:nil];
     nav.viewControllers = @[viewcontroller];
     [self presentViewController:nav];

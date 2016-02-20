@@ -138,7 +138,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"username"] = username;
     params[@"pwd"] = pwd;
-    params[@"realname"] = @"ios 组册";
+    params[@"realname"] = @"ios 注册";
     params[@"phone"] = @"13800138000";
     params[@"email"] = @"ios@app.com";
     params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no];

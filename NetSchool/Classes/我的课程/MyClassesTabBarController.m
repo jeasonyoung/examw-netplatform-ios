@@ -144,41 +144,41 @@
     //    self.selectedIndex = 0;     /*设置Bar的第一个item*/
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self gotoLoging];
-    });
-}
+//-(void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self gotoLoging];
+//    });
+//}
 
-- (void)gotoLoging{
-    if (![[kUserDefaults objectForKey:@"isLogin"] boolValue]){
-        [self gotoLogingWithSuccess:^(BOOL isSuccess){
-            if (isSuccess){
-                [self.view makeToast:@"登录成功"];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self loadData];
-                });
-            }
-        }class:@"LoginViewController"];
-    }
-}
+//- (void)gotoLoging{
+//    if (![[kUserDefaults objectForKey:@"isLogin"] boolValue]){
+//        [self gotoLogingWithSuccess:^(BOOL isSuccess){
+//            if (isSuccess){
+//                [self.view makeToast:@"登录成功"];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self loadData];
+//                });
+//            }
+//        }class:@"LoginViewController"];
+//    }
+//}
 
--(void)gotoLogingWithSuccess:(void(^)(BOOL isSuccess))success  class:(NSString *)className{
-    Class class = NSClassFromString(className);
-    if(![self.navigationController.topViewController isKindOfClass:[class class]]){
-        void  (^GotoLogingWithSuccess)(BOOL isSuccess)  = success ;
-        id login = [[class alloc] initWithLoginSuccess:^(UIViewController *controller, BOOL isSuccess){
-            [controller dismissViewControllerAnimated:YES completion:^()
-             {
-                 GotoLogingWithSuccess(isSuccess);
-             }];
-        }];
-        //  [self addNavigationWithPresentViewController:login];
-        //[self presentViewController:login];
-        [self presentViewController:login animated:NO completion:nil];
-    }
-}
+//-(void)gotoLogingWithSuccess:(void(^)(BOOL isSuccess))success  class:(NSString *)className{
+//    Class class = NSClassFromString(className);
+//    if(![self.navigationController.topViewController isKindOfClass:[class class]]){
+//        void  (^GotoLogingWithSuccess)(BOOL isSuccess)  = success ;
+//        id login = [[class alloc] initWithLoginSuccess:^(UIViewController *controller, BOOL isSuccess){
+//            [controller dismissViewControllerAnimated:YES completion:^()
+//             {
+//                 GotoLogingWithSuccess(isSuccess);
+//             }];
+//        }];
+//        //  [self addNavigationWithPresentViewController:login];
+//        //[self presentViewController:login];
+//        [self presentViewController:login animated:NO completion:nil];
+//    }
+//}
 
 
 - (void)didReceiveMemoryWarning {

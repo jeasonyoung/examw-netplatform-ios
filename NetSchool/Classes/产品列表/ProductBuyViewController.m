@@ -11,8 +11,8 @@
 #import "UIView+CGQuartz.h"
 #import "UIView+CGTool.h"
 
+#import "LoginGuideViewController.h"
 #import "RechargeViewController.h"
-
 #import "RootViewController.h"
 
 #define _kProductBuyInfoView_height 60//
@@ -244,7 +244,7 @@
 -(void)loadData{
     //内容
     NSMutableString *content = [NSMutableString stringWithString:@"说明\n\n"];
-    [content appendString:@"1.由于苹果公司限制,来自iOS App内的充值金额只能在iOS App内使用,不能在其他平台上使用\n\n"];
+    [content appendString:@"1.iOS App内的充值金额只能在iOS App内使用,不能在其他平台上使用\n\n"];
     [content appendString:@"2.充值金额没有使用期限,会一直保存在您的帐户内\n\n"];
     [content appendString:@"3.充值金额不能退回"];
     _lbContent.text = content;
@@ -363,6 +363,7 @@
 
 #pragma mark - 更改按钮设置
 -(void)changeBtnBuy{
+    //校验余额
     BOOL isRecharge = _data.price > _balance;
     _btnBuy.backgroundColor = isRecharge ? RGBA(255, 165, 0, 1) : CustomBlue;
     [_btnBuy setTitle:(isRecharge ? @"立即充值" : @"立即购买") forState:UIControlStateNormal];
@@ -390,28 +391,34 @@
                           }
                           failure:^(NSString *msg, NSString *status) {
                               [MBProgressHUD hideHUDForView:self.view animated:YES];
-                              [self.view makeToast:msg];
+                              //[self.view makeToast:msg];
                           }];
 }
 
 #pragma mark - 按钮点击事件
 -(void)btnBuyClick{
-    if(_data.price > _balance){//
-        DLog(@"立即充值...");
-        RechargeViewController *controller = [[RechargeViewController alloc] initWithRechargeResult:^(RechargeViewController *controller, BOOL isSuccess) {
-            if(controller){
-                [controller popViewController];
-            }
-            if(isSuccess){
-                [self requestBalanceData];
-                [self makeToast:@"充值成功!"];
-            }
-        }];
-        [self pushViewController:controller];
+    if(_data.price > _balance){//检查余额
+        if(![self validUserLogin])return;
+        [self rechargeHandler];
     }else{
         DLog(@"立即购买...")
         [self productBuy];
     }
+}
+
+#pragma mark - 充值处理
+-(void)rechargeHandler{
+    DLog(@"立即充值...");
+    RechargeViewController *controller = [[RechargeViewController alloc] initWithRechargeResult:^(RechargeViewController *controller, BOOL isSuccess) {
+        if(controller){
+            [controller popViewController];
+        }
+        if(isSuccess){
+            [self requestBalanceData];
+            [self makeToast:@"充值成功!"];
+        }
+    }];
+    [self pushViewController:controller];
 }
 
 #pragma mark - 产品购买
@@ -446,23 +453,21 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self gotoLoging];
-    });
-}
-
--(void)gotoLoging{
+#pragma mark - 检验是否登录
+-(BOOL)validUserLogin{
     if (![[kUserDefaults objectForKey:@"isLogin"] boolValue]){
-        [self gotoLogingWithSuccess:^(BOOL isSuccess){
-            if (isSuccess){
-                [self.view makeToast:@"登录成功"];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self back];
-                });
-            }
-        }class:@"LoginViewController"];
+        [self presentViewController:[[LoginGuideViewController alloc] initWithCallback:^(UIViewController * controller,BOOL result) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if([controller isKindOfClass:[LoginGuideViewController class]]){
+                    [(LoginGuideViewController *)controller dismissViewController];
+                }
+                if(result){//确定用户
+                    [self rechargeHandler];
+                }
+            });
+        }]];
+        return NO;
     }
+    return YES;
 }
 @end

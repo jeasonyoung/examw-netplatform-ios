@@ -58,6 +58,7 @@
 
 @interface RootViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>{
     NSArray *_datas;
+    BOOL _isFirst;
 }
 @end
 
@@ -90,13 +91,12 @@
 
 
 -(void)initComponent {
+    _isFirst = YES;
     [self.navigationItem setTitleView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"toplogo.png"]]];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:[self exitView]];
     [self.navigationItem setLeftBarButtonItem:leftButton];
     _datas = [DataConfigManager getMainConfigList];
 }
-
-
 
 - (void)back{
     [kUserDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"isLogin"];
@@ -170,11 +170,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setNavigationBarHidden:NO];
-   // dispatch_async(dispatch_get_main_queue(), ^{
-        //[self gotoLoging];
-    //});
+    if(_isFirst){
+        _isFirst = NO;
+        [self gotoLoging];
+    }
 }
-
 
 -(void)gotoLoging{
     if (![[kUserDefaults objectForKey:@"isLogin"] boolValue]){

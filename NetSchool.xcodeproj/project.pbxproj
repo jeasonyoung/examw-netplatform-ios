@@ -12,7 +12,6 @@
 		680D40F61B9079E700CFF29E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D40F51B9079E700CFF29E /* AppDelegate.m */; };
 		680D40F91B9079E700CFF29E /* NetSchool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 680D40F71B9079E700CFF29E /* NetSchool.xcdatamodeld */; };
 		680D40FC1B9079E700CFF29E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D40FB1B9079E700CFF29E /* RootViewController.m */; };
-		680D40FF1B9079E700CFF29E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680D40FD1B9079E700CFF29E /* Main.storyboard */; };
 		680D41011B9079E700CFF29E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680D41001B9079E700CFF29E /* Images.xcassets */; };
 		680D41101B9079E700CFF29E /* NetSchoolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D410F1B9079E700CFF29E /* NetSchoolTests.m */; };
 		680D41D91B907AB000CFF29E /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 680D41281B907AB000CFF29E /* Config.plist */; };
@@ -190,7 +189,6 @@
 		A190CB041C22853D005926AC /* libPods-NetSchool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D918F1FD5CCF95033481C55 /* libPods-NetSchool.a */; };
 		A190CB061C22853D005926AC /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 680D41391B907AB000CFF29E /* MBProgressHUD.bundle */; };
 		A190CB071C22853D005926AC /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 680D41281B907AB000CFF29E /* Config.plist */; };
-		A190CB081C22853D005926AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680D40FD1B9079E700CFF29E /* Main.storyboard */; };
 		A190CB141C228853005926AC /* images-huike.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A190CB131C228853005926AC /* images-huike.xcassets */; };
 		A190CB181C228B76005926AC /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948211BB1B7D20031013A /* MJDIYBackFooter.m */; };
 		A190CB191C228B76005926AC /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6869BFFD1BFDA38A0060F740 /* Account+CoreDataProperties.m */; };
@@ -276,7 +274,6 @@
 		A190CB6A1C228B76005926AC /* libPods-NetSchool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D918F1FD5CCF95033481C55 /* libPods-NetSchool.a */; };
 		A190CB6C1C228B76005926AC /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 680D41391B907AB000CFF29E /* MBProgressHUD.bundle */; };
 		A190CB6D1C228B76005926AC /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 680D41281B907AB000CFF29E /* Config.plist */; };
-		A190CB6E1C228B76005926AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680D40FD1B9079E700CFF29E /* Main.storyboard */; };
 		A190CB7A1C228CBF005926AC /* Images-dali.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A190CB791C228CBF005926AC /* Images-dali.xcassets */; };
 		A190CB9A1C22B2EB005926AC /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
 		A190CB9B1C22B2EB005926AC /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
@@ -291,6 +288,10 @@
 		A19CF7D91C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
 		A19CF7DA1C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
 		A19CF7DB1C3F6C6600207F68 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
+		A1C72BD51C76C60F0080E1A7 /* LoginGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C72BD41C76C60F0080E1A7 /* LoginGuideViewController.m */; };
+		A1C72BD61C76C60F0080E1A7 /* LoginGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C72BD41C76C60F0080E1A7 /* LoginGuideViewController.m */; };
+		A1C72BD71C76C60F0080E1A7 /* LoginGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C72BD41C76C60F0080E1A7 /* LoginGuideViewController.m */; };
+		A1C72BD81C76C60F0080E1A7 /* LoginGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C72BD41C76C60F0080E1A7 /* LoginGuideViewController.m */; };
 		A1ED64551C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
 		A1ED64561C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
 		A1ED64571C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
@@ -389,7 +390,6 @@
 		A1F8D5EE1C2269E8009C1401 /* libPods-NetSchool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D918F1FD5CCF95033481C55 /* libPods-NetSchool.a */; };
 		A1F8D5F01C2269E8009C1401 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 680D41391B907AB000CFF29E /* MBProgressHUD.bundle */; };
 		A1F8D5F81C2269E8009C1401 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 680D41281B907AB000CFF29E /* Config.plist */; };
-		A1F8D6031C2269E8009C1401 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680D40FD1B9079E700CFF29E /* Main.storyboard */; };
 		A1F8D6211C22798F009C1401 /* images-ch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F8D6201C22798F009C1401 /* images-ch.xcassets */; };
 		A1FADD751C4DE777007BC81C /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD741C4DE777007BC81C /* ProductListCell.m */; };
 		A1FADD761C4DE777007BC81C /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD741C4DE777007BC81C /* ProductListCell.m */; };
@@ -431,7 +431,6 @@
 		680D40F81B9079E700CFF29E /* NetSchool.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NetSchool.xcdatamodel; sourceTree = "<group>"; };
 		680D40FA1B9079E700CFF29E /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		680D40FB1B9079E700CFF29E /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		680D40FE1B9079E700CFF29E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		680D41001B9079E700CFF29E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		680D41091B9079E700CFF29E /* NetSchoolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetSchoolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		680D410E1B9079E700CFF29E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -606,6 +605,8 @@
 		A1999B041C3E66B800CE0666 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		A19CF7D61C3F6C6600207F68 /* RegisterInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterInputView.h; sourceTree = "<group>"; };
 		A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterInputView.m; sourceTree = "<group>"; };
+		A1C72BD31C76C60F0080E1A7 /* LoginGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginGuideViewController.h; path = "产品列表/LoginGuideViewController.h"; sourceTree = "<group>"; };
+		A1C72BD41C76C60F0080E1A7 /* LoginGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginGuideViewController.m; path = "产品列表/LoginGuideViewController.m"; sourceTree = "<group>"; };
 		A1ED64531C50A27D00FFACCB /* RechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeViewController.h; path = "产品列表/RechargeViewController.h"; sourceTree = "<group>"; };
 		A1ED64541C50A27D00FFACCB /* RechargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RechargeViewController.m; path = "产品列表/RechargeViewController.m"; sourceTree = "<group>"; };
 		A1ED64591C50B9C000FFACCB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -824,7 +825,6 @@
 				680D40F51B9079E700CFF29E /* AppDelegate.m */,
 				680D40FA1B9079E700CFF29E /* RootViewController.h */,
 				680D40FB1B9079E700CFF29E /* RootViewController.m */,
-				680D40FD1B9079E700CFF29E /* Main.storyboard */,
 				680D41001B9079E700CFF29E /* Images.xcassets */,
 				A1F8D6201C22798F009C1401 /* images-ch.xcassets */,
 				A190CB131C228853005926AC /* images-huike.xcassets */,
@@ -1178,6 +1178,8 @@
 				A1FADD7A1C4E0CE0007BC81C /* ProductDetailViewController.m */,
 				A1ED9B651C4F671500C7EF10 /* ProductBuyViewController.h */,
 				A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */,
+				A1C72BD31C76C60F0080E1A7 /* LoginGuideViewController.h */,
+				A1C72BD41C76C60F0080E1A7 /* LoginGuideViewController.m */,
 				A1ED64531C50A27D00FFACCB /* RechargeViewController.h */,
 				A1ED64541C50A27D00FFACCB /* RechargeViewController.m */,
 			);
@@ -1369,7 +1371,6 @@
 			files = (
 				680D41E41B907AB000CFF29E /* MBProgressHUD.bundle in Resources */,
 				680D41D91B907AB000CFF29E /* Config.plist in Resources */,
-				680D40FF1B9079E700CFF29E /* Main.storyboard in Resources */,
 				680D41011B9079E700CFF29E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1387,7 +1388,6 @@
 			files = (
 				A190CB061C22853D005926AC /* MBProgressHUD.bundle in Resources */,
 				A190CB071C22853D005926AC /* Config.plist in Resources */,
-				A190CB081C22853D005926AC /* Main.storyboard in Resources */,
 				A190CB141C228853005926AC /* images-huike.xcassets in Resources */,
 				A16086E41C23998800409C1E /* access-huike.plist in Resources */,
 			);
@@ -1399,7 +1399,6 @@
 			files = (
 				A190CB6C1C228B76005926AC /* MBProgressHUD.bundle in Resources */,
 				A190CB6D1C228B76005926AC /* Config.plist in Resources */,
-				A190CB6E1C228B76005926AC /* Main.storyboard in Resources */,
 				A190CB7A1C228CBF005926AC /* Images-dali.xcassets in Resources */,
 				A16086E51C2399B100409C1E /* access-dali.plist in Resources */,
 			);
@@ -1411,7 +1410,6 @@
 			files = (
 				A1F8D5F01C2269E8009C1401 /* MBProgressHUD.bundle in Resources */,
 				A1F8D5F81C2269E8009C1401 /* Config.plist in Resources */,
-				A1F8D6031C2269E8009C1401 /* Main.storyboard in Resources */,
 				A1F8D6211C22798F009C1401 /* images-ch.xcassets in Resources */,
 				A190CB9F1C22B373005926AC /* access-ch.plist in Resources */,
 			);
@@ -1654,6 +1652,7 @@
 				681640B91B9B466000D754D4 /* PlayerView.m in Sources */,
 				68D94A571BB236AE0031013A /* UIDevice+IdentifierAddition.m in Sources */,
 				68E4889E1B95E4E20082D53A /* PublicHeader.m in Sources */,
+				A1C72BD51C76C60F0080E1A7 /* LoginGuideViewController.m in Sources */,
 				68D6965A1BB9975C00082AC8 /* PJInputView.m in Sources */,
 				68D948251BB1B7D20031013A /* MJChiBaoZiFooter2.m in Sources */,
 				68E4878D1B9429540082D53A /* PJTableViewController.m in Sources */,
@@ -1744,6 +1743,7 @@
 				A190CAD41C22853D005926AC /* PlayerView.m in Sources */,
 				A190CAD51C22853D005926AC /* UIDevice+IdentifierAddition.m in Sources */,
 				A190CAD61C22853D005926AC /* PublicHeader.m in Sources */,
+				A1C72BD71C76C60F0080E1A7 /* LoginGuideViewController.m in Sources */,
 				A190CAD71C22853D005926AC /* PJInputView.m in Sources */,
 				A190CAD81C22853D005926AC /* MJChiBaoZiFooter2.m in Sources */,
 				A190CAD91C22853D005926AC /* PJTableViewController.m in Sources */,
@@ -1826,6 +1826,7 @@
 				A190CB3A1C228B76005926AC /* PlayerView.m in Sources */,
 				A190CB3B1C228B76005926AC /* UIDevice+IdentifierAddition.m in Sources */,
 				A190CB3C1C228B76005926AC /* PublicHeader.m in Sources */,
+				A1C72BD81C76C60F0080E1A7 /* LoginGuideViewController.m in Sources */,
 				A190CB3D1C228B76005926AC /* PJInputView.m in Sources */,
 				A190CB3E1C228B76005926AC /* MJChiBaoZiFooter2.m in Sources */,
 				A190CB3F1C228B76005926AC /* PJTableViewController.m in Sources */,
@@ -1908,6 +1909,7 @@
 				A1F8D5BE1C2269E8009C1401 /* PlayerView.m in Sources */,
 				A1F8D5BF1C2269E8009C1401 /* UIDevice+IdentifierAddition.m in Sources */,
 				A1F8D5C01C2269E8009C1401 /* PublicHeader.m in Sources */,
+				A1C72BD61C76C60F0080E1A7 /* LoginGuideViewController.m in Sources */,
 				A1F8D5C11C2269E8009C1401 /* PJInputView.m in Sources */,
 				A1F8D5C21C2269E8009C1401 /* MJChiBaoZiFooter2.m in Sources */,
 				A1F8D5C31C2269E8009C1401 /* PJTableViewController.m in Sources */,
@@ -1948,17 +1950,6 @@
 			targetProxy = 680D410A1B9079E700CFF29E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		680D40FD1B9079E700CFF29E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				680D40FE1B9079E700CFF29E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		680D41111B9079E700CFF29E /* Debug */ = {

@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "DownloadSinglecase.h"
 
+#import "PJNavigationBar.h"
+#import "BaseNavigationController.h"
+#import "RootViewController.h"
+
 @interface AppDelegate()<ToolSingletonDelegate>{
     
 }
@@ -71,6 +75,17 @@
     [[ToolSingleton getInstance] createSoundMonitor];
     if ([Infomation readInfo])[[DownloadSinglecase sharedDownloadSinglecase] creatPath];
     // Override point for customization after application launch.
+    
+    
+    //初始化Window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //设置window的背景色
+    BaseNavigationController *baseNavController = [[BaseNavigationController alloc] initWithNavigationBarClass:[PJNavigationBar class] toolbarClass:nil];
+    [baseNavController setViewControllers:@[[[RootViewController alloc] init]]];
+    self.window.rootViewController = baseNavController;
+    //启动显示
+    [self.window makeKeyAndVisible];
+    //
     return YES;
 }
 

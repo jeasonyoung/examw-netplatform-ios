@@ -213,16 +213,11 @@
         return;
     }
     SKProduct *sp = recharges[0];
-    //_rechargePrice = sp.price;
+    
     DLog(@"充值产品ID:%@",sp.productIdentifier);
     DLog(@"充值产品Title:%@",sp.localizedTitle);
     DLog(@"充值产品Desc:%@",sp.localizedDescription);
     DLog(@"充值产品Price:%.2f",[sp.price floatValue]);
-    
-//    DLog(@"充值信息:%@",@{@"id":sp.productIdentifier,
-//                        @"title":sp.localizedTitle,
-//                        @"desc":sp.localizedDescription,
-//                        @"price":sp.price});
     
     SKPayment *payment = [SKPayment paymentWithProduct:sp];
     [[SKPaymentQueue defaultQueue] addPayment:payment];

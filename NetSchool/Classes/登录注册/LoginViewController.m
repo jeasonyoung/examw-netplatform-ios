@@ -79,15 +79,6 @@
     [online getCornerRadius:5 borderColor:CustomBlue borderWidth:.5 masksToBounds:YES];
     [self.view addSubview:online];
     
-//    UIButton *local = [UIButton buttonWithType:UIButtonTypeCustom];
-//    local.frame = CGRectMake(CGRectGetMaxX(online.frame) + ScaleW(60) - kDefaultInset.left * 2, CGRectGetMinY(online.frame), CGRectGetWidth(online.frame), ScaleH(50));
-//    local.backgroundColor = CustomGray;
-//    [local setTitle:@"本地登录" forState:UIControlStateNormal];
-//    local.titleLabel.font = Font(17);
-//    [local addTarget:self action:@selector(eventWithLocal) forControlEvents:UIControlEventTouchUpInside];
-//    [local getCornerRadius:5 borderColor:[UIColor  whiteColor] borderWidth:.5 masksToBounds:YES];
-//    [self.view addSubview:local];
-    
     //注册
     UIButton *reg = [UIButton buttonWithType:UIButtonTypeCustom];
     reg.frame = CGRectMake(CGRectGetMaxX(online.frame) + ScaleW(60) - kDefaultInset.left * 2, CGRectGetMinY(online.frame), CGRectGetWidth(online.frame), ScaleH(50));
@@ -97,6 +88,21 @@
     [reg addTarget:self action:@selector(eventWithReg) forControlEvents:UIControlEventTouchUpInside];
     [reg getCornerRadius:5 borderColor:[UIColor  whiteColor] borderWidth:.5 masksToBounds:YES];
     [self.view addSubview:reg];
+    
+    //游客模式
+    CGFloat x = CGRectGetMinX(online.frame),
+    y = CGRectGetMaxY(online.frame) + kDefaultInset.top + kDefaultInset.bottom,
+    w = CGRectGetMaxX(reg.frame) - x;
+    UIButton *visitor = [UIButton buttonWithType:UIButtonTypeCustom];
+    visitor.frame = CGRectMake(x, y, w, ScaleH(50));
+    [visitor setTitle:@"游客模式 〉" forState:UIControlStateNormal];
+    [visitor setTitleColor:CustomBlue forState:UIControlStateNormal];
+    [visitor setTitleColor:CustomGray forState:UIControlStateHighlighted];
+    visitor.titleLabel.font = Font(17);
+    [visitor addTarget:self action:@selector(eventWithVisitor) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:visitor];
+    
+    
 }
 
 //学员注册
@@ -132,9 +138,15 @@
         [self.view makeToast:_inputView.pwdField.placeholder duration:1 position:@"center"];
         return;
     }
+    //远程登录
+    [self onlineLoginWithUsername:username pwd:password withIsLogin:YES];
+}
+
+#pragma mark - 在线登录
+-(void)onlineLoginWithUsername:(NSString *)username pwd:(NSString *)pwd withIsLogin:(BOOL)isLogin{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"username"] = username;
-    params[@"pwd"] = md5([username stringByAppendingFormat:@"%@",md5(password)]);
+    params[@"pwd"] = md5([username stringByAppendingFormat:@"%@",md5(pwd)]);
     params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no];
     [params setPublicDomain];
     //发送数据
@@ -143,7 +155,7 @@
                         parameter:params
                             class:[BaseModel class]
                           success:^(id data){
-                              [self coreDataSave:data[@"data"]];
+                              [self coreDataSave:data[@"data"] isLogin:isLogin];
                               [[DownloadSinglecase sharedDownloadSinglecase] creatPath];
                               [MBProgressHUD hideHUDForView:self.view animated:YES];
                           }
@@ -151,19 +163,17 @@
                               [self.view makeToast:msg duration:1 position:@"center"];
                               [MBProgressHUD hideHUDForView:self.view animated:YES];
                           }];
+
 }
 
 //本地登录
 -(void)eventWithLocal{
     NSArray *acc = [self coreDataQuery];
-    
     if (!acc.count) {
         [self.view makeToast:@"请先在线登录" duration:1 position:@"center"];
         return;
     }
     Account *model = (Account *)acc[0];
-    
-    
     [Infomation writeInfo:@{@"data":[NSKeyedUnarchiver unarchiveObjectWithData:model.datas],@"userName":_inputView.accountField.text}];
     [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
     [kUserDefaults synchronize];
@@ -172,11 +182,71 @@
     _successLogin(self,YES);
 }
 
--(void)coreDataSave:(id)datas{
+//游客模式
+-(void)eventWithVisitor{
+    NSString *visitorId = [kUserDefaults objectForKey:@"visitorId"];
+    if(visitorId && visitorId.length > 0){//游客ID存在
+        [self visitorLoginWithVisitorId:visitorId];
+        return;
+    }
+    //
+    //检查网络
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(app->_networkStatus == NotReachable){//没有网络
+        [self.view makeToast:@"请检查网络～"];
+        return;
+    }
     
+    //创建游客ID
+    visitorId = [[NSUUID UUID] UUIDString];
+    //md5加密
+    visitorId = md5(visitorId);
+    //
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"username"] = visitorId;
+    params[@"pwd"] = visitorId;
+    params[@"realname"] = @"游客";
+    params[@"phone"] = @"13800138000";
+    params[@"email"] = @"ios@app.com";
+    params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no];
+    [params setPublicDomain];
+    //
+    DLog(@"%@", params.description);
+    //发送数据
+    [MBProgressHUD showMessag:@"创建游客..." toView:self.view];
+    _connection = [BaseModel POST:URL(@"api/m/register")
+                        parameter:params
+                            class:[BaseModel class]
+                          success:^(id data) {
+                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              //保存游客
+                              [kUserDefaults setValue:visitorId forKey:@"visitorId"];
+                              [kUserDefaults synchronize];
+                              //游客登录
+                              [self visitorLoginWithVisitorId:visitorId];
+                          }
+                          failure:^(NSString *msg, NSString *status) {
+                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              DLog(@"游客注册失败->%@", msg);
+                          }];
+}
+#pragma mark - 游客登录
+-(void)visitorLoginWithVisitorId:(NSString *)visitorId{
+    DLog(@"游客(%@)登录...", visitorId);
+    //检查网络
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(app->_networkStatus == NotReachable){//没有网络
+        [self.view makeToast:@"请检查网络～"];
+        return;
+    }
+    //游客登录
+    [self onlineLoginWithUsername:visitorId pwd:visitorId withIsLogin:NO];
+}
+
+-(void)coreDataSave:(id)datas isLogin:(BOOL)isLogin{
     if ([self coreDataUpdate:datas]){
-        [Infomation writeInfo:@{@"data":datas,@"userName":_inputView.accountField.text}];
-        [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
+        [Infomation writeInfo:@{@"data":datas,@"userName":datas[@"realName"]}];
+        [kUserDefaults setValue:[NSNumber numberWithBool:isLogin] forKey:@"isLogin"];
         [kUserDefaults synchronize];
         _successLogin(self,YES);
         return;
@@ -196,8 +266,8 @@
         NSLog(@"Save successful!");
     }
     
-    [Infomation writeInfo:@{@"data":datas,@"userName":_inputView.accountField.text}];
-    [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
+    [Infomation writeInfo:@{@"data":datas,@"userName":datas[@"realName"]}];
+    [kUserDefaults setValue:[NSNumber numberWithBool:isLogin] forKey:@"isLogin"];
     [kUserDefaults synchronize];
     _successLogin(self,YES);
 }
