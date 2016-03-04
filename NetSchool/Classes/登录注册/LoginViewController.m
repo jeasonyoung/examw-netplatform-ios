@@ -155,8 +155,8 @@
                         parameter:params
                             class:[BaseModel class]
                           success:^(id data){
-                              [self coreDataSave:data[@"data"] isLogin:isLogin];
-                              [[DownloadSinglecase sharedDownloadSinglecase] creatPath];
+                              [self coreDataSave:data[@"data"] withUsername:username isLogin:isLogin];
+                              [[DownloadSinglecase sharedDownloadSinglecase] createPath];
                               [MBProgressHUD hideHUDForView:self.view animated:YES];
                           }
                           failure:^(NSString *msg, NSString *state){
@@ -177,7 +177,7 @@
     [Infomation writeInfo:@{@"data":[NSKeyedUnarchiver unarchiveObjectWithData:model.datas],@"userName":_inputView.accountField.text}];
     [kUserDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLogin"];
     [kUserDefaults synchronize];
-    [[DownloadSinglecase sharedDownloadSinglecase] creatPath];
+    [[DownloadSinglecase sharedDownloadSinglecase] createPath];
 
     _successLogin(self,YES);
 }
@@ -243,9 +243,10 @@
     [self onlineLoginWithUsername:visitorId pwd:visitorId withIsLogin:NO];
 }
 
--(void)coreDataSave:(id)datas isLogin:(BOOL)isLogin{
+-(void)coreDataSave:(id)datas withUsername:(NSString *)username isLogin:(BOOL)isLogin{
+    
     if ([self coreDataUpdate:datas]){
-        [Infomation writeInfo:@{@"data":datas,@"userName":datas[@"realName"]}];
+        [Infomation writeInfo:@{@"data":datas,@"userName":username}];
         [kUserDefaults setValue:[NSNumber numberWithBool:isLogin] forKey:@"isLogin"];
         [kUserDefaults synchronize];
         _successLogin(self,YES);
@@ -266,7 +267,7 @@
         NSLog(@"Save successful!");
     }
     
-    [Infomation writeInfo:@{@"data":datas,@"userName":datas[@"realName"]}];
+    [Infomation writeInfo:@{@"data":datas,@"userName":username}];
     [kUserDefaults setValue:[NSNumber numberWithBool:isLogin] forKey:@"isLogin"];
     [kUserDefaults synchronize];
     _successLogin(self,YES);

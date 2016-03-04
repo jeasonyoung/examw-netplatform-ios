@@ -11,17 +11,14 @@
 #import "MyVideo.h"
 #import "DownloadSinglecase.h"
 
-@interface Classlist : PJTableViewCell
-
+@interface Classlist : PJTableViewCell{
+    
+}
 @end
 
 @implementation Classlist
 
-
-
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
         self.imageView.image = [UIImage imageNamed:@"filetype_1.png"];
         self.textLabel.font = NFont(17);
@@ -48,21 +45,13 @@
 }
 
 
-- (void)setDatas:(id)datas
-{
-    NSFileManager *fileManager=[NSFileManager defaultManager];
-    NSString *mp4Name = [[[datas[@"id"] stringByAppendingString:@"<->"] stringByAppendingString:datas[@"name"]]stringByAppendingString:@".mp4"]
-    
-    ;
-    NSString *localVideoUrl = [[DownloadSinglecase sharedDownloadSinglecase].videoFiles stringByAppendingPathComponent:mp4Name];
-   
-    if ([fileManager fileExistsAtPath:localVideoUrl])
-    {
+- (void)setDatas:(id)datas{
+    //文件是否已下载
+    NSString *localPath = [[DownloadSinglecase sharedDownloadSinglecase] loadDownloadFilePathWithDatas:datas];
+    if (localPath && localPath.length > 0){
         _title.text = @"本地";
-        datas[@"videoUrl"] = mp4Name;
-    }
-    else
-    {
+        datas[@"videoUrl"] = localPath;
+    }else{
         _title.text = @"在线";
     }
     self.textLabel.text = datas[@"name"];
@@ -75,8 +64,7 @@
 #import "PlayNavigationController.h"
 #import "DownViewController.h"
 
-@interface OnLineList1ViewController ()
-{
+@interface OnLineList1ViewController(){
     UIButton *_goDown;
 }
 @end

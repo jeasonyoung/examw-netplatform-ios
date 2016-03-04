@@ -73,7 +73,7 @@
     [ToolSingleton getInstance].delegate = self;
     [[ToolSingleton getInstance] createNetworkSniffer];
     [[ToolSingleton getInstance] createSoundMonitor];
-    if ([Infomation readInfo])[[DownloadSinglecase sharedDownloadSinglecase] creatPath];
+    if ([Infomation readInfo])[[DownloadSinglecase sharedDownloadSinglecase] createPath];
     // Override point for customization after application launch.
     
     

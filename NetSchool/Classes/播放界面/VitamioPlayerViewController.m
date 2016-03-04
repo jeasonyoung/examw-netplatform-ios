@@ -120,8 +120,7 @@ CGFloat const gesture_minimum_translation = 1.0;
         [self setupObservers];
     }
     //本地播放
-    NSString *localVideoUrl = [[DownloadSinglecase sharedDownloadSinglecase].videoFiles
-                                stringByAppendingPathComponent:_parameters[@"videoUrl"]];
+    NSString *localVideoUrl = _parameters[@"videoUrl"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if([fileManager fileExistsAtPath:localVideoUrl]){
         NSLog(@"播放地址:%@", localVideoUrl);

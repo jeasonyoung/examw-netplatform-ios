@@ -17,8 +17,7 @@
 @dynamic sid;
 @dynamic pid;
 
-+ (void)saveRecod:(id)datas seekToTime:(CGFloat)seekToTime;
-{
++ (void)saveRecod:(id)datas seekToTime:(CGFloat)seekToTime{
     
     if ([self coreDataUpdate:datas seekToTime:(CGFloat)seekToTime])return;
     
@@ -27,7 +26,7 @@
     record.pid = [Infomation readInfo][@"userId"];
     record.sid = datas[@"id"];
     record.lastTime = [NSDate date];
-    record.datas = [NSJSONSerialization dataWithJSONObject:datas  options:NSJSONWritingPrettyPrinted error:nil];
+    record.datas = [NSJSONSerialization dataWithJSONObject:datas options:NSJSONWritingPrettyPrinted error:nil];
     ;
     record.seekToTime = [NSNumber numberWithFloat:seekToTime];
     NSError* error;
@@ -39,8 +38,7 @@
     }
 }
 
-+ (BOOL)coreDataUpdate:(id)datas seekToTime:(CGFloat)seekToTime;
-{
++ (BOOL)coreDataUpdate:(id)datas seekToTime:(CGFloat)seekToTime{
     
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSFetchRequest* request=[[NSFetchRequest alloc] init];

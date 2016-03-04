@@ -9,5 +9,12 @@
 #import "PJTableViewController.h"
 
 @interface DownloadingController : PJTableViewController
-- (BOOL)eventWithEdit:(BOOL)hasEdit;
+/**
+ *  编辑
+ *
+ *  @param hasEdit <#hasEdit description#>
+ *
+ *  @return <#return value description#>
+ */
+-(BOOL)eventWithEdit:(BOOL)hasEdit;
 @end

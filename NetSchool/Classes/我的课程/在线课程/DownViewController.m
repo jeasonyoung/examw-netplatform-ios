@@ -223,7 +223,6 @@
         else
         {
             [cell setDownDatas:nil hasDatas:NO];// 没有数据
-
         }
 
     }

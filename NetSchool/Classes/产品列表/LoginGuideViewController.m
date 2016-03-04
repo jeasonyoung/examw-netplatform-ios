@@ -103,38 +103,6 @@
         [self visitorLoginWithVisitorId:visitorId];
         return;
     }
-//    //创建游客ID
-//    visitorId = [[NSUUID UUID] UUIDString];
-//    //md5加密
-//    visitorId = md5(visitorId);
-//    //
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    params[@"username"] = visitorId;
-//    params[@"pwd"] = visitorId;
-//    params[@"realname"] = @"iOS 游客";
-//    params[@"phone"] = @"13800138000";
-//    params[@"email"] = @"ios@app.com";
-//    params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no];
-//    [params setPublicDomain];
-//    //
-//    DLog(@"%@", params.description);
-//    //发送数据
-//    [MBProgressHUD showMessag:@"创建游客..." toView:self.view];
-//    _connection = [BaseModel POST:URL(@"api/m/register")
-//                        parameter:params
-//                            class:[BaseModel class]
-//                          success:^(id data) {
-//                              [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                              //保存游客
-//                              [kUserDefaults setValue:visitorId forKey:@"visitorId"];
-//                              [kUserDefaults synchronize];
-//                              _callbackBlock(self, YES);
-//                          }
-//                          failure:^(NSString *msg, NSString *status) {
-//                              [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                              DLog(@"游客注册失败->%@", msg);
-//                              _callbackBlock(self, NO);
-//                          }];
 }
 
 #pragma mark - 游客登录
@@ -154,7 +122,7 @@
                               [MBProgressHUD hideHUDForView:self.view animated:YES];
                               
                               //保存游客用户随机ID
-                              [Infomation writeInfo:@{@"data":data[@"data"],@"userName":data[@"data"][@"realName"]}];
+                              [Infomation writeInfo:@{@"data":data[@"data"],@"userName":visitorId}];
                               [kUserDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"isLogin"];
                               [kUserDefaults synchronize];
                               

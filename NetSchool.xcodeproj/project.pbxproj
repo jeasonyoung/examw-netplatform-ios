@@ -549,7 +549,6 @@
 		68E6DCA51BF8D60B00D2794F /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		68EC37751BA31F51008DD568 /* DownloadSinglecase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadSinglecase.h; sourceTree = "<group>"; };
 		68EC37761BA31F51008DD568 /* DownloadSinglecase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadSinglecase.m; sourceTree = "<group>"; };
-		68EC380B1BA3211D008DD568 /* DownloadDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadDelegate.h; sourceTree = "<group>"; };
 		68ED01501B9D6FDF0018FF6D /* PlayerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTool.h; sourceTree = "<group>"; };
 		68ED01511B9D6FDF0018FF6D /* PlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTool.m; sourceTree = "<group>"; };
 		68F0A8C11BC11272007B3DB0 /* QADetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QADetailViewController.h; sourceTree = "<group>"; };
@@ -1003,7 +1002,6 @@
 			children = (
 				68EC37751BA31F51008DD568 /* DownloadSinglecase.h */,
 				68EC37761BA31F51008DD568 /* DownloadSinglecase.m */,
-				68EC380B1BA3211D008DD568 /* DownloadDelegate.h */,
 				6850AB961BA487A000F625ED /* CommonHelper.h */,
 				6850AB971BA487A000F625ED /* CommonHelper.m */,
 			);

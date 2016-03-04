@@ -8,41 +8,41 @@
 
 #import "LocalManagement.h"
 
-@interface LocalManagement ()
-<SideSegmentControllerDelegate>
-{
+@interface LocalManagement()<SideSegmentControllerDelegate>{
     BOOL _hasEdit;
     void (^_back)();
     UIButton *_rightBtn;
     UIViewController *_currentController;
 }
-
 @end
 
 @implementation LocalManagement
 
-- (id)initWithViewControllers:(NSArray *)viewControllers back:(void(^)())back;
-{
-    if ((self = [super initWithViewControllers:viewControllers]))
-    {
+- (id)initWithViewControllers:(NSArray *)viewControllers back:(void(^)())back{
+    if((self = [super initWithViewControllers:viewControllers])){
         [self.navigationItem setNewTitle:@"缓存课程"];
-        [self.navigationItem setBackItemWithTarget:self title:nil action:@selector(back) image:@"back.png"];
-       _rightBtn = [self.navigationItem setRightItemWithTarget:self title:@"编辑" action:@selector(eventWithEdit) image:nil];
+        [self.navigationItem setBackItemWithTarget:self
+                                             title:nil
+                                            action:@selector(back)
+                                             image:@"back.png"];
+       _rightBtn = [self.navigationItem setRightItemWithTarget:self
+                                                         title:@"编辑"
+                                                        action:@selector(eventWithEdit)
+                                                         image:nil];
         self.delegate = self;
         _back = back;
     }
     return self;
 }
 
-- (void)back
-{
-    if (_back) {
+- (void)back{
+    if(_back){
         _back();
     }
 }
 
 
-- (void)viewDidLoad {
+-(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.backgroudColor = [UIColor whiteColor];
@@ -67,22 +67,17 @@
     UIGraphicsEndImageContext();
 }
 
-- (void)slideSegment:(UICollectionView *)segmentBar didSelectedViewController:(UIViewController *)viewController;
-{
+- (void)slideSegment:(UICollectionView *)segmentBar didSelectedViewController:(UIViewController *)viewController{
     if ([_currentController isKindOfClass:[DownloadingController class]]) {
         DownloadingController *ctr = (DownloadingController *)_currentController;
          [ctr eventWithEdit:NO];
-        
-    }
-    else
-    {
+    }else{
         DownloadedController *ctr = (DownloadedController *)_currentController;
         [ctr eventWithEdit:NO];
     }
     _hasEdit = NO;
     [_rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
     _currentController = viewController;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,36 +85,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)eventWithEdit
-{
-
+- (void)eventWithEdit{
     _hasEdit = !_hasEdit;
-    
-     if ([_currentController isKindOfClass:[DownloadingController class]])
-     {
+    if([_currentController isKindOfClass:[DownloadingController class]]){
         DownloadingController *ctr = (DownloadingController *)_currentController;
        _hasEdit = [ctr eventWithEdit:_hasEdit];
-     }
-    else
-    {
+    }else{
         DownloadedController *ctr = (DownloadedController *)_currentController;
         _hasEdit = [ctr eventWithEdit:_hasEdit];
     }
-
-    if (_hasEdit)
-    {
+    if(_hasEdit){
         [_rightBtn setTitle:@"完成" forState:UIControlStateNormal];
-    }
-    else
-    {
+    }else{
         [_rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
     }
-    
-
 }
 
-- (void)setFullScreen:(BOOL)fullScreen
- {
+-(void)setFullScreen:(BOOL)fullScreen{
      [self.tabBarController.tabBar setHidden:fullScreen];
         // tabBar的隐藏通过在初始化方法中设置hidesBottomBarWhenPushed属性来实现
 }
