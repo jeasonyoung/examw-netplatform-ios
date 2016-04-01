@@ -64,16 +64,17 @@ singleton_implementation(Infomation)
 
 #pragma mark -是否允许离线缓存
 +(BOOL)readAllowDownload{
-    id result = [self readInfo];
-    if(result && [result isKindOfClass:[NSDictionary class]]){
-        DLog(@"readInfo=>%@",[result description]);
-        id data = result[@"data"];
-        if(data && [data isKindOfClass:[NSDictionary class]]){
-            NSNumber *download = data[@"download"];
-            return [download intValue] > 0;
-        }
-    }
-    return NO;
+    return YES;
+//    id result = [self readInfo];
+//    if(result && [result isKindOfClass:[NSDictionary class]]){
+//        DLog(@"readInfo=>%@",[result description]);
+//        id data = result[@"data"];
+//        if(data && [data isKindOfClass:[NSDictionary class]]){
+//            NSNumber *download = data[@"download"];
+//            return [download intValue] > 0;
+//        }
+//    }
+//    return NO;
 }
 
 #pragma mark - 获取lutp 字符串

@@ -25,13 +25,11 @@
 
 @implementation ClassPickerView
 
-- (id)initWithSuccess:(void (^)(id))success datas:(id)datas target:(id)target status:(Status)status;
-{
+- (id)initWithSuccess:(void (^)(id))success datas:(id)datas target:(id)target status:(Status)status{
     if ((self = [super init])) {
         _success = success;
         _target = target;
         _status = status;
-        
         
         if (status == kClass) {
             _array1 = [self loadDatas:datas];
@@ -39,14 +37,11 @@
             if (_array2.count) {
                 _selectDatas = _array2[0];
             }
-        }
-        else
-        {
+        }else{
             _array1 = datas;
             _selectDatas = _array1[0];
             
         }
-        
         [self layoutViews];
     }
     return self;
@@ -185,22 +180,18 @@
     _success(_selectDatas);
 }
 
-- (NSArray *)loadDatas:(id)datas
-{
+- (NSArray *)loadDatas:(id)datas{
     NSMutableArray *tree = [NSMutableArray array];
     
-    
-    for (NSDictionary *dic in datas)
-    {
+    for (NSDictionary *dic in datas){
+        if(!dic || dic.count == 0) continue;
+        
         NSMutableDictionary *dic0 = [NSMutableDictionary dictionaryWithDictionary:dic];
-        if ([dic0[@"id"] length] && ![dic0[@"pid"] length])
-        {
+        if ([dic0[@"id"] length] && ((dic0[@"pid"] == [NSNull null]) || ![dic0[@"pid"] length])){
             NSArray *children = [datas filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pid == %@",dic0[@"id"]]];
             if (children.count) {
                 dic0[@"children"] = children;
-            }
-            else
-            {
+            }else{
                 dic0[@"children"] = [NSArray arrayWithObject:dic];
             }
             [tree addObject:dic0];

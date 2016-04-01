@@ -23,4 +23,11 @@
 
 //base64解码
 +(NSString *)decodeBase64:(NSString *)base64;
+
+//将数组转换为Hex字符串
++(NSString *)toHexWithArray:(NSArray<NSString *> *)data;
+
+//将Hex字符串解析
++(NSArray<NSString *> *)fromHex:(NSString *)hex;
+
 @end

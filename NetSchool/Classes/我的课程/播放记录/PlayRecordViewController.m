@@ -70,15 +70,24 @@
 }
 
 
-- (void)setDatas:(id)datas
-{
+- (void)setDatas:(id)datas{
     _datas = datas;
     PlayRecord *record = (PlayRecord *)datas;
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:record.datas options:kNilOptions error:nil];
-    self.textLabel.text = dic[@"name"];
-    self.detailTextLabel.text = [@"学习时间：" stringByAppendingString:[NSObject compareCurrentTimeToPastTime:record.lastTime]];
-    _title.text = [@"已学习到:" stringByAppendingString:[self convertMovieTimeToText:[record.seekToTime floatValue]]];
-    _abstracts.text = @"继续播放 >>>";
+
+    @try {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:record.datas options:kNilOptions error:nil];
+        self.textLabel.text = dic[@"name"];
+    }
+    @catch (NSException *exception) {
+        DLog(@"异常=>%@", exception);
+    }
+    @finally {
+        self.detailTextLabel.text = [@"学习时间：" stringByAppendingString:[NSObject compareCurrentTimeToPastTime:record.lastTime]];
+        _title.text = [@"已学习到:" stringByAppendingString:[self convertMovieTimeToText:[record.seekToTime floatValue]]];
+        _abstracts.text = @"继续播放 >>>";
+    }
+    
 }
 
 @end
@@ -147,27 +156,37 @@
     [self.table.header beginRefreshing];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _datas.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    PlayRecord *record = _datas[indexPath.row];
-
-    NSString *time = [@"以学习到:" stringByAppendingString:[self convertMovieTimeToText:[record.seekToTime floatValue]]];
-    CGSize timeSize = [NSObject getSizeWithText:time font:NFont(14) maxSize:CGSizeMake(200, NFont(14).lineHeight)];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat height = 55;
+    @try {
+        PlayRecord *record = _datas[indexPath.row];
+        NSString *time = [@"以学习到:" stringByAppendingString:[self convertMovieTimeToText:[record.seekToTime floatValue]]];
+        CGSize timeSize = [NSObject getSizeWithText:time font:NFont(14) maxSize:CGSizeMake(200, NFont(14).lineHeight)];
+        NSError *err;
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:record.datas options:kNilOptions error:&err];
+        if(err){
+            DLog(@"解析JSON[%@]异常:%@", record.datas, err);
+            dic = @{@"name" : @""};
+        }
+        CGSize titleSize = [NSObject getSizeWithText:dic[@"name"]
+                                                font:NFont(17)
+                                             maxSize:CGSizeMake(DeviceW - kDefaultInset.left * 4 - timeSize.width, MAXFLOAT)];
+        height = kDefaultInset.top * 3 + titleSize.height + NFont(14).lineHeight;
+    }
+    @catch (NSException *exception) {
+        DLog(@"发生异常:%@", exception);
+    }
+    @finally{
+        return height;
+    }
     
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:record.datas options:kNilOptions error:nil];
-    CGSize titleSize = [NSObject getSizeWithText:dic[@"name"] font:NFont(17) maxSize:CGSizeMake(DeviceW - kDefaultInset.left * 4 - timeSize.width, MAXFLOAT)];
-    
-    
-    return kDefaultInset.top * 3 + titleSize.height + NFont(14).lineHeight;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"cellIdentifier";
     PlayRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
@@ -178,13 +197,20 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    PlayRecord *record = _datas[indexPath.row];
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:record.datas options:kNilOptions error:nil];
-    VitamioPlayerViewController *play = [[VitamioPlayerViewController alloc] initWithParameters:dic];
-    PlayNavigationController *nav = [[PlayNavigationController alloc] initWithRootViewController:play];;
-    [self presentViewController:nav];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    @try {
+        PlayRecord *record = _datas[indexPath.row];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:record.datas options:kNilOptions error:nil];
+        VitamioPlayerViewController *play = [[VitamioPlayerViewController alloc] initWithParameters:dic];
+        PlayNavigationController *nav = [[PlayNavigationController alloc] initWithRootViewController:play];;
+        [self presentViewController:nav];
+    }
+    @catch (NSException *exception) {
+        DLog(@"异常=>%@", exception);
+    }
+    @finally {
+        
+    }
 }
 
 
@@ -195,14 +221,12 @@
 }
 
 //  设置 哪一行的编辑按钮 状态 指定编辑样式
-- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewCellEditingStyleDelete;
 }
 
 // 判断点击按钮的样式 来去做添加 或删除
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
 
     PlayRecord *record = _datas[indexPath.row];
     [PlayRecord removeRecod:record.sid];
@@ -224,6 +248,9 @@
 - (void)loadNewData{
     dispatch_async(dispatch_get_main_queue(), ^{
         _datas = [PlayRecord readRecod];
+        if(!_datas){
+            _datas = [NSMutableArray array];
+        }
         [self reloadTabData];
         [self.table.header endRefreshing];
     });

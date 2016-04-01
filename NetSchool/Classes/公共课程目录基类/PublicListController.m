@@ -158,7 +158,7 @@
         if(keys && keys.count > 0){
             for(NSString *key in keys){
                 NSString *pid = dicts[key][@"pid"];
-                if(pid && pid.length > 0 && key != pid){
+                if(!([pid isKindOfClass:[NSNull class]]) && pid && pid.length > 0 && key != pid){
                     if(!dicts[pid])continue;
                     if(!dicts[pid][@"children"]){
                         dicts[pid][@"children"] = [NSMutableArray array];

@@ -69,4 +69,45 @@
     return base64;
 }
 
+//将数组转换为Hex字符串
++(NSString *)toHexWithArray:(NSArray<NSString *> *)array{
+    if(array && array.count > 0){
+        NSString *source = [array componentsJoinedByString:@"$"];
+        if(source.length > 60){
+            source = [source substringWithRange:NSMakeRange(0, 60)];
+        }
+        NSData *data = [source dataUsingEncoding:NSUTF8StringEncoding];
+        char *chars = (char *)data.bytes;
+        if(chars){
+            NSUInteger len = data.length;
+            NSMutableString *hex = [NSMutableString string];
+            for(NSUInteger i = 0; i < len; i++){
+                [hex appendFormat:@"%0.2hhx", chars[i]];
+            }
+            return hex.uppercaseString;
+        }
+    }
+    return nil;
+}
+
+//将Hex字符串解析
++(NSArray<NSString *> *)fromHex:(NSString *)hex{
+    if(hex && hex.length > 0 && (hex.length % 2  == 0)){
+        NSMutableData *data = [NSMutableData data];
+        char byte_char[3] = {'\0','\0','\0'};
+        NSUInteger len = hex.length / 2;
+        for(NSUInteger i = 0; i < len; i++){
+            byte_char[0] = [hex characterAtIndex:(i*2)];
+            byte_char[1] = [hex characterAtIndex:(i*2 + 1)];
+            long byte = strtol(byte_char, NULL, 16);
+            [data appendBytes:&byte length:1];
+        }
+        NSString *source = [[NSString alloc] initWithData:data
+                                                 encoding:NSUTF8StringEncoding];
+        if(source && source.length > 0){
+            return [source componentsSeparatedByString:@"$"];
+        }
+    }
+    return nil;
+}
 @end

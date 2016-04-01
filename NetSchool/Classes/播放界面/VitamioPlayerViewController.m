@@ -111,30 +111,41 @@ CGFloat const gesture_minimum_translation = 1.0;
     [self.view addSubview:_playerView];
     [self.view addSubview:_tool];
     
-    //播放时不要锁屏
-    [UIApplication sharedApplication].idleTimerDisabled = YES;
-    //初始化播放器
-    if(!_player){
-        _player = [VMediaPlayer sharedInstance];
-        [_player setupPlayerWithCarrierView:_playerView withDelegate:self];
-        [self setupObservers];
-    }
-    //本地播放
-    NSString *localVideoUrl = _parameters[@"videoUrl"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if([fileManager fileExistsAtPath:localVideoUrl]){
-        NSLog(@"播放地址:%@", localVideoUrl);
+    @try {
+        //播放时不要锁屏
+        [UIApplication sharedApplication].idleTimerDisabled = YES;
+        //初始化播放器
+        if(!_player){
+            _player = [VMediaPlayer sharedInstance];
+            [_player setupPlayerWithCarrierView:_playerView withDelegate:self];
+            [self setupObservers];
+        }
         //本地播放
-        [_player setDataSource:[NSURL URLWithString:localVideoUrl]];
-    }else{
-        NSLog(@"播放地址:%@", _parameters[@"videoUrl"]);
-        //网络播放
-        [_player setDataSource:[NSURL URLWithString:_parameters[@"videoUrl"]]];
+        NSString *videoUrl = _parameters[@"videoUrl"];
+        if([videoUrl isKindOfClass:[NSNull class]] || !videoUrl){
+            videoUrl = _parameters[@"highVideoUrl"];
+            if([videoUrl isKindOfClass:[NSNull class]] || !videoUrl){
+                videoUrl = _parameters[@"superVideoVrl"];
+                if([videoUrl isKindOfClass:[NSNull class]] || !videoUrl){
+                    [self.view makeToast:@"播放地址不存在!"];
+                    return;
+                }
+            }
+        }
+        //设置播放地址
+        [_player setDataSource:[NSURL URLWithString:videoUrl]];
+        //播放器异步缓冲
+        [_player prepareAsync];
     }
-    //播放器异步缓冲
-    [_player prepareAsync];
-    //添加手势
-    [self addGestureRecognizer];
+    @catch (NSException *e) {
+        NSString *err = [NSString stringWithFormat:@"播放异常:%@", e];
+        [self.view makeToast:err];
+        DLog("播放异常:%@", e);
+    }
+    @finally {
+        //添加手势
+        [self addGestureRecognizer];
+    }
 }
 
 #pragma mark -安装观察者

@@ -82,7 +82,7 @@
                                             action:@selector(back)
                                              image:@"back.png"];
         //用户信息隐藏离线缓存
-        if([Infomation readAllowDownload]){
+       if([Infomation readAllowDownload]){
             _goDown = [self.navigationItem setRightItemWithTarget:self
                                                             title:@"缓存"
                                                            action:@selector(download)
@@ -193,24 +193,24 @@
     if(_goDown)_goDown.hidden = NO;
 
     NSMutableArray *array = [NSMutableArray array];
-
-    for (NSDictionary *dic in datas)
-    {
-        NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:dic];
-        newDic[@"pid"] = _parameters[@"id"];
-        [array addObject:newDic];
-    }
-    //排序
-    [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        NSDictionary *dic1 = (NSDictionary *)obj1;
-        NSDictionary *dic2 = (NSDictionary *)obj2;
-        
-        if(dic1 && dic2){
-            return [dic1[@"orderNo"] intValue] > [dic2[@"orderNo"] intValue];
+    if(![datas isKindOfClass:[NSNull class]]){
+        for (NSDictionary *dic in datas){
+            NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+            newDic[@"pid"] = _parameters[@"id"];
+            [array addObject:newDic];
         }
+        //排序
+        [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            NSDictionary *dic1 = (NSDictionary *)obj1;
+            NSDictionary *dic2 = (NSDictionary *)obj2;
         
-        return 0;
-    }];
+            if(dic1 && dic2){
+                return [dic1[@"orderNo"] intValue] > [dic2[@"orderNo"] intValue];
+            }
+        
+            return 0;
+        }];
+    }
     
     //
     _datas = array;

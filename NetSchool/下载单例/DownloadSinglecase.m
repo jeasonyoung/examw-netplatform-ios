@@ -102,6 +102,22 @@ singleton_implementation(DownloadSinglecase)
                 }
             }
         }
+        //数据排序
+        if(_finishedList && _finishedList.count > 0){
+            //DLog(@"_finishedList排序前=>%@", _finishedList);
+            
+            [_finishedList sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                if([obj1 isKindOfClass:[NSDictionary class]] && [obj2 isKindOfClass:[NSDictionary class]]){
+                    NSString *name1 = ((NSDictionary *)obj1)[kDOWNLOAD_CFG_OPT_NAME];
+                    NSString *name2 = ((NSDictionary *)obj2)[kDOWNLOAD_CFG_OPT_NAME];
+                    
+                    return [name1 integerValue] < [name2 integerValue] ? NSOrderedAscending : NSOrderedDescending;
+                }
+                return NSOrderedAscending;
+            }];
+            
+            //DLog(@"_finishedList排序后=>%@", _finishedList);
+        }
     }
     //返回
     return _finishedList;
@@ -362,34 +378,37 @@ singleton_implementation(DownloadSinglecase)
  *
  *  @param datas 配置数据。
  *
- *  @return 文件名(base64)
+ *  @return 文件名(hex)
  */
 -(NSString *)createFinishFileName:(NSDictionary *)datas{
-    NSString *source = [@[datas[kDOWNLOAD_CFG_OPT_ID],datas[kDOWNLOAD_CFG_OPT_NAME]] componentsJoinedByString:@"|"];
-    NSString *base64 = [CommonHelper encodeBase64:source];
-    DLog(@"生成原始文件名:%@=>base64:%@", source, base64);
-    return base64;
+    if(datas && datas.count > 0){
+        NSString *hex = [CommonHelper toHexWithArray:@[datas[kDOWNLOAD_CFG_OPT_ID],
+                                                       datas[kDOWNLOAD_CFG_OPT_NAME]]];
+        DLog(@"生成存储文件名称=>%@", hex);
+        return hex;
+    }
+    return nil;
 }
 
 /**
  *  还原下载文件名数据。
  *
- *  @param base64FileName 原文件名
+ *  @param hex 原文件名
  *
  *  @return 恢复数据
  */
--(NSArray *)recoverFinishFileName:(NSString *)base64FileName{
-    if(!base64FileName || base64FileName.length == 0)return nil;
+-(NSArray *)recoverFinishFileName:(NSString *)hex{
+    if(!hex || hex.length == 0)return nil;
     NSArray *result = nil;
     @try {
-        //base64解密
-        NSString *source = [CommonHelper decodeBase64:base64FileName];
-        if(source && source.length > 0){
-            result = [source componentsSeparatedByString:@"|"];
+        //解密
+        result = [CommonHelper fromHex:hex];
+        if(result && result.count > 0){
+            DLog(@"存储文件解密结果=>%@", [result componentsJoinedByString:@","]);
         }
     }
     @catch (NSException *e) {
-        DLog(@"base64解密异常:%@", e);
+        DLog(@"hex解密异常:[%@]=>%@", hex, e);
     }
     @finally{
         return result;
@@ -449,20 +468,29 @@ singleton_implementation(DownloadSinglecase)
     //循环下载配置信息
     for(NSDictionary *datas in dataArray){
         //
-        if(!datas[kDOWNLOAD_CFG_OPT_URL]){
-            DLog(@"视频URL不存在!");
-            continue;
+        NSString *url = datas[kDOWNLOAD_CFG_OPT_URL];
+        if([url isKindOfClass:[NSNull class]] || !url || url.length == 0){
+            url = datas[@"highVideoUrl"];
+            if([url isKindOfClass:[NSNull class]] || !url || url.length == 0){
+                url = datas[@"superVideoVrl"];
+                if([url isKindOfClass:[NSNull class]] || !url || url.length == 0){
+                    DLog(@"视频URL不存在!");
+                    continue;
+                }
+            }
         }
         //视频Url
-        NSURL *mUrl = [NSURL URLWithString:datas[kDOWNLOAD_CFG_OPT_URL]];
-        //生成下载配置文件
-        [self createCfgFileWithDatas:datas];
+        //NSURL *mUrl = [NSURL URLWithString:datas[kDOWNLOAD_CFG_OPT_URL]];
         //初始化数据字典
         NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:datas];
+        //设置视频地址
+        data[kDOWNLOAD_CFG_OPT_URL] = url;
+        //生成下载配置文件
+        [self createCfgFileWithDatas:data];
         //是否第一次
         data[kDOWNLOAD_CFG_IsFrist] = [NSNumber numberWithBool:YES];
         //临时下载文件
-        NSString *tmpFilePath = [self createTempFilePathWithDatas:datas];
+        NSString *tmpFilePath = [self createTempFilePathWithDatas:data];
         //获取临时文件大小
         NSData *fileData= [fileManager contentsAtPath:tmpFilePath];
         NSInteger receivedDataLength = [fileData length];
@@ -477,11 +505,11 @@ singleton_implementation(DownloadSinglecase)
                 break;
             }
         }
-        ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:mUrl];
+        ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:url]];
         request.delegate = self;
         request.shouldContinueWhenAppEntersBackground = YES;
         //设置下载文件保存路径
-        NSString *downloadFileName = [self createFinishFileName:datas];
+        NSString *downloadFileName = [self createFinishFileName:data];
         [request setDownloadDestinationPath:[_videoFiles stringByAppendingPathComponent:downloadFileName]];
         //设置临时文件保存路径
         [request setTemporaryFileDownloadPath:tmpFilePath];

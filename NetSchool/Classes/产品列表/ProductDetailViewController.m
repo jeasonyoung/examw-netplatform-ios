@@ -139,7 +139,11 @@
                             class:[BaseModel class]
                           success:^(id data) {
                               DLog(@"请求数据成功!");
-                              _datas = data[@"data"];
+                              if([data[@"data"] isKindOfClass:[NSArray class]]){
+                                  _datas = data[@"data"];
+                              }else{
+                                  _datas = @[];
+                              }
                               [_tableView reloadData];
                           }
                           failure:^(NSString *msg, NSString *status) {

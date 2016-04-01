@@ -18,6 +18,7 @@
     label.font = [UIFont boldSystemFontOfSize:19];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
+    
     label.text = title;
     self.titleView = label;
 }
