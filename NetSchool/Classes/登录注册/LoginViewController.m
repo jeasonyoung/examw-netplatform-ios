@@ -207,7 +207,7 @@
     params[@"pwd"] = visitorId;
     params[@"realname"] = @"游客";
     params[@"phone"] = @"13800138000";
-    params[@"email"] = @"ios@app.com";
+    params[@"email"] = @"ios@iphone.com";
     params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no];
     [params setPublicDomain];
     //

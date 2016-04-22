@@ -29,3 +29,7 @@ NetSchool/access-ch.plist
 NetSchool/access-huike.plist
 NetSchool/access-dali.plist
 
+
+Podfile.lock
+
+*.lock
