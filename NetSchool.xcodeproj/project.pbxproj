@@ -179,7 +179,6 @@
 		A190CAFA1C22853D005926AC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150071C2162C7003E50E1 /* QuartzCore.framework */; };
 		A190CAFB1C22853D005926AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150091C2162D4003E50E1 /* UIKit.framework */; };
 		A190CAFC1C22853D005926AC /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500B1C216305003E50E1 /* libbz2.1.0.dylib */; };
-		A190CAFD1C22853D005926AC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 		A190CAFE1C22853D005926AC /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500D1C216337003E50E1 /* libstdc++.6.0.9.dylib */; };
 		A190CAFF1C22853D005926AC /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500F1C216350003E50E1 /* libiconv.2.dylib */; };
 		A190CB001C22853D005926AC /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FEA1C216176003E50E1 /* libopenssl.a */; };
@@ -264,7 +263,6 @@
 		A190CB601C228B76005926AC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150071C2162C7003E50E1 /* QuartzCore.framework */; };
 		A190CB611C228B76005926AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150091C2162D4003E50E1 /* UIKit.framework */; };
 		A190CB621C228B76005926AC /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500B1C216305003E50E1 /* libbz2.1.0.dylib */; };
-		A190CB631C228B76005926AC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 		A190CB641C228B76005926AC /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500D1C216337003E50E1 /* libstdc++.6.0.9.dylib */; };
 		A190CB651C228B76005926AC /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500F1C216350003E50E1 /* libiconv.2.dylib */; };
 		A190CB661C228B76005926AC /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FEA1C216176003E50E1 /* libopenssl.a */; };
@@ -380,7 +378,6 @@
 		A1CDE9B61CDA462500C0B53C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150071C2162C7003E50E1 /* QuartzCore.framework */; };
 		A1CDE9B71CDA462500C0B53C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150091C2162D4003E50E1 /* UIKit.framework */; };
 		A1CDE9B81CDA462500C0B53C /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500B1C216305003E50E1 /* libbz2.1.0.dylib */; };
-		A1CDE9B91CDA462500C0B53C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 		A1CDE9BA1CDA462500C0B53C /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500D1C216337003E50E1 /* libstdc++.6.0.9.dylib */; };
 		A1CDE9BB1CDA462500C0B53C /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500F1C216350003E50E1 /* libiconv.2.dylib */; };
 		A1CDE9BC1CDA462500C0B53C /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FEA1C216176003E50E1 /* libopenssl.a */; };
@@ -407,7 +404,6 @@
 		A1ED9B691C4F671500C7EF10 /* ProductBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */; };
 		A1ED9B6A1C4F671500C7EF10 /* ProductBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */; };
 		A1F1236F1C02DCDC0011B30C /* libBaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1236E1C02DCDC0011B30C /* libBaseObject.a */; };
-		A1F123701C02DD590011B30C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 		A1F8D59C1C2269E8009C1401 /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948211BB1B7D20031013A /* MJDIYBackFooter.m */; };
 		A1F8D59D1C2269E8009C1401 /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6869BFFD1BFDA38A0060F740 /* Account+CoreDataProperties.m */; };
 		A1F8D59E1C2269E8009C1401 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D42341B907B5300CFF29E /* LoginViewController.m */; };
@@ -482,7 +478,6 @@
 		A1F8D5E41C2269E8009C1401 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150071C2162C7003E50E1 /* QuartzCore.framework */; };
 		A1F8D5E51C2269E8009C1401 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150091C2162D4003E50E1 /* UIKit.framework */; };
 		A1F8D5E61C2269E8009C1401 /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500B1C216305003E50E1 /* libbz2.1.0.dylib */; };
-		A1F8D5E71C2269E8009C1401 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5CDCA1B9808C500B5A69B /* libz.dylib */; };
 		A1F8D5E81C2269E8009C1401 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500D1C216337003E50E1 /* libstdc++.6.0.9.dylib */; };
 		A1F8D5E91C2269E8009C1401 /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500F1C216350003E50E1 /* libiconv.2.dylib */; };
 		A1F8D5EA1C2269E8009C1401 /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FEA1C216176003E50E1 /* libopenssl.a */; };
@@ -579,7 +574,6 @@
 		6869BFFF1BFDA38A0060F740 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		689F55B11BC3B09500D50305 /* PlayRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayRecord.h; sourceTree = "<group>"; };
 		689F55B21BC3B09500D50305 /* PlayRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayRecord.m; sourceTree = "<group>"; };
-		68B5CDCA1B9808C500B5A69B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		68D696521BB98EEF00082AC8 /* AddToQATheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToQATheme.h; sourceTree = "<group>"; };
 		68D696531BB98EEF00082AC8 /* AddToQATheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToQATheme.m; sourceTree = "<group>"; };
 		68D696551BB9918500082AC8 /* PJTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJTextView.h; sourceTree = "<group>"; };
@@ -709,7 +703,6 @@
 		A1C72BD31C76C60F0080E1A7 /* LoginGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginGuideViewController.h; path = "产品列表/LoginGuideViewController.h"; sourceTree = "<group>"; };
 		A1C72BD41C76C60F0080E1A7 /* LoginGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginGuideViewController.m; path = "产品列表/LoginGuideViewController.m"; sourceTree = "<group>"; };
 		A1CDE9CB1CDA462500C0B53C /* youeclass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youeclass.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1CDE9CC1CDA462500C0B53C /* dali copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "dali copy-Info.plist"; path = "/workspace/ios/examw-netplatform-ios/dali copy-Info.plist"; sourceTree = "<absolute>"; };
 		A1CDE9CD1CDA479400C0B53C /* images-youeclass.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "images-youeclass.xcassets"; sourceTree = "<group>"; };
 		A1CDE9D01CDA4FFA00C0B53C /* access-youeclass.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "access-youeclass.plist"; sourceTree = "<group>"; };
 		A1CDE9D11CDA4FFA00C0B53C /* Info-youeclass.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-youeclass.plist"; sourceTree = "<group>"; };
@@ -758,7 +751,6 @@
 				A13150081C2162C7003E50E1 /* QuartzCore.framework in Frameworks */,
 				A131500A1C2162D4003E50E1 /* UIKit.framework in Frameworks */,
 				A131500C1C216305003E50E1 /* libbz2.1.0.dylib in Frameworks */,
-				A1F123701C02DD590011B30C /* libz.dylib in Frameworks */,
 				A131500E1C216337003E50E1 /* libstdc++.6.0.9.dylib in Frameworks */,
 				A13150101C216350003E50E1 /* libiconv.2.dylib in Frameworks */,
 				A1314FF51C216176003E50E1 /* libopenssl.a in Frameworks */,
@@ -792,7 +784,6 @@
 				A190CAFA1C22853D005926AC /* QuartzCore.framework in Frameworks */,
 				A190CAFB1C22853D005926AC /* UIKit.framework in Frameworks */,
 				A190CAFC1C22853D005926AC /* libbz2.1.0.dylib in Frameworks */,
-				A190CAFD1C22853D005926AC /* libz.dylib in Frameworks */,
 				A190CAFE1C22853D005926AC /* libstdc++.6.0.9.dylib in Frameworks */,
 				A190CAFF1C22853D005926AC /* libiconv.2.dylib in Frameworks */,
 				A190CB001C22853D005926AC /* libopenssl.a in Frameworks */,
@@ -819,7 +810,6 @@
 				A190CB601C228B76005926AC /* QuartzCore.framework in Frameworks */,
 				A190CB611C228B76005926AC /* UIKit.framework in Frameworks */,
 				A190CB621C228B76005926AC /* libbz2.1.0.dylib in Frameworks */,
-				A190CB631C228B76005926AC /* libz.dylib in Frameworks */,
 				A190CB641C228B76005926AC /* libstdc++.6.0.9.dylib in Frameworks */,
 				A190CB651C228B76005926AC /* libiconv.2.dylib in Frameworks */,
 				A190CB661C228B76005926AC /* libopenssl.a in Frameworks */,
@@ -846,7 +836,6 @@
 				A1CDE9B61CDA462500C0B53C /* QuartzCore.framework in Frameworks */,
 				A1CDE9B71CDA462500C0B53C /* UIKit.framework in Frameworks */,
 				A1CDE9B81CDA462500C0B53C /* libbz2.1.0.dylib in Frameworks */,
-				A1CDE9B91CDA462500C0B53C /* libz.dylib in Frameworks */,
 				A1CDE9BA1CDA462500C0B53C /* libstdc++.6.0.9.dylib in Frameworks */,
 				A1CDE9BB1CDA462500C0B53C /* libiconv.2.dylib in Frameworks */,
 				A1CDE9BC1CDA462500C0B53C /* libopenssl.a in Frameworks */,
@@ -873,7 +862,6 @@
 				A1F8D5E41C2269E8009C1401 /* QuartzCore.framework in Frameworks */,
 				A1F8D5E51C2269E8009C1401 /* UIKit.framework in Frameworks */,
 				A1F8D5E61C2269E8009C1401 /* libbz2.1.0.dylib in Frameworks */,
-				A1F8D5E71C2269E8009C1401 /* libz.dylib in Frameworks */,
 				A1F8D5E81C2269E8009C1401 /* libstdc++.6.0.9.dylib in Frameworks */,
 				A1F8D5E91C2269E8009C1401 /* libiconv.2.dylib in Frameworks */,
 				A1F8D5EA1C2269E8009C1401 /* libopenssl.a in Frameworks */,
@@ -924,13 +912,11 @@
 		680D40E41B9079E700CFF29E = {
 			isa = PBXGroup;
 			children = (
-				68B5CDCA1B9808C500B5A69B /* libz.dylib */,
 				680D40EF1B9079E700CFF29E /* NetSchool */,
 				680D410C1B9079E700CFF29E /* NetSchoolTests */,
 				680D40EE1B9079E700CFF29E /* Products */,
 				14977648C953FC697C45CC56 /* Frameworks */,
 				AB3005415D39B9B77500877D /* Pods */,
-				A1CDE9CC1CDA462500C0B53C /* dali copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
