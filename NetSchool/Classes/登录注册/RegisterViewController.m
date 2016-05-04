@@ -140,7 +140,7 @@
     params[@"pwd"] = pwd;
     params[@"realname"] = @"ios 注册";
     params[@"phone"] = @"13800138000";
-    params[@"email"] = @"ios@iphone.com";
+    params[@"email"] = [NSString stringWithFormat:@"%@@iphone.com", username];//@"ios@iphone.com";
     params[@"terminal"] = [NSNumber numberWithInt:kTerminal_no];
     [params setPublicDomain];
     //
