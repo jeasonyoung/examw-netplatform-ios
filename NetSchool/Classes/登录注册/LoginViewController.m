@@ -249,7 +249,11 @@
         [Infomation writeInfo:@{@"data":datas,@"userName":username}];
         [kUserDefaults setValue:[NSNumber numberWithBool:isLogin] forKey:@"isLogin"];
         [kUserDefaults synchronize];
-        _successLogin(self,YES);
+        if(_successLogin){
+            _successLogin(self,YES);
+        }else{
+            [self dismissViewController];
+        }
         return;
     }
     AppDelegate *app = [UIApplication sharedApplication].delegate;

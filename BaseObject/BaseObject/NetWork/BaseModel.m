@@ -7,6 +7,8 @@
 //
 
 #import "BaseModel.h"
+#import <UIKit/UIKit.h>
+
 @implementation BaseModel
 
 //重载
@@ -24,7 +26,20 @@
     if(isSuccess){
         if(success)success(dict);
     }else{
-        failure(msg,@"0");
+        //状态值
+        int code = [dict[@"code"] intValue];
+        if(code == 104){
+            //登录界面
+            Class class = NSClassFromString(@"LoginViewController");
+            id logo = [[class alloc] init];
+            //
+            UIViewController *rootVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+            if(rootVC){
+                [rootVC presentViewController:logo animated:YES completion:nil];
+            }
+        }else{
+            failure(msg,@"0");
+        }
     }
 }
 @end
