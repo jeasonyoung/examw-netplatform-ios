@@ -28,7 +28,7 @@
     }else{
         //状态值
         int code = [dict[@"code"] intValue];
-        if(code == 104){
+        if(code == 1040104){
             //登录界面
             Class class = NSClassFromString(@"LoginViewController");
             id logo = [[class alloc] init];
