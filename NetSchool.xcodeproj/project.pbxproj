@@ -391,6 +391,11 @@
 		A1CDE9CF1CDA4EB100C0B53C /* Info-dali.plist in Resources */ = {isa = PBXBuildFile; fileRef = A190CB771C228C21005926AC /* Info-dali.plist */; };
 		A1CDE9D71CDA502900C0B53C /* Info-youeclass.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1CDE9D11CDA4FFA00C0B53C /* Info-youeclass.plist */; };
 		A1CDE9D81CDA503000C0B53C /* access-youeclass.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1CDE9D01CDA4FFA00C0B53C /* access-youeclass.plist */; };
+		A1D4AC501D368AA5004CA16C /* images-quanxuehao.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D4AC4F1D368AA5004CA16C /* images-quanxuehao.xcassets */; };
+		A1D4AC531D368DD3004CA16C /* access-quanxuehao.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D4AC511D368DD3004CA16C /* access-quanxuehao.plist */; };
+		A1D4AC541D368DD3004CA16C /* Info-quanxuehao.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D4AC521D368DD3004CA16C /* Info-quanxuehao.plist */; };
+		A1D4AC551D368DFF004CA16C /* access-quanxuehao.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D4AC511D368DD3004CA16C /* access-quanxuehao.plist */; };
+		A1D4AC561D368E17004CA16C /* Info-quanxuehao.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D4AC521D368DD3004CA16C /* Info-quanxuehao.plist */; };
 		A1ED64551C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
 		A1ED64561C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
 		A1ED64571C50A27D00FFACCB /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
@@ -504,6 +509,103 @@
 		A1FADD9A1C4E31A4007BC81C /* ProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD981C4E31A4007BC81C /* ProductDetailView.m */; };
 		A1FADD9B1C4E31A4007BC81C /* ProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD981C4E31A4007BC81C /* ProductDetailView.m */; };
 		A1FADD9C1C4E31A4007BC81C /* ProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD981C4E31A4007BC81C /* ProductDetailView.m */; };
+		A1FFB2031D35420A00BD7752 /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948211BB1B7D20031013A /* MJDIYBackFooter.m */; };
+		A1FFB2041D35420A00BD7752 /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6631C4CAE6C0063C22A /* ProductListViewController.m */; };
+		A1FFB2051D35420A00BD7752 /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6869BFFD1BFDA38A0060F740 /* Account+CoreDataProperties.m */; };
+		A1FFB2061D35420A00BD7752 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D42341B907B5300CFF29E /* LoginViewController.m */; };
+		A1FFB2071D35420A00BD7752 /* FreeList3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E488AB1B969B090082D53A /* FreeList3ViewController.m */; };
+		A1FFB2081D35420A00BD7752 /* PlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ED01511B9D6FDF0018FF6D /* PlayerTool.m */; };
+		A1FFB2091D35420A00BD7752 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD7A1C4E0CE0007BC81C /* ProductDetailViewController.m */; };
+		A1FFB20A1D35420A00BD7752 /* ProductListCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E6751C4CD9A10063C22A /* ProductListCellFrame.m */; };
+		A1FFB20B1D35420A00BD7752 /* LocalManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850AB881BA346B100F625ED /* LocalManagement.m */; };
+		A1FFB20C1D35420A00BD7752 /* PlayRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 689F55B21BC3B09500D50305 /* PlayRecord.m */; };
+		A1FFB20D1D35420A00BD7752 /* ZwsKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D94A531BB236AE0031013A /* ZwsKeyChain.m */; };
+		A1FFB20E1D35420A00BD7752 /* AddToQATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D696531BB98EEF00082AC8 /* AddToQATheme.m */; };
+		A1FFB20F1D35420A00BD7752 /* ProductBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD861C4E18E2007BC81C /* ProductBuyView.m */; };
+		A1FFB2101D35420A00BD7752 /* DownloadSinglecase.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EC37761BA31F51008DD568 /* DownloadSinglecase.m */; };
+		A1FFB2111D35420A00BD7752 /* DownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E25BA61BA1DF92002BC253 /* DownViewController.m */; };
+		A1FFB2121D35420A00BD7752 /* MyClassesTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E487781B9401100082D53A /* MyClassesTabBarController.m */; };
+		A1FFB2131D35420A00BD7752 /* OnLineList0ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E4878F1B94299A0082D53A /* OnLineList0ViewController.m */; };
+		A1FFB2141D35420A00BD7752 /* VitamioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1314FE61C216086003E50E1 /* VitamioPlayerView.m */; };
+		A1FFB2151D35420A00BD7752 /* PJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D417D1B907AB000CFF29E /* PJViewController.m */; };
+		A1FFB2161D35420A00BD7752 /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED64541C50A27D00FFACCB /* RechargeViewController.m */; };
+		A1FFB2171D35420A00BD7752 /* ProductBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ED9B661C4F671500C7EF10 /* ProductBuyViewController.m */; };
+		A1FFB2181D35420A00BD7752 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948231BB1B7D20031013A /* MJDIYHeader.m */; };
+		A1FFB2191D35420A00BD7752 /* MJDIYAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D9481F1BB1B7D20031013A /* MJDIYAutoFooter.m */; };
+		A1FFB21A1D35420A00BD7752 /* AccessConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A190CB991C22B2EB005926AC /* AccessConfig.m */; };
+		A1FFB21B1D35420A00BD7752 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D40F51B9079E700CFF29E /* AppDelegate.m */; };
+		A1FFB21C1D35420A00BD7752 /* FreeList1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E488841B95A3710082D53A /* FreeList1ViewController.m */; };
+		A1FFB21D1D35420A00BD7752 /* RegisterInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CF7D71C3F6C6600207F68 /* RegisterInputView.m */; };
+		A1FFB21E1D35420A00BD7752 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 6869BFFF1BFDA38A0060F740 /* Account.m */; };
+		A1FFB21F1D35420A00BD7752 /* VitamioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1314FE31C215FA5003E50E1 /* VitamioPlayerViewController.m */; };
+		A1FFB2201D35420A00BD7752 /* MyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF34381BABBC3200203272 /* MyClass.m */; };
+		A1FFB2211D35420A00BD7752 /* PJTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D423C1B90885900CFF29E /* PJTextField.m */; };
+		A1FFB2221D35420A00BD7752 /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D422D1B907AD100CFF29E /* String.m */; };
+		A1FFB2231D35420A00BD7752 /* PJTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D696561BB9918500082AC8 /* PJTextView.m */; };
+		A1FFB2241D35420A00BD7752 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D40F21B9079E700CFF29E /* main.m */; };
+		A1FFB2251D35420A00BD7752 /* DownloadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850AB911BA3481F00F625ED /* DownloadingController.m */; };
+		A1FFB2261D35420A00BD7752 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D40FB1B9079E700CFF29E /* RootViewController.m */; };
+		A1FFB2271D35420A00BD7752 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D41381B907AB000CFF29E /* MBProgressHUD+Add.m */; };
+		A1FFB2281D35420A00BD7752 /* PlayRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E487951B9429E00082D53A /* PlayRecordViewController.m */; };
+		A1FFB2291D35420A00BD7752 /* PJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D41791B907AB000CFF29E /* PJCollectionViewCell.m */; };
+		A1FFB22A1D35420A00BD7752 /* Infomation.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D42321B907B5300CFF29E /* Infomation.m */; };
+		A1FFB22B1D35420A00BD7752 /* NetSchool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 680D40F71B9079E700CFF29E /* NetSchool.xcdatamodeld */; };
+		A1FFB22C1D35420A00BD7752 /* ProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD981C4E31A4007BC81C /* ProductDetailView.m */; };
+		A1FFB22D1D35420A00BD7752 /* ZwsUserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D94A551BB236AE0031013A /* ZwsUserDataManager.m */; };
+		A1FFB22E1D35420A00BD7752 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1999B041C3E66B800CE0666 /* RegisterViewController.m */; };
+		A1FFB22F1D35420A00BD7752 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681640B81B9B466000D754D4 /* PlayerView.m */; };
+		A1FFB2301D35420A00BD7752 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D94A501BB236AE0031013A /* UIDevice+IdentifierAddition.m */; };
+		A1FFB2311D35420A00BD7752 /* PublicHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E4889A1B95E4E20082D53A /* PublicHeader.m */; };
+		A1FFB2321D35420A00BD7752 /* LoginGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C72BD41C76C60F0080E1A7 /* LoginGuideViewController.m */; };
+		A1FFB2331D35420A00BD7752 /* PJInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D696591BB9975C00082AC8 /* PJInputView.m */; };
+		A1FFB2341D35420A00BD7752 /* MJChiBaoZiFooter2.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D9481B1BB1B7D20031013A /* MJChiBaoZiFooter2.m */; };
+		A1FFB2351D35420A00BD7752 /* PJTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E4878C1B9429540082D53A /* PJTableViewController.m */; };
+		A1FFB2361D35420A00BD7752 /* DownloadedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850AB941BA3482E00F625ED /* DownloadedController.m */; };
+		A1FFB2371D35420A00BD7752 /* MJChiBaoZiFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D948191BB1B7D20031013A /* MJChiBaoZiFooter.m */; };
+		A1FFB2381D35420A00BD7752 /* FreeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF34471BABBC3300203272 /* FreeVideo.m */; };
+		A1FFB2391D35420A00BD7752 /* ClassPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D6965C1BB99CEE00082AC8 /* ClassPickerView.m */; };
+		A1FFB23A1D35420A00BD7752 /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FADD741C4DE777007BC81C /* ProductListCell.m */; };
+		A1FFB23B1D35420A00BD7752 /* PublicListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E4889C1B95E4E20082D53A /* PublicListController.m */; };
+		A1FFB23C1D35420A00BD7752 /* DataConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D412A1B907AB000CFF29E /* DataConfigManager.m */; };
+		A1FFB23D1D35420A00BD7752 /* MJChiBaoZiHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D9481D1BB1B7D20031013A /* MJChiBaoZiHeader.m */; };
+		A1FFB23E1D35420A00BD7752 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F907EE1BC44E6300547224 /* FeedbackViewController.m */; };
+		A1FFB23F1D35420A00BD7752 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D94A4E1BB236AE0031013A /* NSString+MD5Addition.m */; };
+		A1FFB2401D35420A00BD7752 /* FreeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF34441BABBC3300203272 /* FreeList.m */; };
+		A1FFB2411D35420A00BD7752 /* PublicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E488981B95E4E20082D53A /* PublicCell.m */; };
+		A1FFB2421D35420A00BD7752 /* FreeList0ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E4879B1B943F380082D53A /* FreeList0ViewController.m */; };
+		A1FFB2431D35420A00BD7752 /* OnLineList1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E488A11B95F34F0082D53A /* OnLineList1ViewController.m */; };
+		A1FFB2441D35420A00BD7752 /* QAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E487A41B9453E10082D53A /* QAViewController.m */; };
+		A1FFB2451D35420A00BD7752 /* PJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E4888E1B95DED60082D53A /* PJTableViewCell.m */; };
+		A1FFB2461D35420A00BD7752 /* CommonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850AB971BA487A000F625ED /* CommonHelper.m */; };
+		A1FFB2471D35420A00BD7752 /* MyVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DF343B1BABBC3300203272 /* MyVideo.m */; };
+		A1FFB2481D35420A00BD7752 /* LoginInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D42371B907B5300CFF29E /* LoginInputView.m */; };
+		A1FFB2491D35420A00BD7752 /* FreeList2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E488871B95A62B0082D53A /* FreeList2ViewController.m */; };
+		A1FFB24A1D35420A00BD7752 /* NSMutableDictionary+PublicDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6DCA31BF8CA7100D2794F /* NSMutableDictionary+PublicDomain.m */; };
+		A1FFB24B1D35420A00BD7752 /* PJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 680D417B1B907AB000CFF29E /* PJNavigationBar.m */; };
+		A1FFB24C1D35420A00BD7752 /* QADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F0A8C21BC11272007B3DB0 /* QADetailViewController.m */; };
+		A1FFB24D1D35420A00BD7752 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A115E67B1C4CDCEF0063C22A /* ProductModel.m */; };
+		A1FFB24E1D35420A00BD7752 /* PlayNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681640BB1B9B48DF00D754D4 /* PlayNavigationController.m */; };
+		A1FFB2501D35420A00BD7752 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ED64591C50B9C000FFACCB /* StoreKit.framework */; };
+		A1FFB2511D35420A00BD7752 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FF71C21626C003E50E1 /* AVFoundation.framework */; };
+		A1FFB2521D35420A00BD7752 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FF91C216276003E50E1 /* AudioToolbox.framework */; };
+		A1FFB2531D35420A00BD7752 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FFB1C216289003E50E1 /* CoreGraphics.framework */; };
+		A1FFB2541D35420A00BD7752 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FFD1C216292003E50E1 /* CoreMedia.framework */; };
+		A1FFB2551D35420A00BD7752 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FFF1C21629D003E50E1 /* CoreVideo.framework */; };
+		A1FFB2561D35420A00BD7752 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150011C2162A5003E50E1 /* Foundation.framework */; };
+		A1FFB2571D35420A00BD7752 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150031C2162B1003E50E1 /* MediaPlayer.framework */; };
+		A1FFB2581D35420A00BD7752 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150051C2162B9003E50E1 /* OpenGLES.framework */; };
+		A1FFB2591D35420A00BD7752 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150071C2162C7003E50E1 /* QuartzCore.framework */; };
+		A1FFB25A1D35420A00BD7752 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13150091C2162D4003E50E1 /* UIKit.framework */; };
+		A1FFB25B1D35420A00BD7752 /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500B1C216305003E50E1 /* libbz2.1.0.dylib */; };
+		A1FFB25C1D35420A00BD7752 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500D1C216337003E50E1 /* libstdc++.6.0.9.dylib */; };
+		A1FFB25D1D35420A00BD7752 /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A131500F1C216350003E50E1 /* libiconv.2.dylib */; };
+		A1FFB25E1D35420A00BD7752 /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FEA1C216176003E50E1 /* libopenssl.a */; };
+		A1FFB25F1D35420A00BD7752 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FE91C216176003E50E1 /* libffmpeg.a */; };
+		A1FFB2601D35420A00BD7752 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1314FEB1C216176003E50E1 /* libVitamio.a */; };
+		A1FFB2611D35420A00BD7752 /* libBaseObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F1236E1C02DCDC0011B30C /* libBaseObject.a */; };
+		A1FFB2621D35420A00BD7752 /* libPods-NetSchool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D918F1FD5CCF95033481C55 /* libPods-NetSchool.a */; };
+		A1FFB2641D35420A00BD7752 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 680D41391B907AB000CFF29E /* MBProgressHUD.bundle */; };
+		A1FFB2651D35420A00BD7752 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 680D41281B907AB000CFF29E /* Config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -706,6 +808,9 @@
 		A1CDE9CD1CDA479400C0B53C /* images-youeclass.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "images-youeclass.xcassets"; sourceTree = "<group>"; };
 		A1CDE9D01CDA4FFA00C0B53C /* access-youeclass.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "access-youeclass.plist"; sourceTree = "<group>"; };
 		A1CDE9D11CDA4FFA00C0B53C /* Info-youeclass.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-youeclass.plist"; sourceTree = "<group>"; };
+		A1D4AC4F1D368AA5004CA16C /* images-quanxuehao.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "images-quanxuehao.xcassets"; sourceTree = "<group>"; };
+		A1D4AC511D368DD3004CA16C /* access-quanxuehao.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "access-quanxuehao.plist"; sourceTree = "<group>"; };
+		A1D4AC521D368DD3004CA16C /* Info-quanxuehao.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-quanxuehao.plist"; sourceTree = "<group>"; };
 		A1ED64531C50A27D00FFACCB /* RechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeViewController.h; path = "产品列表/RechargeViewController.h"; sourceTree = "<group>"; };
 		A1ED64541C50A27D00FFACCB /* RechargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RechargeViewController.m; path = "产品列表/RechargeViewController.m"; sourceTree = "<group>"; };
 		A1ED64591C50B9C000FFACCB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -731,6 +836,7 @@
 		A1FADD861C4E18E2007BC81C /* ProductBuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductBuyView.m; path = "产品列表/ProductBuyView.m"; sourceTree = "<group>"; };
 		A1FADD971C4E31A4007BC81C /* ProductDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetailView.h; path = "产品列表/ProductDetailView.h"; sourceTree = "<group>"; };
 		A1FADD981C4E31A4007BC81C /* ProductDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailView.m; path = "产品列表/ProductDetailView.m"; sourceTree = "<group>"; };
+		A1FFB26E1D35420A00BD7752 /* quanxuehao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quanxuehao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA149949139022F8C7F54EF /* Pods-NetSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetSchool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetSchool/Pods-NetSchool.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -872,6 +978,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1FFB24F1D35420A00BD7752 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1FFB2501D35420A00BD7752 /* StoreKit.framework in Frameworks */,
+				A1FFB2511D35420A00BD7752 /* AVFoundation.framework in Frameworks */,
+				A1FFB2521D35420A00BD7752 /* AudioToolbox.framework in Frameworks */,
+				A1FFB2531D35420A00BD7752 /* CoreGraphics.framework in Frameworks */,
+				A1FFB2541D35420A00BD7752 /* CoreMedia.framework in Frameworks */,
+				A1FFB2551D35420A00BD7752 /* CoreVideo.framework in Frameworks */,
+				A1FFB2561D35420A00BD7752 /* Foundation.framework in Frameworks */,
+				A1FFB2571D35420A00BD7752 /* MediaPlayer.framework in Frameworks */,
+				A1FFB2581D35420A00BD7752 /* OpenGLES.framework in Frameworks */,
+				A1FFB2591D35420A00BD7752 /* QuartzCore.framework in Frameworks */,
+				A1FFB25A1D35420A00BD7752 /* UIKit.framework in Frameworks */,
+				A1FFB25B1D35420A00BD7752 /* libbz2.1.0.dylib in Frameworks */,
+				A1FFB25C1D35420A00BD7752 /* libstdc++.6.0.9.dylib in Frameworks */,
+				A1FFB25D1D35420A00BD7752 /* libiconv.2.dylib in Frameworks */,
+				A1FFB25E1D35420A00BD7752 /* libopenssl.a in Frameworks */,
+				A1FFB25F1D35420A00BD7752 /* libffmpeg.a in Frameworks */,
+				A1FFB2601D35420A00BD7752 /* libVitamio.a in Frameworks */,
+				A1FFB2611D35420A00BD7752 /* libBaseObject.a in Frameworks */,
+				A1FFB2621D35420A00BD7752 /* libPods-NetSchool.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -929,6 +1061,7 @@
 				A190CB0F1C22853D005926AC /* huike.app */,
 				A190CB751C228B76005926AC /* dali.app */,
 				A1CDE9CB1CDA462500C0B53C /* youeclass.app */,
+				A1FFB26E1D35420A00BD7752 /* quanxuehao.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -951,6 +1084,7 @@
 				A190CB131C228853005926AC /* images-huike.xcassets */,
 				A190CB791C228CBF005926AC /* Images-dali.xcassets */,
 				A1CDE9CD1CDA479400C0B53C /* images-youeclass.xcassets */,
+				A1D4AC4F1D368AA5004CA16C /* images-quanxuehao.xcassets */,
 				680D40F71B9079E700CFF29E /* NetSchool.xcdatamodeld */,
 				689F55B11BC3B09500D50305 /* PlayRecord.h */,
 				689F55B21BC3B09500D50305 /* PlayRecord.m */,
@@ -986,10 +1120,12 @@
 				A190CB111C2285A1005926AC /* Info-huike.plist */,
 				A190CB771C228C21005926AC /* Info-dali.plist */,
 				A1CDE9D11CDA4FFA00C0B53C /* Info-youeclass.plist */,
+				A1D4AC521D368DD3004CA16C /* Info-quanxuehao.plist */,
 				A190CB9E1C22B373005926AC /* access-ch.plist */,
 				A16086E01C23995700409C1E /* access-huike.plist */,
 				A16086DF1C23995700409C1E /* access-dali.plist */,
 				A1CDE9D01CDA4FFA00C0B53C /* access-youeclass.plist */,
+				A1D4AC511D368DD3004CA16C /* access-quanxuehao.plist */,
 				680D40F21B9079E700CFF29E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1457,6 +1593,26 @@
 			productReference = A1F8D61A1C2269E8009C1401 /* ch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A1FFB2001D35420A00BD7752 /* quanxuehao */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1FFB26B1D35420A00BD7752 /* Build configuration list for PBXNativeTarget "quanxuehao" */;
+			buildPhases = (
+				A1FFB2011D35420A00BD7752 /* Check Pods Manifest.lock */,
+				A1FFB2021D35420A00BD7752 /* Sources */,
+				A1FFB24F1D35420A00BD7752 /* Frameworks */,
+				A1FFB2631D35420A00BD7752 /* Resources */,
+				A1FFB2691D35420A00BD7752 /* Copy Pods Resources */,
+				A1FFB26A1D35420A00BD7752 /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = quanxuehao;
+			productName = NetSchool;
+			productReference = A1FFB26E1D35420A00BD7752 /* quanxuehao.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1486,6 +1642,9 @@
 					A1F8D5991C2269E8009C1401 = {
 						DevelopmentTeam = V272W7YD5Y;
 					};
+					A1FFB2001D35420A00BD7752 = {
+						DevelopmentTeam = E6FH34KVG7;
+					};
 				};
 			};
 			buildConfigurationList = 680D40E81B9079E700CFF29E /* Build configuration list for PBXProject "NetSchool" */;
@@ -1506,6 +1665,7 @@
 				A190CAAF1C22853D005926AC /* huike */,
 				A190CB151C228B76005926AC /* dali */,
 				A1CDE95D1CDA462500C0B53C /* youeclass */,
+				A1FFB2001D35420A00BD7752 /* quanxuehao */,
 				680D41081B9079E700CFF29E /* NetSchoolTests */,
 			);
 		};
@@ -1519,6 +1679,8 @@
 				680D41E41B907AB000CFF29E /* MBProgressHUD.bundle in Resources */,
 				680D41D91B907AB000CFF29E /* Config.plist in Resources */,
 				680D41011B9079E700CFF29E /* Images.xcassets in Resources */,
+				A1D4AC531D368DD3004CA16C /* access-quanxuehao.plist in Resources */,
+				A1D4AC541D368DD3004CA16C /* Info-quanxuehao.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1572,6 +1734,18 @@
 				A1F8D5F81C2269E8009C1401 /* Config.plist in Resources */,
 				A1F8D6211C22798F009C1401 /* images-ch.xcassets in Resources */,
 				A190CB9F1C22B373005926AC /* access-ch.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1FFB2631D35420A00BD7752 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D4AC501D368AA5004CA16C /* images-quanxuehao.xcassets in Resources */,
+				A1FFB2641D35420A00BD7752 /* MBProgressHUD.bundle in Resources */,
+				A1FFB2651D35420A00BD7752 /* Config.plist in Resources */,
+				A1D4AC551D368DFF004CA16C /* access-quanxuehao.plist in Resources */,
+				A1D4AC561D368E17004CA16C /* Info-quanxuehao.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1774,6 +1948,51 @@
 			showEnvVarsInLog = 0;
 		};
 		A1F8D6161C2269E8009C1401 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetSchool/Pods-NetSchool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1FFB2011D35420A00BD7752 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A1FFB2691D35420A00BD7752 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetSchool/Pods-NetSchool-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1FFB26A1D35420A00BD7752 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2226,6 +2445,89 @@
 				A1F8D5D91C2269E8009C1401 /* QADetailViewController.m in Sources */,
 				A115E67D1C4CDCEF0063C22A /* ProductModel.m in Sources */,
 				A1F8D5DA1C2269E8009C1401 /* PlayNavigationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1FFB2021D35420A00BD7752 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1FFB2031D35420A00BD7752 /* MJDIYBackFooter.m in Sources */,
+				A1FFB2041D35420A00BD7752 /* ProductListViewController.m in Sources */,
+				A1FFB2051D35420A00BD7752 /* Account+CoreDataProperties.m in Sources */,
+				A1FFB2061D35420A00BD7752 /* LoginViewController.m in Sources */,
+				A1FFB2071D35420A00BD7752 /* FreeList3ViewController.m in Sources */,
+				A1FFB2081D35420A00BD7752 /* PlayerTool.m in Sources */,
+				A1FFB2091D35420A00BD7752 /* ProductDetailViewController.m in Sources */,
+				A1FFB20A1D35420A00BD7752 /* ProductListCellFrame.m in Sources */,
+				A1FFB20B1D35420A00BD7752 /* LocalManagement.m in Sources */,
+				A1FFB20C1D35420A00BD7752 /* PlayRecord.m in Sources */,
+				A1FFB20D1D35420A00BD7752 /* ZwsKeyChain.m in Sources */,
+				A1FFB20E1D35420A00BD7752 /* AddToQATheme.m in Sources */,
+				A1FFB20F1D35420A00BD7752 /* ProductBuyView.m in Sources */,
+				A1FFB2101D35420A00BD7752 /* DownloadSinglecase.m in Sources */,
+				A1FFB2111D35420A00BD7752 /* DownViewController.m in Sources */,
+				A1FFB2121D35420A00BD7752 /* MyClassesTabBarController.m in Sources */,
+				A1FFB2131D35420A00BD7752 /* OnLineList0ViewController.m in Sources */,
+				A1FFB2141D35420A00BD7752 /* VitamioPlayerView.m in Sources */,
+				A1FFB2151D35420A00BD7752 /* PJViewController.m in Sources */,
+				A1FFB2161D35420A00BD7752 /* RechargeViewController.m in Sources */,
+				A1FFB2171D35420A00BD7752 /* ProductBuyViewController.m in Sources */,
+				A1FFB2181D35420A00BD7752 /* MJDIYHeader.m in Sources */,
+				A1FFB2191D35420A00BD7752 /* MJDIYAutoFooter.m in Sources */,
+				A1FFB21A1D35420A00BD7752 /* AccessConfig.m in Sources */,
+				A1FFB21B1D35420A00BD7752 /* AppDelegate.m in Sources */,
+				A1FFB21C1D35420A00BD7752 /* FreeList1ViewController.m in Sources */,
+				A1FFB21D1D35420A00BD7752 /* RegisterInputView.m in Sources */,
+				A1FFB21E1D35420A00BD7752 /* Account.m in Sources */,
+				A1FFB21F1D35420A00BD7752 /* VitamioPlayerViewController.m in Sources */,
+				A1FFB2201D35420A00BD7752 /* MyClass.m in Sources */,
+				A1FFB2211D35420A00BD7752 /* PJTextField.m in Sources */,
+				A1FFB2221D35420A00BD7752 /* String.m in Sources */,
+				A1FFB2231D35420A00BD7752 /* PJTextView.m in Sources */,
+				A1FFB2241D35420A00BD7752 /* main.m in Sources */,
+				A1FFB2251D35420A00BD7752 /* DownloadingController.m in Sources */,
+				A1FFB2261D35420A00BD7752 /* RootViewController.m in Sources */,
+				A1FFB2271D35420A00BD7752 /* MBProgressHUD+Add.m in Sources */,
+				A1FFB2281D35420A00BD7752 /* PlayRecordViewController.m in Sources */,
+				A1FFB2291D35420A00BD7752 /* PJCollectionViewCell.m in Sources */,
+				A1FFB22A1D35420A00BD7752 /* Infomation.m in Sources */,
+				A1FFB22B1D35420A00BD7752 /* NetSchool.xcdatamodeld in Sources */,
+				A1FFB22C1D35420A00BD7752 /* ProductDetailView.m in Sources */,
+				A1FFB22D1D35420A00BD7752 /* ZwsUserDataManager.m in Sources */,
+				A1FFB22E1D35420A00BD7752 /* RegisterViewController.m in Sources */,
+				A1FFB22F1D35420A00BD7752 /* PlayerView.m in Sources */,
+				A1FFB2301D35420A00BD7752 /* UIDevice+IdentifierAddition.m in Sources */,
+				A1FFB2311D35420A00BD7752 /* PublicHeader.m in Sources */,
+				A1FFB2321D35420A00BD7752 /* LoginGuideViewController.m in Sources */,
+				A1FFB2331D35420A00BD7752 /* PJInputView.m in Sources */,
+				A1FFB2341D35420A00BD7752 /* MJChiBaoZiFooter2.m in Sources */,
+				A1FFB2351D35420A00BD7752 /* PJTableViewController.m in Sources */,
+				A1FFB2361D35420A00BD7752 /* DownloadedController.m in Sources */,
+				A1FFB2371D35420A00BD7752 /* MJChiBaoZiFooter.m in Sources */,
+				A1FFB2381D35420A00BD7752 /* FreeVideo.m in Sources */,
+				A1FFB2391D35420A00BD7752 /* ClassPickerView.m in Sources */,
+				A1FFB23A1D35420A00BD7752 /* ProductListCell.m in Sources */,
+				A1FFB23B1D35420A00BD7752 /* PublicListController.m in Sources */,
+				A1FFB23C1D35420A00BD7752 /* DataConfigManager.m in Sources */,
+				A1FFB23D1D35420A00BD7752 /* MJChiBaoZiHeader.m in Sources */,
+				A1FFB23E1D35420A00BD7752 /* FeedbackViewController.m in Sources */,
+				A1FFB23F1D35420A00BD7752 /* NSString+MD5Addition.m in Sources */,
+				A1FFB2401D35420A00BD7752 /* FreeList.m in Sources */,
+				A1FFB2411D35420A00BD7752 /* PublicCell.m in Sources */,
+				A1FFB2421D35420A00BD7752 /* FreeList0ViewController.m in Sources */,
+				A1FFB2431D35420A00BD7752 /* OnLineList1ViewController.m in Sources */,
+				A1FFB2441D35420A00BD7752 /* QAViewController.m in Sources */,
+				A1FFB2451D35420A00BD7752 /* PJTableViewCell.m in Sources */,
+				A1FFB2461D35420A00BD7752 /* CommonHelper.m in Sources */,
+				A1FFB2471D35420A00BD7752 /* MyVideo.m in Sources */,
+				A1FFB2481D35420A00BD7752 /* LoginInputView.m in Sources */,
+				A1FFB2491D35420A00BD7752 /* FreeList2ViewController.m in Sources */,
+				A1FFB24A1D35420A00BD7752 /* NSMutableDictionary+PublicDomain.m in Sources */,
+				A1FFB24B1D35420A00BD7752 /* PJNavigationBar.m in Sources */,
+				A1FFB24C1D35420A00BD7752 /* QADetailViewController.m in Sources */,
+				A1FFB24D1D35420A00BD7752 /* ProductModel.m in Sources */,
+				A1FFB24E1D35420A00BD7752 /* PlayNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2805,6 +3107,96 @@
 			};
 			name = Release;
 		};
+		A1FFB26C1D35420A00BD7752 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDA149949139022F8C7F54EF /* Pods-NetSchool.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "NetSchool/NetSchool-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/NetSchool/Info-quanxuehao.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NetSchool/Libs/Vitamio",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanxuehao.wx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
+			};
+			name = Debug;
+		};
+		A1FFB26D1D35420A00BD7752 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26F72A7A6FA81FEA41C2168F /* Pods-NetSchool.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "NetSchool/NetSchool-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/NetSchool/Info-quanxuehao.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NetSchool/Libs/Vitamio",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanxuehao.wx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2867,6 +3259,15 @@
 			buildConfigurations = (
 				A1F8D6181C2269E8009C1401 /* Debug */,
 				A1F8D6191C2269E8009C1401 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1FFB26B1D35420A00BD7752 /* Build configuration list for PBXNativeTarget "quanxuehao" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1FFB26C1D35420A00BD7752 /* Debug */,
+				A1FFB26D1D35420A00BD7752 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

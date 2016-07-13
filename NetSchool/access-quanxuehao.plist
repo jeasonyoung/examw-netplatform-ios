@@ -3,28 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>url</key>
-	<string>http://ios.daliedu.cn/</string>
+	<string>http://ios.youeclass.com/youe/</string>
 	<key>token</key>
 	<string>dali</string>
 	<key>key</key>
 	<string>39b19231d4d62bde</string>
 	<key>copyright</key>
-	<string>© 大立教育</string>
+	<string>© 全学好</string>
 	<key>recharges</key>
 	<dict>
-		<key>dali_recharge_6</key>
+		<key>youeclass_recharge_6</key>
 		<integer>6</integer>
-		<key>dali_recharge_12</key>
+		<key>youeclass_recharge_12</key>
 		<integer>12</integer>
-		<key>dali_recharge_25</key>
+		<key>youeclass_recharge_25</key>
 		<integer>25</integer>
-		<key>dali_recharge_50</key>
+		<key>youeclass_recharge_50</key>
 		<integer>50</integer>
-		<key>dali_recharge_98</key>
+		<key>youeclass_recharge_98</key>
 		<integer>98</integer>
-		<key>dali_recharge_188</key>
+		<key>youeclass_recharge_188</key>
 		<integer>188</integer>
-		<key>dali_recharge_288</key>
+		<key>youeclass_recharge_288</key>
 		<integer>288</integer>
 	</dict>
 </dict>
